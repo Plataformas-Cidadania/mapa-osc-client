@@ -1389,12 +1389,16 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 if(data !== "Nenhuma Organização encontrada!"){
                     var columns = 6;
                     var sizeOfData = data.length;
+                    if (data.lista_osc) {
+                      sizeOfData = data.lista_osc.length;
+                    }
                     var newData = new Array(sizeOfData);
                     var i = 0;
                     var txtVazioNulo = 'Dado não informado.';
                     var srcPadrao = 'img/camera.jpg';
 
-                    for (var j in data){
+                    if (!data.lista_osc) {
+                      for (var j in data){
                         if(j=="0"){
                             continue;
                         }else{
@@ -1409,6 +1413,26 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                             i++;
                         }
                     }
+                  }else {
+                    for (var j in data.lista_osc){
+                      if(j=="0"){
+                          continue;
+                      }else{
+                          newData[i] = new Array(columns);
+                          var srcImg = data.lista_osc[j][4] !== null ? data.lista_osc[j][4] : srcPadrao;
+                          newData[i][0] = '<img class="img-circle media-object" src=' + srcImg + ' height="64" width="64">';
+                          newData[i][1] = data.lista_osc[j][0] !== null ? data.lista_osc[j][0] : txtVazioNulo;//tx_nome_osc;
+                          newData[i][2] = data.lista_osc[j][1] !== null ? data.lista_osc[j][1] : txtVazioNulo;//cd_identificador_osc;
+                          newData[i][3] = data.lista_osc[j][2] !== null ? data.lista_osc[j][2] : txtVazioNulo;//tx_natureza_juridica_osc;
+                          newData[i][4] = data.lista_osc[j][3] !== null ? data.lista_osc[j][3] : txtVazioNulo;//tx_endereco_osc;
+                          newData[i][5] = '<button type="button" onclick="location.href=\'visualizar-osc.html#'+j+'\';" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Detalhar</button>';
+                          i++;
+                      }
+                  }
+
+                  }
+
+
 
                     //Se a pesquisa for alguma palavra que não tem referencia com nenhuma OSC
                     if(typeof newData[0] !== "undefined"){
@@ -1967,29 +1991,33 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             console.log("ERRO no AJAX :" + e);
         },
         success: function(data){
-            if(data !== "" && data !== undefined && data !== "Nenhuma Organização encontrada!" ){
+            if(data !== "" && data !== undefined && data !== "Nenhuma Organização encontrada!"){
                 tabela(urlRota, consulta_avancada);
                 var count = 0;
+                var data1 = data;
+                  if (data.lista_osc) {
+                    data1 = data.lista_osc;
+                  }
 
                 if(isClusterVersion){
-                    if(typeof data.length !== 'undefined'){
-                        for(var i = 0; i < data.length; i++){
-                            count += data[i].nr_quantidade_osc_regiao;
+                    if(typeof data1.length !== 'undefined'){
+                        for(var i = 0; i < data1.length; i++){
+                            count += data1[i].nr_quantidade_osc_regiao;
                         }
                     }
 
                     paginar(count);
                     $("#legenda p").append(count);
-                    carregaMapaCluster(data, tipoConsulta);
+                    carregaMapaCluster(data1, tipoConsulta);
                 }else{
-                    count = Object.keys(data).length-1;
+                    count = Object.keys(data1).length-1;
                     paginar(count);
                     $("#legenda p").append(count);
-                    carregaMapa(data);
+                    carregaMapa(data1);
 
                     if(consulta_avancada){
 
-                      for(var k in data){
+                      for(var k in data1){
                           if(k != "0"){
                             id_osc_export.push(k);
                           }
@@ -2003,6 +2031,10 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                         var param_exp = {};
                         param_exp['lista_osc'] = ''+id_osc_export;
                         param_exp['variaveis_adicionais'] = var_adc;
+                        if (data.chave_cache_exportar) {
+                          param_exp['chave'] = data.chave_cache_exportar;
+                        }
+
 
                         $.ajax({
                             url: rotas.ExportarDadosConsulta(),
@@ -2022,6 +2054,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                             },
                             success: function(retorno){
+                              console.log(retorno);
 
                               var data, filename, link;
                               var csv = convertArrayOfObjectsToCSV({
@@ -2076,7 +2109,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                 $('#modalMensagem').modal('show');
             }
-        }
+      }
     });
 
     //Coloração do mapa
@@ -2093,11 +2126,21 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 var ids={};
 
                 //for(var k in data.value){
-                for(var k in data){
+                if (!data.lista_osc) {
+                  for(var k in data){
                     pdfs[data[k].tx_sigla_regiao]=data[k].nr_quantidade_osc_regiao;
                     //pdfs[data.value[k].TERNOME]=data.value[k].a2010m01d01;
                     ids[data[k].tx_sigla_regiao]=data[k].id_regiao;
                     //ids[data.value[k].TERNOME]=data.value[k].TERCODIGO;
+                  }
+                }else {
+                  for(var k in data.lista_osc){
+                    pdfs[data.lista_osc[k].tx_sigla_regiao]=data.lista_osc[k].nr_quantidade_osc_regiao;
+                    //pdfs[data.value[k].TERNOME]=data.value[k].a2010m01d01;
+                    ids[data.lista_osc[k].tx_sigla_regiao]=data.lista_osc[k].id_regiao;
+                    //ids[data.value[k].TERNOME]=data.value[k].TERCODIGO;
+                  }
+
                 }
 
                 map.addControl(new L.Control.Layers(

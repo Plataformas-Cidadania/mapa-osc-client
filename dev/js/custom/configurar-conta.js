@@ -91,6 +91,7 @@ require(['react', 'jsx!components/Util','jquery-ui','rotas','tagsinput'], functi
        url: rotas.ValidarUsuario(user),
        type: 'GET',
        dataType: "json",
+       data: newJson,
        success: function(data) {
          $('#nome').val(data.tx_nome_usuario);
          $('#email').val(data.tx_email_usuario);

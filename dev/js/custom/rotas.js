@@ -226,7 +226,7 @@ class Rotas{
 
   //configurar-conta.js
   ValidarUsuario(id){
-    return this.getBaseUrl()+"user/"+id;
+    return this.getBaseUrl()+"user/osc/"+id;
   }
 
   UpdateUsuario(id){

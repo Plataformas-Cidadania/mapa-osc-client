@@ -46,7 +46,7 @@ require(['react', 'jsx!components/Header','bootstrap'], function(React, Header) 
 
   var linksSubmenuCadastro = [];
   linksSubmenuCadastro.push(new MenuDropDownObject("Representante OSC", "cadastro-representante.html"));
-  //linksSubmenuCadastro.push(new MenuDropDownObject("Estado/Município", "cadastro-estado-municipio.html"));
+  linksSubmenuCadastro.push(new MenuDropDownObject("Estado/Município", "cadastro-estado-municipio.html"));
 
   var linksSubmenuDados = [];
   linksSubmenuDados.push(new MenuDropDownObject("Base de Dados", "base-dados.html"));

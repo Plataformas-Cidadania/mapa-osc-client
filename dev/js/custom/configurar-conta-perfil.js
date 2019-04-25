@@ -46,9 +46,10 @@ require(['react', 'jsx!components/Util'], function(React) {
         var $modal = $('#modalMensagem');
 
         $.ajax({
-            url: rotas.ValidarUsuario(user),
+            url: rotas.ValidarUsuarioPerfil(user),
             type: 'GET',
             dataType: "json",
+            data: newJson,
             success: function(data) {
               $('#tx_nome_representante').val(data.tx_nome_usuario);
               $('#tx_email').val(data.tx_email_usuario);

@@ -229,6 +229,11 @@ class Rotas{
     return this.getBaseUrl()+"user/osc/"+id;
   }
 
+  //configurar-conta-perfil.js
+  ValidarUsuarioPerfil(id){
+    return this.getBaseUrl()+"user/"+id;
+  }
+
   UpdateUsuario(id){
     return this.getBaseUrl()+"user/"+id;
    }

@@ -780,7 +780,8 @@ define('componenteFormItem', ['react','componenteDropdown', 'componenteDropdownD
           }
           //if(item.id=="federal") {
           if(contains("federal",item.label)) {
-            labelElement = <label className="control-label" /*for={item.header}*/ title="As parcerias voluntárias entre a administração pública do nível federal e as organizações civis.">{item.label}:
+            labelElement = <label className="control-label" /*for={item.header}*/ title="As parcerias voluntárias entre a administração pública do nível federal e as organizações civis.">
+            Repasses Federais recebidos pela OSC: 
             <span className='glyphicon glyphicon-info-sign' aria-hidden='true'></span></label>
           }
           //if(item.id=="municipal") {

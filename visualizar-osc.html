@@ -1076,7 +1076,7 @@
                     <div ng-if="rec.recursos_publicos != null">
 
                       <div class="form-group">
-                        <label title="As parcerias voluntárias entre a administração pública do nível federal e as organizações civis.">Parceria com o governo federal <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>:</label>
+                        <label title="As parcerias voluntárias entre a administração pública do nível federal e as organizações civis.">Repasses Federais recebidos pela OSC <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>:</label>
                           <span class="form-control-static">{{rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc | currency:"R$ "}}</span>
                           <span class="form-control-static">{{(rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc)?"":"Não informado" }}</span>
                           <span ng-if="rec.recursos_publicos.parceria_governo_federal.ft_valor_recursos_osc && rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc" title="{{rec.recursos_publicos.parceria_governo_federal.ft_valor_recursos_osc  | icon_title  }}">

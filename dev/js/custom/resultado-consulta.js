@@ -1124,7 +1124,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 }
 
                 if(fontesRecursos.parceriaGovernoFederalMIN || fontesRecursos.parceriaGovernoFederalMAX){
-                    txt += "<b><i>Parceria com o governo federal</i></b> ";
+                    txt += "<b><i>Repasses Federais recebidos pela OSC</i></b> ";
 
                     if(fontesRecursos.parceriaGovernoFederalMIN){
                         txt += "<b><i>maior que:</i></b> " + fontesRecursos.parceriaGovernoFederalMIN  + ", ";

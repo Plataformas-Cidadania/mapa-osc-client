@@ -205,17 +205,17 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Repasse de Recursos
 
-      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação ao repasse de recursos, com média de <b>';
+      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação à quantidade de recursos autodeclarados, com média de <b>';
       txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano, enquanto a média nacional ficou em <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
-        txt += 'A entidade que mais repassou foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
+        txt += 'O Recurso mais autodeclarado foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
       }
       txt += '</p>';
 
       $("#tx_repasse_recursos").append(txt);
 
-      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';
+      txt = '<h5 class="legenda_perfil">'+formatar_fontes(["Representante de OSC"])+'</h5>';//'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';
       txt +='<h5><a id="tabela-p3" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
       $("#tx_repasse_recursos").append(txt);
 
@@ -225,7 +225,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       grafico['legenda_y'] = "Recursos (em milhares R$)";
       grafico['titulo_colunas'] = ["Repasse","Ano","Recursos (em milhares R$)"];
       grafico['titulo'] = "Evolução de recursos transferidos para OSCs";
-      grafico['fontes'] = data.repasse_recursos.fontes;
+      grafico['fontes'] = ["Representante de OSC"];//data.repasse_recursos.fontes;
       grafico['legenda'] = "";
       grafico['tipo_grafico'] = "linechart";
 

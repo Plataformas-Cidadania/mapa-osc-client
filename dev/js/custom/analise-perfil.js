@@ -209,7 +209,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano, enquanto a média nacional ficou em <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
-        txt += 'O Recurso mais autodeclarado foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
+        txt += 'A categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
       }
       txt += '</p>';
 

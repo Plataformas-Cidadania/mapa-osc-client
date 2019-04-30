@@ -205,7 +205,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Repasse de Recursos
 
-      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação à quantidade de recursos autodeclarados, com média de <b>';
+      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação aos valores de recursos autodeclarados, com média de <b>';
       txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano, enquanto a média nacional ficou em <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){

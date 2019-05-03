@@ -100,10 +100,10 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       var fontes2 = [];
       if (data.caracteristicas.ft_quantidade_recursos.length) {
-        fontes2.push('Quantidade Recursos: '+data.caracteristicas.ft_quantidade_recursos);
+        fontes2.push('Valores de Recursos: '+data.caracteristicas.ft_quantidade_recursos);
       }
       else {
-        fontes2.push('Quantidade Recursos: Representante de OSC');
+        fontes2.push('Valores de Recursos: Representante de OSC');
       }
       $("#tabela caption").append('<br>'+formatar_fontes(fontes2));
 
@@ -205,11 +205,11 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Repasse de Recursos
 
-      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação ao repasse de recursos, com média de <b>';
+      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação aos valores de recursos autodelarados, com média de <b>';
       txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano, enquanto a média nacional ficou em <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
-        txt += 'A entidade que mais repassou foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
+        txt += 'A categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+', chegando a <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> dos valores.';
       }
       txt += '</p>';
 

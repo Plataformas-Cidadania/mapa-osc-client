@@ -5,8 +5,8 @@ class Rotas{
 
   getBaseUrl(){
     var loc = window.location;
-    return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
-  //  return  "https://mapaosc-desenv.ipea.gov.br/api/";
+  //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
+    return  "https://mapaosc-desenv.ipea.gov.br/api/";
   }
 
   getBaseUrlCMS(){

@@ -5,13 +5,13 @@ class Rotas{
 
   getBaseUrl(){
     var loc = window.location;
-  //  return loc.protocol + '//' + loc.host + ':' + loc.port + '/api/';
-    return  "https://mapaosc-desenv.ipea.gov.br/api/";
+    return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
+  //  return  "https://mapaosc-desenv.ipea.gov.br/api/";
   }
 
   getBaseUrlCMS(){
     var loc = window.location;
-  //  return "http://" + loc.host.split(":")[0] + ':8181';
+    return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
     return  "https://mapaosc-desenv.ipea.gov.br/cms";
 
   }
@@ -227,6 +227,7 @@ class Rotas{
   //configurar-conta.js
   ValidarUsuario(id){
     return this.getBaseUrl()+"user/"+id;
+
   }
 
   //configurar-conta-perfil.js

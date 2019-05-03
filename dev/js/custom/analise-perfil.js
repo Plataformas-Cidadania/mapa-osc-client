@@ -100,10 +100,10 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       var fontes2 = [];
       if (data.caracteristicas.ft_quantidade_recursos.length) {
-        fontes2.push('Quantidade Recursos: '+data.caracteristicas.ft_quantidade_recursos);
+        fontes2.push('Valores de Recursos: '+data.caracteristicas.ft_quantidade_recursos);
       }
       else {
-        fontes2.push('Quantidade Recursos: Representante de OSC');
+        fontes2.push('Valores de Recursos: Representante de OSC');
       }
       $("#tabela caption").append('<br>'+formatar_fontes(fontes2));
 

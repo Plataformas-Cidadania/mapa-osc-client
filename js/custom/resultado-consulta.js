@@ -35,7 +35,6 @@ var flagMapaIdh = false;
 
 function clickMenuMapaCalor(){
     flagMapaCalor = !flagMapaCalor;
-    console.log("clickMenuMapaCalor");
 
     if(flagMapaCalor == true){
         $('#titulo').text('OSCs por Estado');
@@ -44,10 +43,8 @@ function clickMenuMapaCalor(){
     }
 }
 
-function clickMenuIdh(){
+function clickMenuIdh(layer){
     flagMapaIdh = !flagMapaIdh;
-    console.log("clickMenuIdh");
-    console.log(flagMapaIdh);
 
     if(flagMapaIdh == true){
         $('#titulo').text('IDH por Município');
@@ -1523,6 +1520,10 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         info.update(layer.feature.properties);
     }
 
+    function highlightFeatureIdh(e){
+        var popup = L.popup().setLatLng(e.latlng).setContent("Popup").openOn(map);
+    }
+
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
         geoJsonIdh.resetStyle(e.target);
@@ -1573,8 +1574,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
         function onEachFeatureIdh(feature, layer){
             layer.on({
-                mouseover: highlightFeature,
-                mouseout: resetHighlight,
+                mouseover: highlightFeatureIdh,
                 click: zoomToFeatureIdh
             });
 
@@ -1685,7 +1685,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         geoJsonIdh = L.geoJson(idhCitiesBounds, {
             style: function(idhCitiesBounds){
                 return {
-                    fillColor: getColor(idhCitiesBounds.properties.density),
+                    fillColor: '#404040',
                     weight: 2,
                     opacity: 1,
                     color: 'white',

@@ -1525,8 +1525,12 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
     }
 
     function resetHighlight(e) {
-        geojson.resetStyle(e.target);
-        geoJsonIdh.resetStyle(e.target);
+        if(flagMapaCalor){
+            geojson.resetStyle(e.target);
+        }
+        if(flagMapaIdh){
+            geoJsonIdh.resetStyle(e.target);
+        }
         info.update();
     }
 
@@ -1575,6 +1579,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         function onEachFeatureIdh(feature, layer){
             layer.on({
                 mouseover: highlightFeatureIdh,
+                mouseout: resetHighlight,
                 click: zoomToFeatureIdh
             });
 

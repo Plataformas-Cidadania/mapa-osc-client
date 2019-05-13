@@ -63,7 +63,6 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
     var util = new Util();
     var composto = [];
     var mapRegion = {};
-    var llayersIDH = {}; //layers do mapa de calor IDHM
     var llayers = {}; //layers do mapa de calor
     var clayers = {}; //layers dos estados
     var rlayers = {}; //layers das regiões
@@ -1578,17 +1577,12 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 mouseout: resetHighlight,
                 click: zoomToFeatureIdh
             });
-            
+
             layerGroupIDH.addLayer(layer);
-            llayersIDH[layer.feature.properties.id] = layer;
         }
 
         if(flagMapaCalor){
             map.addLayer(layerGroup);
-        }
-        
-        if(flagMapaIdh){
-            map.addLayer(layerGroupIDH);
         }
 
         info.onAdd = function(map){

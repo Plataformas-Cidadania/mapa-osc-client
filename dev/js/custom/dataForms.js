@@ -637,7 +637,7 @@ class DataForms{
       "recursos_publicos": [
         {
           "id": "federal",
-          "label": "Parceria com o governo federal",
+          "label": "Transferências federais recebidas pela OSC",
           "placeholder":"Insira o valor recebido de parcerias com o governo federal"
         },
         {

@@ -207,7 +207,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       var txt = '<p>'+data.tx_localidade;
       if(data.repasse_recursos.nr_repasse_media > 0){
-        txt += ' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação às transferências federais repassadas para OSCs, com média de <b>';
+        txt += ' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação aos repasses de recursos para OSCs, com média de <b>';
         txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano.';
       }
       else {

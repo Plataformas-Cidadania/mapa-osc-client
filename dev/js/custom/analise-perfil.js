@@ -205,8 +205,16 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Repasse de Recursos
 
-      var txt = '<p>'+data.tx_localidade+' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação às transferências federais repassadas para OSCs, com média de <b>';
-      txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano, enquanto a média nacional é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
+      var txt = '<p>'+data.tx_localidade;
+      if(data.repasse_recursos.nr_repasse_media > 0){
+        txt += ' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação às transferências federais repassadas para OSCs, com média de <b>';
+        txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano.';
+      }
+      else {
+        txt += ' não possui declarações de OSCs sobre repasse de recursos nos últimos 3 anos.';
+      }
+
+      txt += ' A média nacional de repasse de recursos é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
         txt += 'Além dos repasses federais, a categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+' com <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> do total.';
@@ -215,7 +223,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       $("#tx_repasse_recursos").append(txt);
 
-      txt = '<h5 class="legenda_perfil">'+formatar_fontes(["SigaBrasil. Valores deflacionados para Dez/2018. O dado de recursos públicos vai corresponder ao dado de “transferências federais” com valores deflacionados."])+'</h5>';//'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';
+      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
 
       txt +='<h5><a id="tabela-p3" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
       $("#tx_repasse_recursos").append(txt);
@@ -226,8 +234,8 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       grafico['legenda_y'] = "Recursos (em milhares R$)";
       grafico['titulo_colunas'] = ["Repasse","Ano","Recursos (em milhares R$)"];
       grafico['titulo'] = "Evolução de recursos transferidos para OSCs";
-      grafico['fontes'] = ["SigaBrasil. Valores deflacionados para Dez/2018'"];//data.repasse_recursos.fontes;
-      grafico['legenda'] = "O dado de recursos públicos vai corresponder ao dado de “transferências federais” com valores deflacionados.";
+      grafico['fontes'] = data.repasse_recursos.fontes;
+      grafico['legenda'] = "";
       grafico['tipo_grafico'] = "linechart";
 
       if(data.repasse_recursos.series_1 != null){
@@ -292,9 +300,10 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Trabalhadores
 
-      var txt = '<p>'+formatar_tipo_localidade(data.tx_tipo_localidade,1)+' possui <b>'+data.trabalhadores.nr_porcentagem_maior+'%</b> de ';
-      txt += data.trabalhadores.tx_porcentagem_maior+'. Enquanto o percentual médio nacional representa <b>'+data.trabalhadores.nr_porcentagem_maior_media_nacional+'%</b> de ';
-      txt += data.trabalhadores.tx_porcentagem_maior_media_nacional;
+      var txt = '<p>'+data.tx_localidade+' contém a maioria dos trabalhadores classificados como <b>'+data.trabalhadores.tx_porcentagem_maior+'</b>. ';
+      txt +='A média nacional para '+data.trabalhadores.tx_media_nacional_trabalhadores_formais_vinculos+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_formais_vinculos + '</b> trabalhadores';
+      txt +=', '+data.trabalhadores.tx_media_nacional_trabalhadores_deficiencia+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_deficiencia + '</b> trabalhadores';
+      txt +=' e '+data.trabalhadores.tx_media_nacional_trabalhadores_voluntarios+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_voluntarios + '</b> trabalhadores.';
       txt += '</p>';
 
       $("#tx_trabalhadores").append(txt);

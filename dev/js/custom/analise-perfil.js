@@ -274,10 +274,14 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Área de Atuação
 
-      var txt = '<p>'+data.tx_localidade+' possui <b>'+data.area_atuacao.nr_porcentagem_maior+'%</b> das OSCs atuando em '+data.area_atuacao.tx_porcentagem_maior;
-      txt += ', enquanto o percentual médio nacional de OSCs é de <b>'+data.area_atuacao.nr_porcentagem_maior_media_nacional+'%</b> relacionada a atividade econômica ';
-      txt += data.area_atuacao.tx_porcentagem_maior_media_nacional;
-      txt += '.</p>';
+      var txt = '<p>'+data.tx_localidade+' possui <b>'+data.area_atuacao.nr_porcentagem_maior+'%</b> das OSCs atuando em '+data.area_atuacao.tx_porcentagem_maior['0'];
+
+      for (var i = 0; i < data.area_atuacao.media_nacional.length; i++) {
+        if(data.area_atuacao.media_nacional[i].tx_area_atuacao == data.area_atuacao.tx_porcentagem_maior['0']){
+            txt += ', enquanto o percentual médio nacional de OSCs nesta categoria é de <b>'+data.area_atuacao.media_nacional[i].nr_area_atuacao+'%</b>.';
+        }
+        break;
+      }
 
       $("#tx_area_atuacao").append(txt);
 
@@ -300,11 +304,12 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       //Trabalhadores
 
-      var txt = '<p>'+data.tx_localidade+' contém a maioria dos trabalhadores classificados como <b>'+data.trabalhadores.tx_porcentagem_maior+'</b>. ';
-      txt +='A média nacional para '+data.trabalhadores.tx_media_nacional_trabalhadores_formais_vinculos+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_formais_vinculos + '</b> trabalhadores';
-      txt +=', '+data.trabalhadores.tx_media_nacional_trabalhadores_deficiencia+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_deficiencia + '</b> trabalhadores';
-      txt +=' e '+data.trabalhadores.tx_media_nacional_trabalhadores_voluntarios+' é de <b>' +data.trabalhadores.nr_media_nacional_trabalhadores_voluntarios + '</b> trabalhadores.';
+      var txt = '<p>'+data.tx_localidade+' foram identificados ';
+      txt += '<b>'+data.trabalhadores.series_1['0'].value+'</b> '+data.trabalhadores.series_1['0'].label + '. ';
+      txt += 'Alem desses, as OSCS declararam <b>'+data.trabalhadores.series_1['2'].value+'</b> '+data.trabalhadores.series_1['2'].label +' e ';
+      txt += '<b>'+data.trabalhadores.series_1['1'].value+'</b> '+data.trabalhadores.series_1['1'].label+'.';
       txt += '</p>';
+
 
       $("#tx_trabalhadores").append(txt);
 

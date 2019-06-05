@@ -123,7 +123,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       var tab = '<tr>';
       tab += '<td>'+data.caracteristicas.nr_quantidade_osc.toLocaleString('pt-BR')+'</td>';
       tab += '<td>'+data.caracteristicas.nr_quantidade_trabalhadores.toLocaleString('pt-BR')+'</td>';
-      tab += '<td>'+formatarDinheiro(data.caracteristicas.nr_quantidade_recursos)+'</td>';
+      tab += '<td>'+formatarDinheiro(data.caracteristicas.nr_orcamento_empenhado)+'</td>';
       tab += '<td>'+data.caracteristicas.nr_quantidade_projetos.toLocaleString('pt-BR')+'</td>';
       tab += '</tr>';
 
@@ -271,6 +271,77 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       }
 
       escolherGrafico("p3",grafico);
+
+      //Orcamento federal
+
+      var txt = '<p>'+data.tx_localidade;
+      if(data.repasse_recursos.nr_repasse_media > 0){
+        txt += ' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação aos repasses de recursos para OSCs, com média de <b>';
+        txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano.';
+      }
+      else {
+        txt += ' não possui declarações de OSCs sobre repasse de recursos nos últimos 3 anos.';
+      }
+
+      txt += ' A média nacional de repasse de recursos é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
+
+      if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
+        txt += 'Além dos repasses federais, a categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+' com <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> do total.';
+      }
+      txt += '</p>';
+
+      $("#tx_transferencias_federais").append(txt);
+
+      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+
+      txt +='<h5><a id="tabela-p32" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+      $("#tx_transferencias_federais").append(txt);
+
+      var grafico = {};
+      grafico['configuracao'] = ["f","10000","","f"];
+      grafico['legenda_x'] = "Ano";
+      grafico['legenda_y'] = "Quantidade OSC";
+      grafico['titulo_colunas'] = ["Evolução","Ano","Quantidade"];
+      grafico['titulo'] = "Evolucao da quantidade OSCs por ano";
+      grafico['fontes'] = data.orcamento.fontes;
+      grafico['legenda'] = "";
+      grafico['tipo_grafico'] = "linechart";
+
+      if(data.orcamento.series_1 != null){
+        grafico['series_1'] = data.orcamento.series_1;
+      }
+      else{
+        var ano = new Date().getFullYear();
+
+          var series_vazia = [
+           {
+             "tipo_valor":"$",
+             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
+             key: 'Recursos próprios'
+           },
+           {
+             "tipo_valor":"$",
+             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
+             key: 'Recursos públicos'
+           },
+           {
+             "tipo_valor":"$",
+             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
+             key: 'Recursos privados'
+           },
+           {
+             "tipo_valor":"$",
+             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
+             key: 'Recursos não financeiros'
+           }
+         ];
+
+        grafico['series_1'] = series_vazia;
+      }
+
+      escolherGrafico("p32",grafico);
+
+
 
       //Área de Atuação
 

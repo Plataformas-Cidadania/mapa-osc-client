@@ -346,7 +346,7 @@ div.dropdown-container > div.dropdown-list > div > div > span {
   width: 100%;
 }
 
-#grafico-p2 svg, #grafico-p3 svg, #grafico-p4 svg, #grafico-p5 svg
+#grafico-p2 svg, #grafico-p3 svg, #grafico-p4 svg, #grafico-p5 svg, #grafico-p6 svg
 {
   width:100%;
   height:350px;
@@ -1122,6 +1122,7 @@ select{
 }
 .navbar-static-top{
   height: 110px;
+  z-index: 16;
 }
 .menuHeader{
     margin-top: 40px !important;

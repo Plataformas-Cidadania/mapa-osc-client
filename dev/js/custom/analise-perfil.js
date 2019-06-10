@@ -232,7 +232,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       grafico['configuracao'] = ["f","1000","","f"];
       grafico['legenda_x'] = "Ano";
       grafico['legenda_y'] = "Recursos (em milhares R$)";
-      grafico['titulo_colunas'] = ["Repasse","Ano","Recursos (em milhares R$)"];
+      grafico['titulo_colunas'] = ["Repasse","Ano","Recursos"];
       grafico['titulo'] = "Evolução de recursos transferidos para OSCs";
       grafico['fontes'] = data.repasse_recursos.fontes;
       grafico['legenda'] = "";
@@ -273,36 +273,21 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       escolherGrafico("p3",grafico);
 
       //Orcamento federal
-
-      var txt = '<p>'+data.tx_localidade;
-      if(data.repasse_recursos.nr_repasse_media > 0){
-        txt += ' é o <b>'+data.repasse_recursos.nr_colocacao_nacional+'º</b> em relação aos repasses de recursos para OSCs, com média de <b>';
-        txt += formatarDinheiro(data.repasse_recursos.nr_repasse_media)+'</b> por ano.';
-      }
-      else {
-        txt += ' não possui declarações de OSCs sobre repasse de recursos nos últimos 3 anos.';
-      }
-
-      txt += ' A média nacional de repasse de recursos é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
-
-      if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
-        txt += 'Além dos repasses federais, a categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+' com <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> do total.';
-      }
-      txt += '</p>';
+      txt = 'A média de transferências Federais é de <b>'+formatarDinheiro(data.orcamento.media)+'</b>.';
 
       $("#tx_transferencias_federais").append(txt);
 
-      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.orcamento.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
 
-      txt +='<h5><a id="tabela-p32" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+      txt +='<h5><a id="tabela-p6" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
       $("#tx_transferencias_federais").append(txt);
 
       var grafico = {};
-      grafico['configuracao'] = ["f","10000","","f"];
+      grafico['configuracao'] = ["f","1000","","f"];
       grafico['legenda_x'] = "Ano";
-      grafico['legenda_y'] = "Quantidade OSC";
-      grafico['titulo_colunas'] = ["Evolução","Ano","Quantidade"];
-      grafico['titulo'] = "Evolucao da quantidade OSCs por ano";
+      grafico['legenda_y'] = "Transferências Federais (em milhares R$)";
+      grafico['titulo_colunas'] = ["Transferências Federais","Ano","Quantidade"];
+      grafico['titulo'] = "Transferências Federais para OSCs por ano";
       grafico['fontes'] = data.orcamento.fontes;
       grafico['legenda'] = "";
       grafico['tipo_grafico'] = "linechart";
@@ -317,29 +302,14 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
            {
              "tipo_valor":"$",
              values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
-             key: 'Recursos próprios'
-           },
-           {
-             "tipo_valor":"$",
-             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
-             key: 'Recursos públicos'
-           },
-           {
-             "tipo_valor":"$",
-             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
-             key: 'Recursos privados'
-           },
-           {
-             "tipo_valor":"$",
-             values: [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }],
-             key: 'Recursos não financeiros'
+             key: 'Orçamento empenhado'
            }
          ];
 
         grafico['series_1'] = series_vazia;
       }
 
-      escolherGrafico("p32",grafico);
+      escolherGrafico("p6",grafico);
 
 
 

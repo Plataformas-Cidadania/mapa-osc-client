@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/analise.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analises.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/js/custom/analise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dev/js/custom/analises.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/js/custom/header-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/header-footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/rotas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/custom/header-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/header-footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/rotas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/header-footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/header-footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,13 +79,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/analise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="68">
+              <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
               <folding>
                 <element signature="e#997#1001#0" expanded="true" />
                 <element signature="e#1080#1084#0" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -108,20 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/publicacoes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="1275">
               <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/util/graficoParaTabela.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="9" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -156,6 +147,7 @@
       <find>ana</find>
       <find>publicaça</find>
       <find>tx_link_img_analise</find>
+      <find>Análises</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -177,8 +169,9 @@
         <option value="$PROJECT_DIR$/dev/js/custom/header-footer.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analise.js" />
-        <option value="$PROJECT_DIR$/analise.html" />
         <option value="$PROJECT_DIR$/dev/js/custom/analises.js" />
+        <option value="$PROJECT_DIR$/analise.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -261,12 +254,12 @@
       <updated>1560191689815</updated>
       <workItem from="1560191710657" duration="1393000" />
       <workItem from="1560349800170" duration="93000" />
-      <workItem from="1560352882978" duration="14519000" />
+      <workItem from="1560352882978" duration="15980000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18759000" />
+    <option name="totallyTimeSpent" value="20220000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -279,8 +272,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1665" y="-4" width="1615" height="1054" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20777565" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20076482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -378,18 +372,6 @@
     <entry file="file://$PROJECT_DIR$/publicacao-1.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/analise.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-          <folding>
-            <element signature="e#997#1001#0" expanded="true" />
-            <element signature="e#1080#1084#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/analise.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -406,8 +388,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/publicacoes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="1275">
           <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analise.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="65" lean-forward="true" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding>
+            <element signature="e#997#1001#0" expanded="true" />
+            <element signature="e#1080#1084#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>

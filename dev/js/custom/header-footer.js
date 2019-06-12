@@ -39,6 +39,7 @@ require(['react', 'jsx!components/Header','bootstrap'], function(React, Header) 
   linksSubmenu.push(new MenuDropDownObject("",""));
   linksSubmenu.push(new MenuDropDownObject("Imprensa", "imprensa.html"));
   linksSubmenu.push(new MenuDropDownObject("Publicações", "publicacoes.html"));
+  linksSubmenu.push(new MenuDropDownObject("Análises", "analises.html"));
   linksSubmenu.push(new MenuDropDownObject("Editais para OSCs", "editais.html"));
   linksSubmenu.push(new MenuDropDownObject("Colabore", "colabore.html"));
   linksSubmenu.push(new MenuDropDownObject("Apoio", "apoio.html"));

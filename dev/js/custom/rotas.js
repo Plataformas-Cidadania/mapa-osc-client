@@ -12,7 +12,8 @@ class Rotas{
   getBaseUrlCMS(){
     var loc = window.location;
   //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
-    return  "https://mapaosc-desenv.ipea.gov.br/cms";
+    return  "http://localhost:8002";
+    //return  "https://mapaosc-desenv.ipea.gov.br/cms";
 
   }
 
@@ -350,6 +351,14 @@ class Rotas{
   }
   PublicacaoByID(id){
     return this.getBaseUrlCMS()+"/publicacaoByID/"+id;
+  }
+
+  //Análises
+  Analises(){
+    return this.getBaseUrlCMS()+"/analises";
+  }
+  AnaliseByID(id){
+    return this.getBaseUrlCMS()+"/analiseByID/"+id;
   }
 
   //graficos

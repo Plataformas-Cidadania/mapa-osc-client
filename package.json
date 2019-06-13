@@ -6790,7 +6790,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "gulp": "3.9.1",
+    "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-git": "^2.6.0",
     "gulp-uglify": "^3.0.0",

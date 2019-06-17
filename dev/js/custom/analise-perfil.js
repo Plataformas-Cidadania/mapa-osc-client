@@ -99,12 +99,10 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       $("#tabela caption").text(formatar_fontes(fontes1));
 
       var fontes2 = [];
-      if (data.caracteristicas.ft_quantidade_recursos.length) {
-        fontes2.push('Valores de Recursos: '+data.caracteristicas.ft_quantidade_recursos);
+      if (data.caracteristicas.ft_orcamento_empenhado.length) {
+        fontes2.push('Valores de Recursos: '+data.caracteristicas.ft_orcamento_empenhado);
       }
-      else {
-        fontes2.push('Valores de Recursos: SigaBrasil. Valores deflacionados para Dez/2018');
-      }
+
       $("#tabela caption").append('<br>'+formatar_fontes(fontes2));
 
       var fontes3 = [];

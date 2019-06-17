@@ -12,8 +12,8 @@ class Rotas{
   getBaseUrlCMS(){
     var loc = window.location;
   //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
-    return  "http://localhost:8002";
-    //return  "https://mapaosc-desenv.ipea.gov.br/cms";
+    //return  "http://localhost:8002";
+    return  "https://mapaosc-desenv.ipea.gov.br/cms";
 
   }
 

@@ -100,7 +100,7 @@ class FonteRecurso {
     $("#recursos_nao_financeiros-"+ano).find('input').addClass('with-pretext');
     $("#recursos_nao_financeiros-"+ano).find('.input-box').prepend('<span class="pretext">R$</span>');
 
-    $("#recursos_geral-"+ano).append('<div class="input-box checkbox"><label><input type="checkbox">Não possui recursos para este ano.</label></div>');
+    $("#recursos_geral-"+ano).append('<div class="input-box checkbox"><label><input type="checkbox">Não possui recursos para este ano.<br></label></div>');
 
     $("#recursos_proprios-"+ano).prepend('<div class="input-box checkbox"><label><input type="checkbox">Não possui recursos próprios para este ano.</label></div>');
     $("#recursos_publicos-"+ano).prepend('<div class="input-box checkbox"><label><input type="checkbox">Não possui recursos públicos para este ano.</label></div>');
@@ -147,7 +147,7 @@ class FonteRecurso {
     var sections = dadosForm.itemsRecurso();
     var recursos_form = dadosForm.tiposRecurso();
     var fontesRecursos = this.carregaFontes(rotas);
-    var lista_anos_recursos = [2014,2015,2016,2017,2018]
+    var lista_anos_recursos = [2010,2011,2012,2013,2014,2015,2016,2017,2018]
     var qtd_ano_total = lista_anos_recursos.length;
 
     for (var j = 0; j < json.recursos.recursos.length; j++) {

@@ -332,21 +332,45 @@ function createLineWithFocusChart(grafico, valores)
 
 function rotateLabelGrafico(grafico){
 
+
+
+
 		if(window.innerWidth < 550){
+
+
 			var xTicks1 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
 				.selectAll('text').style('text-anchor','end').style('opacity',1).style('font-size',9)
 				.attr('transform', function(d,i,j) { return 'translate (-10, 5) rotate(-90 0,0)' });
 			var xleg1 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
 					.attr('transform', function(d,i,j) { return 'translate (0, 40) rotate(0 0,0)' }) ;
 			}
-			else if(grafico != '#grafico-p2' && grafico != '#grafico-p5' &&  grafico != "#grafico-4"){
+			/*else if(grafico != '#grafico-p2' && grafico != '#grafico-p5' &&  grafico != "#grafico-4"){
 				var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
 					.selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
 					.attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' });
-					/*.call(wrap, 150);*/
+					/!*.call(wrap, 150);*!/
 				var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
 						.attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }) ;
+			}*/
+
+			else if(grafico == '#grafico-p5'){
+				var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
+					.selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
+					.attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' })
+					.call(wrap, 100);
+				var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12).style('display', 'none')
+						.attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }) ;
 			}
+
+			else if(grafico == '#grafico-p2'){
+				var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
+					.selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
+					.attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' })
+					.call(wrap, 70);
+				var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12).style('display', 'none')
+						.attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }).attr('aling', 500) .call(wrap, 100);
+			}
+
 
 }
 
@@ -373,6 +397,7 @@ function verificarContrasteGrafico(grafico){
 }
 
 function wrap(text, width) {
+	//console.log("1- ".text);
 	text.each(function() {
 		var text = d3.select(this),
 			words = text.text().split(/\s+/).reverse(),
@@ -390,8 +415,8 @@ function wrap(text, width) {
 			if (tspan.node().getComputedTextLength() > width) {
 				line.pop();
 				tspan.text(line.join(' '));
-				line = [word];
-				tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+				line = [" "+word+" "];
+				tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(" "+word+" ");
 			}
 		}
 	});

@@ -339,13 +339,31 @@ function rotateLabelGrafico(grafico){
 			var xleg1 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
 					.attr('transform', function(d,i,j) { return 'translate (0, 40) rotate(0 0,0)' }) ;
 			}
-			else if(grafico != '#grafico-p2' && grafico != '#grafico-p5' &&  grafico != '#grafico-4'){
+			/*else if(grafico != '#grafico-p2' && grafico != '#grafico-p5' &&  grafico != '#grafico-4'){
 				var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
 					.selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
 					.attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' }) ;
 				var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
 						.attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }) ;
-			}
+			}*/
+
+        else if(grafico == '#grafico-p5'){
+            var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
+                .selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
+                .attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' })
+                .call(wrap, 100);
+            var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
+                .attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }) ;
+        }
+
+        else if(grafico == '#grafico-p2'){
+            var xTicks2 = d3.select(grafico + ' .nv-x.nv-axis > g').selectAll('g')
+                .selectAll("text").style('text-anchor','middle').style('opacity',1).style('font-size',12)
+                .attr('transform', function(d,i,j) { return 'translate (0, 10) rotate(0 0,0)' })
+                .call(wrap, 70);
+            var xleg2 = d3.select(grafico + ' .nv-axislabel').style('text-anchor','middle').style('opacity',1).style('font-size',12)
+                .attr('transform', function(d,i,j) { return 'translate (0, 20) rotate(0 0,0)' }) ;
+        }
 
 }
 
@@ -369,4 +387,29 @@ function verificarContrasteGrafico(grafico){
 		var xTicks2 =  d3.select(grafico + ' svg').selectAll("text").style('fill','#000000');
 	}
 
+}
+function wrap(text, width) {
+    //console.log("1- ".text);
+    text.each(function() {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            y = text.attr("y"),
+            dy = parseFloat(text.attr("dy")),
+            tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+        //width = parseFloat(text.attr('width'));
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(' '));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(' '));
+                line = [" "+word+" "];
+                tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(" "+word+" ");
+            }
+        }
+    });
 }

@@ -219,9 +219,11 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       }
       txt += '</p>';
 
+      let txtPadrao = " Valores correntes.";
+
       $("#tx_repasse_recursos").append(txt);
 
-      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+txtPadrao+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
 
       txt +='<h5><a id="tabela-p3" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
       $("#tx_repasse_recursos").append(txt);

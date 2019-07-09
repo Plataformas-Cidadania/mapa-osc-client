@@ -29,6 +29,7 @@ var type_http;
 //require(['jquery','datatables-responsive', 'google'], function (React) {
 require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simplePagination', 'util'], function (React) {
     var geojson;
+    var geojsonIDH;
     var link;
     var util = new Util();
     var composto = [];
@@ -1647,13 +1648,13 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             });
 
             layerGroup.addLayer(layer);
-            layerGroupIDH.addLayer(layer);
+            //layerGroupIDH.addLayer(layer);
             llayers[layer.feature.properties.id] = layer;
             llayersIDH[layer.feature.properties.id] = layer;
         }
 
         map.addLayer(layerGroup);
-        map.addLayer(layerGroupIDH);
+        //map.addLayer(layerGroupIDH);
 
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -1737,6 +1738,16 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         d > 15000   ? '#FEB24C' :
         d > 1000  ? '#FED976' :
         '#FFEDA0';
+    }
+
+    function getColorIDH(d){
+        //o menor valor de OScs em um estado é de ~537 e o maior ~91665, a escala abaixo está em 5 níveis,
+        //logo o cálculo de degradê abaixo está considerando estes 3 fatores mais um arredondamento
+        return d > 0.799  ? '#527DA7' :
+        d > 0.699  ? '#58935D' :
+        d > 0.599   ? '#D2CE49' :
+        d > 0.499  ? '#CC9538' :
+        '#AD3735';
     }
 
     function carregaMapaCluster(dados, level){
@@ -2104,6 +2115,105 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
       }
     });
 
+    //IDHM
+    $.ajax({
+        url: rotas.IDHM(),
+        type: 'GET',
+        dataType: 'json',
+        error: function(e){
+            console.log("ERRO no AJAX: " + e);
+        },
+        success: function(data){
+            console.log(data);
+            IDH(data);
+        }
+    });
+
+    function IDH(data){
+
+        geojsonIDH = L.geoJson(data, {
+            style: function(feature) {
+                return {
+                    fillColor: getColorIDH(feature.properties.nr_valor),
+                    weight: 0.5,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '1',
+                    fillOpacity: 0.9
+                };
+            }.bind(this),
+            onEachFeature: onEachFeature //listeners
+        }).addTo(map);
+
+        function onEachFeature(feature, layer) {
+            //console.log(layer);
+            //console.log(this);
+
+            layerGroupIDH.addLayer(layer);
+            map.addLayer(layerGroupIDH);
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+        function highlightFeature(e){
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 2,
+                color: '#667',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+
+            if(layer.feature.properties.Name=="GO"){
+                //Necessário para a layer de Goiás não se sobrepor a layer do Distrito federal
+                layer.bringToBack();
+            }
+
+            info.update(layer.feature.properties);
+        }
+
+        function resetHighlight(e) {
+            geojsonIDH.resetStyle(e.target);
+            info.update();
+        }
+
+        function zoomToFeature(e) {
+            var layer = e.target;
+            map.fitBounds(layer.getBounds());
+            loadChunkData(layer.feature.properties.id);
+
+            if(rlayers[layer.feature.properties.Regiao]==undefined){
+                var l = clayers[layer.feature.properties.id];
+                if(l!=undefined)
+                    map.removeLayer(l);
+            }else{
+                loadChunkDataRegiao(layer);
+            }
+
+            layer.off();
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomm
+            });
+        }
+
+
+
+    }
+
+
+
     //Coloração do mapa
     $.ajax({
         url: rotas.ClusterEstado(),//rotas.IDHM,//
@@ -2135,6 +2245,25 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                 }
 
+                /*map.addControl(L.control.groupedLayers(
+                    {
+                        'Satélite':googleHybrid,
+                        'Contraste': tilesGrayscale,
+                        'Mapa': tiles,
+                    },
+                    {
+                        'Dados': {
+                            'Mapa de calor':layerGroup,
+                            'IDHM':layerGroupIDH
+                        }
+                    },
+                    {
+                        collapsed:false,
+                        exclusiveGroups: ["Dados"],
+                        groupCheckboxes: true
+                    }
+                ));*/
+
                 map.addControl(new L.Control.Layers(
                     {
                         'Satélite':googleHybrid,
@@ -2142,7 +2271,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                         'Mapa': tiles,
                     },
                     {
-                        'Mapa de calor':layerGroup//,'IDHM':layerGroupIDH
+                        'Mapa de calor':layerGroup,
+                        'IDHM':layerGroupIDH
                     },
                     {
                         collapsed:false

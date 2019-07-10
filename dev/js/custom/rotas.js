@@ -94,7 +94,7 @@ class Rotas{
     return this.getBaseUrl()+"menu/osc/ipeadata";
   }
   IDHM(){
-    return this.getBaseUrl()+"geo/analises/idhgeo/municipios";
+    return this.getBaseUrl()+"analises/idhgeo/municipios";
   }
 
   // editar-osc.js

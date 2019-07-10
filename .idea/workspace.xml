@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/rotas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,62 +20,20 @@
     </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/area_atuacao_2.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/area_atuacao_3.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/area_atuacao_5.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/atlas_brasil.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/back.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/icones/api.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/icones/data.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/icones/json.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/img/icones/rdf.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/img/icones/xml.png">
-          <provider selected="true" editor-type-id="images" />
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$(&quot;#modalTabela</find>
       <find>acionarModalTabela</find>
       <find>tx_trabalhadores</find>
       <find>createTabela_Bar_Donut</find>
@@ -102,6 +63,7 @@
       <find>Quantidade OSCs</find>
       <find>Quantidade Projetos</find>
       <find>Mapa de calor</find>
+      <find>mapaosc-desenv.ipea.gov.br</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -123,13 +85,14 @@
         <option value="$PROJECT_DIR$/dev/js/custom/analise.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analises.js" />
         <option value="$PROJECT_DIR$/analise.html" />
-        <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dev/js/util/graficoParaTabela.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" />
         <option value="$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js" />
+        <option value="$PROJECT_DIR$/js/custom/rotas.js" />
+        <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
       </list>
     </option>
   </component>
@@ -147,8 +110,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="164" />
-    <option name="y" value="147" />
+    <option name="x" value="347" />
+    <option name="y" value="120" />
     <option name="width" value="1250" />
     <option name="height" value="833" />
   </component>
@@ -164,16 +127,6 @@
               <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="arquivo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="pdf" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -183,6 +136,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -229,11 +183,16 @@
       <workItem from="1560955085013" duration="9943000" />
       <workItem from="1560971544100" duration="17000" />
       <workItem from="1561392263406" duration="3341000" />
+      <workItem from="1562626939066" duration="22000" />
+      <workItem from="1562626992989" duration="592000" />
+      <workItem from="1562627809121" duration="668000" />
+      <workItem from="1562780474634" duration="4403000" />
+      <workItem from="1562793682584" duration="855000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49833000" />
+    <option name="totallyTimeSpent" value="56373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -245,10 +204,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1845" y="174" width="1535" height="876" extended-state="0" />
-    <editor active="true" />
+    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20282069" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21625252" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -262,7 +220,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32912722" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24708927" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.64044946" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -274,12 +232,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/extrator_dados.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/item1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/item2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -426,6 +378,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/img/icones/xml.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="537" selection-start-column="537" selection-end-column="537" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

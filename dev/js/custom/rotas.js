@@ -6,8 +6,8 @@ class Rotas{
   getBaseUrl(){
     var loc = window.location;
   //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
-    //return  "https://mapaosc-desenv.ipea.gov.br/api/";
-    return  "http://localhost:8009/api/";
+    return  "https://mapaosc-desenv.ipea.gov.br/api/";
+    //return  "http://localhost:8009/api/";
   }
 
   getBaseUrlCMS(){
@@ -94,7 +94,7 @@ class Rotas{
     return this.getBaseUrl()+"menu/osc/ipeadata";
   }
   IDHM(){
-    return this.getBaseUrl()+"geo/idh/municipios";
+    return this.getBaseUrl()+"geo/analises/idhgeo/municipios";
   }
 
   // editar-osc.js

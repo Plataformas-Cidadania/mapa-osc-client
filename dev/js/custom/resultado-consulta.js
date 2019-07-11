@@ -27,7 +27,7 @@ function getParameter(name, url) {
 var urlRota;
 var type_http;
 //require(['jquery','datatables-responsive', 'google'], function (React) {
-require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simplePagination', 'util'], function (React) {
+require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet-groupedlayercontrol', 'simplePagination', 'util'], function (React) {
     var geojson;
     var geojsonIDH;
     var link;
@@ -1619,6 +1619,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         map.fitBounds(layer.getBounds());
     }
 
+    var legend = L.control({position: 'bottomright'});
+
     function heatMap(arrayPDF, arrayID){
         var nomeEstado;
 
@@ -1694,7 +1696,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             });
         }
 
-        var legend = L.control({position: 'bottomright'});
+        //var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function(map){
             var div = L.DomUtil.create('div', 'info legend'),
@@ -2129,6 +2131,9 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         }
     });
 
+    var infoIDH = L.control();
+    var legendIDH = L.control({position: 'bottomright'});
+
     function IDH(data){
 
         geojsonIDH = L.geoJson(data, {
@@ -2143,14 +2148,15 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 };
             }.bind(this),
             onEachFeature: onEachFeature //listeners
-        }).addTo(map);
+        });
+        //}).addTo(map);
 
         function onEachFeature(feature, layer) {
             //console.log(layer);
             //console.log(this);
 
             layerGroupIDH.addLayer(layer);
-            map.addLayer(layerGroupIDH);
+            //map.addLayer(layerGroupIDH);
 
             layer.on({
                 mouseover: highlightFeature,
@@ -2158,6 +2164,22 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 click: zoomToFeature
             });
         }
+
+
+        infoIDH.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update(null, 'none');
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        infoIDH.update = function (props) {
+            this._div.innerHTML = '<h4>IDHM</h4>' +  (props ?
+                '<b>' + props.municipio + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um município');
+        };
+
+        //infoIDH.addTo(map);
 
         function highlightFeature(e){
             var layer = e.target;
@@ -2178,12 +2200,12 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 layer.bringToBack();
             }
 
-            info.update(layer.feature.properties);
+            infoIDH.update(layer.feature.properties);
         }
 
         function resetHighlight(e) {
             geojsonIDH.resetStyle(e.target);
-            info.update();
+            infoIDH.update(null);
         }
 
         function zoomToFeature(e) {
@@ -2207,6 +2229,31 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                 click: zoomm
             });
         }
+
+        legendIDH.onAdd = function(map){
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+                labels = [];
+
+            div.innerHTML += '<h5>Escala de IDHM</h5>';
+
+            div.innerHTML += '<i style="background:' + getColorIDH(0.499) + '"></i> 0 - 0.499 <br>' +
+                '<i style="background:' + getColorIDH(0.599) + '"></i> 0.500 - 0.599 <br>' +
+                '<i style="background:' + getColorIDH(0.699) + '"></i> 0.600 - 0.699 <br>' +
+                '<i style="background:' + getColorIDH(0.799) + '"></i> 0.700 - 0.799 <br>' +
+                '<i style="background:' + getColorIDH(0.800) + '"></i> 0.800 - 1';
+
+            /*for(var i = 0; i < grades.length; i++){
+                div.innerHTML +=
+                    '<i style="background:' + getColorIDH(grades[i] + 1) + '"></i> ' +
+                    parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }*/
+
+            return div;
+        };
+
+        //legendIDH.addTo(map);
 
 
 
@@ -2245,26 +2292,26 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                 }
 
-                /*map.addControl(L.control.groupedLayers(
+                map.addControl(L.control.groupedLayers(
                     {
                         'Satélite':googleHybrid,
                         'Contraste': tilesGrayscale,
                         'Mapa': tiles,
                     },
                     {
-                        'Dados': {
-                            'Mapa de calor':layerGroup,
+                        'Mapa de calor': {
+                            'OSC':layerGroup,
                             'IDHM':layerGroupIDH
                         }
                     },
                     {
                         collapsed:false,
-                        exclusiveGroups: ["Dados"],
+                        exclusiveGroups: ["Mapa de calor"],
                         groupCheckboxes: true
                     }
-                ));*/
+                ));
 
-                map.addControl(new L.Control.Layers(
+                /*map.addControl(new L.Control.Layers(
                     {
                         'Satélite':googleHybrid,
                         'Contraste': tilesGrayscale,
@@ -2277,7 +2324,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
                     {
                         collapsed:false
                     }
-                ));
+                ));*/
 
                 heatMap(pdfs, ids);
             }
@@ -2285,4 +2332,21 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
     });
 
     map.on('zoomend', apagaMapaDeCalor);
+
+    let firstLoad = true;
+    map.on('overlayadd', function(eo){
+        if(eo.name === 'OSC' && !firstLoad){
+            info.addTo(map);
+            legend.addTo(map);
+            map.removeControl(infoIDH);
+            map.removeControl(legendIDH);
+        }
+        if(eo.name === 'IDHM' && !firstLoad){
+            infoIDH.addTo(map);
+            legendIDH.addTo(map);
+            map.removeControl(info);
+            map.removeControl(legend);
+        }
+        firstLoad = false;
+    });
 });

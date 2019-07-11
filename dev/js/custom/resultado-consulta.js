@@ -2175,7 +2175,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         // method that we will use to update the control based on feature properties passed
         infoIDH.update = function (props) {
             this._div.innerHTML = '<h4>IDHM</h4>' +  (props ?
-                '<b>' + props.municipio + '</b><br />' + props.nr_valor
+                '<b>' + props.nm_municipio + '</b><br />' + props.nr_valor
                 : 'Passe o mouse sobre um município');
         };
 

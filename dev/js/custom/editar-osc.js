@@ -398,6 +398,31 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
       $('#conferencias input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conferencias);
       $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_outros_part);
 
+      $('#conselhos input[type="checkbox"]').click(function() {
+        $('.conselho').show();
+        if($('#conselhos input[type="checkbox"]').prop("checked")){
+          $('.conselho').hide();
+        }
+      });
+      
+      $('#conferencias input[type="checkbox"]').click(function() {
+        $('.conferencia').show();
+        if($('#conferencias input[type="checkbox"]').prop("checked")){
+          $('.conferencia').hide();
+        }
+      });
+
+      
+      $('#outros_part input[type="checkbox"]').click(function() {
+
+        let children_outro_part = $('#outros_part').children();
+        children_outro_part[1].setAttribute('style', 'display: block;');
+
+        if($('#outros_part input[type="checkbox"]').prop("checked")){
+          children_outro_part[1].setAttribute('style', 'display: none;');
+        }
+      });
+
       $('#conselhos input[type="checkbox"]').change(function() {
         if($(this).is(':checked')){
           $(this).prop('checked', true);

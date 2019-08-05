@@ -394,12 +394,9 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
       $("#outros_part").prepend('<div class="input-box checkbox"><label><input type="checkbox">Não possui outros espaços de participação social.</label></div>');
 
       var participacao_social = util.validateObject(data.participacao_social, 0);
-      $('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_conselho);
-      $('#conferencias input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_conferencia);
-      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_outra);
-      /*$('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conselhos);
+      $('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conselhos);
       $('#conferencias input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conferencias);
-      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_outros_part);*/
+      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_outros_part);
 
       $('#conselhos input[type="checkbox"]').click(function() {
         $('.conselho').show();

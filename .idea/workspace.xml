@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,11 +37,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="46">
+              <caret line="109" column="90" selection-start-line="109" selection-start-column="90" selection-end-line="109" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="975">
+              <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,8 +82,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Quantidade Projetos</find>
-      <find>Mapa de calor</find>
       <find>mapaosc-desenv.ipea.gov.br</find>
       <find>idh</find>
       <find>8009</find>
@@ -74,7 +95,6 @@
       <find>#conselhos</find>
       <find>Representante de OSC</find>
       <find>bo_nao_possui_outros_part</find>
-      <find>bo_nao_possui_participacao_social_conferencia</find>
       <find>dt_data_inicio_conselho-0</find>
       <find>tx_nome_representante_conselho</find>
       <find>conselhos</find>
@@ -89,6 +109,9 @@
       <find>analises/localidade/</find>
       <find>Orçamento empenhado</find>
       <find>createLineChart</find>
+      <find>bo_nao_possui_participacao_social_conferencia</find>
+      <find>bo_nao_possui_</find>
+      <find>= 0</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -120,9 +143,9 @@
         <option value="$PROJECT_DIR$/consultar.html" />
         <option value="$PROJECT_DIR$/dados-indicadores.html" />
         <option value="$PROJECT_DIR$/dev/js/editar/espacos-part-social.js" />
-        <option value="$PROJECT_DIR$/dev/js/custom/editar-osc.js" />
         <option value="$PROJECT_DIR$/dev/js/util/graficoParaTabela.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" />
+        <option value="$PROJECT_DIR$/dev/js/custom/editar-osc.js" />
       </list>
     </option>
   </component>
@@ -258,12 +281,12 @@
       <workItem from="1563393940047" duration="653000" />
       <workItem from="1563809249653" duration="4510000" />
       <workItem from="1564584779302" duration="15726000" />
-      <workItem from="1565018325382" duration="1449000" />
+      <workItem from="1565018325382" duration="2118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87627000" />
+    <option name="totallyTimeSpent" value="88296000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -291,7 +314,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.24579561" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.52891695" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3144059" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -500,27 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="396" column="43" selection-start-line="396" selection-start-column="43" selection-end-line="396" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/util/graficoParaTabela.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -558,8 +560,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+        <state relative-caret-position="46">
+          <caret line="109" column="90" selection-start-line="109" selection-start-column="90" selection-end-line="109" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

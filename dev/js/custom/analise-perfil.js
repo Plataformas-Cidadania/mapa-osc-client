@@ -118,9 +118,9 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       $("#tabela caption").append(txt);
 
 
-      if(data.caracteristicas.nr_orcamento_empenhado == null){
+      //if(data.caracteristicas.nr_orcamento_empenhado == null){
           data.caracteristicas.nr_orcamento_empenhado = 0;
-      }
+      //}
 
       var tab = '<tr>';
       tab += '<td>'+data.caracteristicas.nr_quantidade_osc.toLocaleString('pt-BR')+'</td>';

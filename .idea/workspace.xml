@@ -4,6 +4,9 @@
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/rotas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/editar-osc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/editar-osc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/rotas.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +25,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6600">
-              <caret line="440" column="27" selection-start-line="440" selection-start-column="27" selection-end-line="440" selection-end-column="27" />
+            <state relative-caret-position="75">
+              <caret line="8" column="52" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/custom/header-footer.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/header-footer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -40,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
+            <state relative-caret-position="15">
               <caret line="109" column="90" selection-start-line="109" selection-start-column="90" selection-end-line="109" selection-end-column="90" />
             </state>
           </provider>
@@ -49,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
+            <state relative-caret-position="502">
+              <caret line="412" column="30" lean-forward="true" selection-start-line="412" selection-start-column="30" selection-end-line="412" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
@@ -72,7 +98,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/util/contraste.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="2160">
               <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
             </state>
           </provider>
@@ -82,7 +108,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mapaosc-desenv.ipea.gov.br</find>
       <find>idh</find>
       <find>8009</find>
       <find>uf</find>
@@ -100,7 +125,6 @@
       <find>conselhos</find>
       <find>Não possui</find>
       <find>validateObject</find>
-      <find>participacao_social</find>
       <find>checkbox</find>
       <find>conferencias</find>
       <find>series_1</find>
@@ -112,6 +136,8 @@
       <find>bo_nao_possui_participacao_social_conferencia</find>
       <find>bo_nao_possui_</find>
       <find>= 0</find>
+      <find>participacao_social</find>
+      <find>carousel-topo</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -138,13 +164,13 @@
         <option value="$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/js/custom/rotas.js" />
-        <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" />
         <option value="$PROJECT_DIR$/consultar.html" />
         <option value="$PROJECT_DIR$/dados-indicadores.html" />
         <option value="$PROJECT_DIR$/dev/js/editar/espacos-part-social.js" />
         <option value="$PROJECT_DIR$/dev/js/util/graficoParaTabela.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" />
+        <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/editar-osc.js" />
       </list>
     </option>
@@ -163,7 +189,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1665" />
+    <option name="x" value="1745" />
     <option name="y" value="-4" />
     <option name="width" value="1615" />
     <option name="height" value="1054" />
@@ -173,6 +199,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,29 +207,10 @@
               <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,12 +289,13 @@
       <workItem from="1563393940047" duration="653000" />
       <workItem from="1563809249653" duration="4510000" />
       <workItem from="1564584779302" duration="15726000" />
-      <workItem from="1565018325382" duration="2118000" />
+      <workItem from="1565018325382" duration="6395000" />
+      <workItem from="1565192249482" duration="4506000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88296000" />
+    <option name="totallyTimeSpent" value="97079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,9 +307,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1665" y="-4" width="1615" height="1054" extended-state="6" />
+    <frame x="1745" y="-4" width="1615" height="1054" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16762269" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16953474" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -314,7 +324,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.24579561" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3144059" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30704522" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -326,15 +336,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/sem_img_user.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/seta.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/siconv.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/site-ext.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -537,17 +538,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+    <entry file="file://$PROJECT_DIR$/js/custom/header-footer.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/header-footer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6600">
-          <caret line="440" column="27" selection-start-line="440" selection-start-column="27" selection-end-line="440" selection-end-column="27" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="24" selection-start-line="89" selection-start-column="24" selection-end-line="89" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/util/contraste.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="2160">
           <caret line="144" column="5" selection-start-line="144" selection-start-column="5" selection-end-line="144" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -560,15 +571,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
+        <state relative-caret-position="15">
           <caret line="109" column="90" selection-start-line="109" selection-start-column="90" selection-end-line="109" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="52" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="453" lean-forward="true" selection-start-line="453" selection-end-line="453" />
+        <state relative-caret-position="502">
+          <caret line="412" column="30" lean-forward="true" selection-start-line="412" selection-start-column="30" selection-end-line="412" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />

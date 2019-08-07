@@ -1384,3 +1384,6 @@ display: inline-block;
 #download_report{
   display: none;
 }
+#carousel-topo .carousel-caption {
+  display: none;
+}

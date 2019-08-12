@@ -2174,9 +2174,9 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
         // method that we will use to update the control based on feature properties passed
         infoIDH.update = function (props) {
-            this._div.innerHTML = '<h4>IDHM</h4>' +  (props ?
-                '<b>' + props.nm_municipio + '</b><br />' + props.nr_valor
-                : 'Passe o mouse sobre um município');
+            this._div.innerHTML = '<h4>IDH</h4>' +  (props ?
+                '<b>' + props.nm_uf + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um estado');
         };
 
         //infoIDH.addTo(map);
@@ -2236,7 +2236,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
                 labels = [];
 
-            div.innerHTML += '<h5>Escala de IDHM</h5>';
+            div.innerHTML += '<h5>Escala de IDH</h5>';
 
             div.innerHTML += '<i style="background:' + getColorIDH(0.499) + '"></i> 0 - 0.499 <br>' +
                 '<i style="background:' + getColorIDH(0.599) + '"></i> 0.500 - 0.599 <br>' +

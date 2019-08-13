@@ -30,6 +30,7 @@ var type_http;
 require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet-groupedlayercontrol', 'simplePagination', 'util'], function (React) {
     var geojson;
     var geojsonIDH;
+    var geojsonIDHM;
     var link;
     var util = new Util();
     var composto = [];
@@ -42,6 +43,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
     var clustersLayer = L.layerGroup();
     var layerGroup = L.layerGroup();
     var layerGroupIDH = L.layerGroup();
+    var layerGroupIDHM = L.layerGroup();
     var isControlLoaded = false;//verifica se controle já foi adicionado a tela
     var isClusterVersion = true;
     var consulta_avancada = false;
@@ -1675,6 +1677,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         var lll;
 
         function zoomToFeature(e) {
+            console.log('clicado zoomToFeature');
             var layer = e.target;
             map.fitBounds(layer.getBounds());
             loadChunkData(layer.feature.properties.id);
@@ -2117,9 +2120,11 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
       }
     });
 
-    //IDHM
+    //IDH========================================================================================================
+    
+    //IDH Estado
     $.ajax({
-        url: rotas.IDHM(),
+        url: rotas.IDH(),
         type: 'GET',
         dataType: 'json',
         error: function(e){
@@ -2211,15 +2216,17 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         function zoomToFeature(e) {
             var layer = e.target;
             map.fitBounds(layer.getBounds());
-            loadChunkData(layer.feature.properties.id);
+            //loadChunkData(layer.feature.properties.id);
 
-            if(rlayers[layer.feature.properties.Regiao]==undefined){
+            /*if(rlayers[layer.feature.properties.Regiao]==undefined){
                 var l = clayers[layer.feature.properties.id];
                 if(l!=undefined)
                     map.removeLayer(l);
             }else{
                 loadChunkDataRegiao(layer);
-            }
+            }*/
+
+            loadIDHM(e.target.feature.properties.cd_uf);
 
             layer.off();
 
@@ -2258,9 +2265,157 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
 
     }
+    
+    //----------------------
+    
+    //IDHM Municipio
+
+    var infoIDHM = L.control();
+    var legendIDHM = L.control({position: 'bottomright'});
+
+    function loadIDHM(id){
+        $.ajax({
+            url: rotas.IDHM(id),
+            type: 'GET',
+            dataType: 'json',
+            error: function(e){
+                console.log("ERRO no AJAX: " + e);
+            },
+            success: function(data){
+                console.log(data);
+                IDHM(data);
+            }
+        });
+    }
+
+    function IDHM(data){
+
+        geojsonIDHM = L.geoJson(data, {
+            style: function(feature) {
+                return {
+                    fillColor: getColorIDH(feature.properties.nr_valor),
+                    weight: 0.5,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '1',
+                    fillOpacity: 0.9
+                };
+            }.bind(this),
+            onEachFeature: onEachFeature //listeners
+        });
+        //}).addTo(map);
+
+        function onEachFeature(feature, layer) {
+            //console.log(layer);
+            //console.log(this);
+
+            layerGroupIDHM.addLayer(layer);
+            layerGroupIDH.addLayer(layerGroupIDHM);
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+
+        infoIDHM.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update(null, 'none');
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        infoIDHM.update = function (props) {
+            this._div.innerHTML = '<h4>IDHM</h4>' +  (props ?
+                '<b>' + props.nm_municipio + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um município');
+        };
+
+        infoIDHM.addTo(map);
+
+        function highlightFeature(e){
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 2,
+                color: '#667',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+
+            if(layer.feature.properties.Name=="GO"){
+                //Necessário para a layer de Goiás não se sobrepor a layer do Distrito federal
+                layer.bringToBack();
+            }
+
+            infoIDHM.update(layer.feature.properties);
+        }
+
+        function resetHighlight(e) {
+            geojsonIDHM.resetStyle(e.target);
+            infoIDHM.update(null);
+        }
+
+        function zoomToFeature(e) {
+            var layer = e.target;
+            map.fitBounds(layer.getBounds());
+            //loadChunkData(layer.feature.properties.id);
+
+            /*if(rlayers[layer.feature.properties.Regiao]==undefined){
+                var l = clayers[layer.feature.properties.id];
+                if(l!=undefined)
+                    map.removeLayer(l);
+            }else{
+                loadChunkDataRegiao(layer);
+            }*/
+
+            layer.off();
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomm
+            });
+        }
+
+        /*legendIDHM.onAdd = function(map){
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+                labels = [];
+
+            div.innerHTML += '<h5>Escala de IDHM</h5>';
+
+            div.innerHTML += '<i style="background:' + getColorIDHM(0.499) + '"></i> 0 - 0.499 <br>' +
+                '<i style="background:' + getColorIDHM(0.599) + '"></i> 0.500 - 0.599 <br>' +
+                '<i style="background:' + getColorIDHM(0.699) + '"></i> 0.600 - 0.699 <br>' +
+                '<i style="background:' + getColorIDHM(0.799) + '"></i> 0.700 - 0.799 <br>' +
+                '<i style="background:' + getColorIDHM(0.800) + '"></i> 0.800 - 1';
+
+            /!*for(var i = 0; i < grades.length; i++){
+                div.innerHTML +=
+                    '<i style="background:' + getColorIDHM(grades[i] + 1) + '"></i> ' +
+                    parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }*!/
+
+            return div;
+        };
+
+        legendIDHM.addTo(map);*/
 
 
 
+    }
+
+
+    //FIM IDH=========================================================================================================
+    
     //Coloração do mapa
     $.ajax({
         url: rotas.ClusterEstado(),//rotas.IDHM,//
@@ -2301,7 +2456,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     {
                         'Mapa de calor': {
                             'OSC':layerGroup,
-                            'IDHM':layerGroupIDH
+                            'IDH':layerGroupIDH
                         }
                     },
                     {
@@ -2339,10 +2494,12 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             info.addTo(map);
             legend.addTo(map);
             map.removeControl(infoIDH);
+            //map.removeControl(infoIDHM);
             map.removeControl(legendIDH);
         }
-        if(eo.name === 'IDHM' && !firstLoad){
+        if(eo.name === 'IDH' && !firstLoad){
             infoIDH.addTo(map);
+            //infoIDHM.addTo(map);
             legendIDH.addTo(map);
             map.removeControl(info);
             map.removeControl(legend);

@@ -1787,8 +1787,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         }
 
         if(!isControlLoaded){//Evitar adicionar controles repetidamente na tela
-            //clustersLayer.addTo(map);
-            clustersLayer.addTo(layerGroup);
+            clustersLayer.addTo(map);
+            //clustersLayer.addTo(layerGroup);
             isControlLoaded=true;
         }
 

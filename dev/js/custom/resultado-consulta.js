@@ -28,6 +28,8 @@ var urlRota;
 var type_http;
 //require(['jquery','datatables-responsive', 'google'], function (React) {
 require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet-groupedlayercontrol', 'simplePagination', 'util'], function (React) {
+    var oscLoaded = false;
+    var idhLoaded = false;
     var geojson;
     var geojsonIDH;
     var geojsonIDHM;
@@ -1785,7 +1787,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         }
 
         if(!isControlLoaded){//Evitar adicionar controles repetidamente na tela
-            clustersLayer.addTo(map);
+            //clustersLayer.addTo(map);
+            clustersLayer.addTo(layerGroup);
             isControlLoaded=true;
         }
 
@@ -2123,6 +2126,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
     //IDH========================================================================================================
     
     //IDH Estado
+    //$('#loadingMapModal').show();
     $.ajax({
         url: rotas.IDH(),
         type: 'GET',
@@ -2133,11 +2137,54 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         success: function(data){
             console.log(data);
             IDH(data);
+            //$('#loadingMapModal').hide();
+            idhLoaded = true;
+            addControlsMap();
         }
     });
 
     var infoIDH = L.control();
     var legendIDH = L.control({position: 'bottomright'});
+
+    infoIDH.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.update(null, 'none');
+        return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    infoIDH.update = function (props, tipo) {
+
+        let nome = tipo === 'uf' ? 'nm_uf' : 'nm_municipio';
+        let titulo = tipo === 'uf' ? 'IDH' : 'IDHM';
+
+        this._div.innerHTML = '<h4>' + titulo + '</h4>' +  (props ?
+            '<b>' + props[nome] + '</b><br />' + props.nr_valor
+            : 'Passe o mouse sobre um territorio');
+    };
+
+    legendIDH.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+            labels = [];
+
+        div.innerHTML += '<h5>Escala de IDH</h5>';
+
+        div.innerHTML += '<i style="background:' + getColorIDH(0.499) + '"></i> 0 - 0.499 <br>' +
+            '<i style="background:' + getColorIDH(0.599) + '"></i> 0.500 - 0.599 <br>' +
+            '<i style="background:' + getColorIDH(0.699) + '"></i> 0.600 - 0.699 <br>' +
+            '<i style="background:' + getColorIDH(0.799) + '"></i> 0.700 - 0.799 <br>' +
+            '<i style="background:' + getColorIDH(0.800) + '"></i> 0.800 - 1';
+
+        /*for(var i = 0; i < grades.length; i++){
+            div.innerHTML +=
+                '<i style="background:' + getColorIDH(grades[i] + 1) + '"></i> ' +
+                parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }*/
+
+        return div;
+    };
 
     function IDH(data){
 
@@ -2171,18 +2218,22 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         }
 
 
-        infoIDH.onAdd = function (map) {
+        /*infoIDH.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
             this.update(null, 'none');
             return this._div;
-        };
+        };*/
 
         // method that we will use to update the control based on feature properties passed
-        infoIDH.update = function (props) {
-            this._div.innerHTML = '<h4>IDH</h4>' +  (props ?
-                '<b>' + props.nm_uf + '</b><br />' + props.nr_valor
-                : 'Passe o mouse sobre um estado');
-        };
+        /*infoIDH.update = function (props, tipo) {
+
+            let nome = tipo === 'uf' ? 'nm_uf' : 'nm_municipio';
+            let titulo = tipo === 'uf' ? 'IDH' : 'IDHM';
+
+            this._div.innerHTML = '<h4>' + titulo + '</h4>' +  (props ?
+                '<b>' + props[nome] + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um territorio');
+        };*/
 
         //infoIDH.addTo(map);
 
@@ -2205,7 +2256,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 layer.bringToBack();
             }
 
-            infoIDH.update(layer.feature.properties);
+            infoIDH.update(layer.feature.properties, 'uf');
         }
 
         function resetHighlight(e) {
@@ -2226,18 +2277,20 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 loadChunkDataRegiao(layer);
             }*/
 
-            loadIDHM(e.target.feature.properties.cd_uf);
+            console.log(e.target.feature);
+
+            loadIDHM(e.target.feature.properties.cod_uf);
 
             layer.off();
 
             layer.on({
-                mouseover: highlightFeature,
+                //mouseover: highlightFeature,
                 mouseout: resetHighlight,
                 click: zoomm
             });
         }
 
-        legendIDH.onAdd = function(map){
+        /*legendIDH.onAdd = function(map){
             var div = L.DomUtil.create('div', 'info legend'),
                 grades = [0, 0.499, 0.599, 0.699, 0.799],
 
@@ -2251,21 +2304,21 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 '<i style="background:' + getColorIDH(0.799) + '"></i> 0.700 - 0.799 <br>' +
                 '<i style="background:' + getColorIDH(0.800) + '"></i> 0.800 - 1';
 
-            /*for(var i = 0; i < grades.length; i++){
+            /!*for(var i = 0; i < grades.length; i++){
                 div.innerHTML +=
                     '<i style="background:' + getColorIDH(grades[i] + 1) + '"></i> ' +
                     parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-            }*/
+            }*!/
 
             return div;
-        };
+        };*/
 
         //legendIDH.addTo(map);
 
 
 
     }
-    
+
     //----------------------
     
     //IDHM Municipio
@@ -2273,7 +2326,9 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
     var infoIDHM = L.control();
     var legendIDHM = L.control({position: 'bottomright'});
 
+    //console.log(id);
     function loadIDHM(id){
+        $('#loadingMapModal').show();
         $.ajax({
             url: rotas.IDHM(id),
             type: 'GET',
@@ -2284,6 +2339,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             success: function(data){
                 console.log(data);
                 IDHM(data);
+                $('#loadingMapModal').hide();
             }
         });
     }
@@ -2320,7 +2376,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         }
 
 
-        infoIDHM.onAdd = function (map) {
+        /*infoIDHM.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
             this.update(null, 'none');
             return this._div;
@@ -2333,7 +2389,10 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 : 'Passe o mouse sobre um município');
         };
 
-        infoIDHM.addTo(map);
+        if(!infoIDHM._map){
+            infoIDHM.addTo(map);
+        }*/
+
 
         function highlightFeature(e){
             var layer = e.target;
@@ -2354,12 +2413,14 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 layer.bringToBack();
             }
 
-            infoIDHM.update(layer.feature.properties);
+            //infoIDHM.update(layer.feature.properties);
+            infoIDH.update(layer.feature.properties, 'municipio');
         }
 
         function resetHighlight(e) {
             geojsonIDHM.resetStyle(e.target);
-            infoIDHM.update(null);
+            //infoIDHM.update(null);
+            infoIDH.update(null);
         }
 
         function zoomToFeature(e) {
@@ -2425,6 +2486,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             console.log("ERRO no AJAX :" + e);
         },
         success: function(data){
+
             if(data!==undefined){
                 var pdfs={};
                 var ids={};
@@ -2446,6 +2508,9 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                   }
 
                 }
+
+                oscLoaded = true;
+                addControlsMap();
 
                 map.addControl(L.control.groupedLayers(
                     {
@@ -2486,6 +2551,29 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         }
     });
 
+    function addControlsMap(){
+        /*if(oscLoaded && idhLoaded){
+            map.addControl(L.control.groupedLayers(
+                {
+                    'Satélite':googleHybrid,
+                    'Contraste': tilesGrayscale,
+                    'Mapa': tiles,
+                },
+                {
+                    'Mapa de calor': {
+                        'OSC':layerGroup,
+                        'IDH':layerGroupIDH
+                    }
+                },
+                {
+                    collapsed:false,
+                    exclusiveGroups: ["Mapa de calor"],
+                    groupCheckboxes: true
+                }
+            ));
+        } */
+    }
+
     map.on('zoomend', apagaMapaDeCalor);
 
     let firstLoad = true;
@@ -2494,16 +2582,17 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             info.addTo(map);
             legend.addTo(map);
             map.removeControl(infoIDH);
-            //map.removeControl(infoIDHM);
             map.removeControl(legendIDH);
         }
         if(eo.name === 'IDH' && !firstLoad){
             infoIDH.addTo(map);
-            //infoIDHM.addTo(map);
             legendIDH.addTo(map);
             map.removeControl(info);
             map.removeControl(legend);
         }
         firstLoad = false;
     });
+
+
 });
+

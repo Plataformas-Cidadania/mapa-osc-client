@@ -6,7 +6,8 @@ class Rotas{
   getBaseUrl(){
     var loc = window.location;
   //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
-    return  "https://mapaosc-desenv.ipea.gov.br/api/";
+    return  "https://mapaosc-homologa.ipea.gov.br/api/";
+    //return  "https://mapaosc-desenv.ipea.gov.br/api/";
     //return  "http://localhost:9090/api/";
     //return  "http://localhost:8009/api/";
   }

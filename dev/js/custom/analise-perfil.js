@@ -119,7 +119,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
 
       //if(data.caracteristicas.nr_orcamento_empenhado == null){
-          data.caracteristicas.nr_orcamento_empenhado = 0;
+          //data.caracteristicas.nr_orcamento_empenhado = 0;
       //}
 
       var tab = '<tr>';

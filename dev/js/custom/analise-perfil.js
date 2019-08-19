@@ -77,6 +77,17 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
   return txt_tipo;
 }
 
+function formatar_tipo_localidade_por(tipo_localidade,artigo){
+  var tx_tipoLocalidade = tipo_localidade.toLowerCase();
+  var txt_tipo = "por "+tx_tipoLocalidade;
+
+  if(artigo == 1){
+    txt_tipo = "O "+tx_tipoLocalidade;
+  }
+
+  return txt_tipo;
+}
+
   $.ajax({
     url: rotas.RecuperarPerfilByIDLocalidade(idLocalidade),
     type: 'GET',
@@ -205,7 +216,20 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       escolherGrafico("p2",grafico);
 
-      //Repasse de Recursos
+
+
+
+
+      //Repasse de Recursos/////////////////////////////////////////////////////
+
+        if(data.repasse_recursos.nr_repasse_media==0){
+            document.getElementById("offRepasse").style.display = 'none';
+            document.getElementById("offCol12").className = 'col-md-12';
+        }
+
+
+
+      //console.log(data.repasse_recursos.nr_repasse_media);
 
       var txt = '<p>'+data.tx_localidade;
       if(data.repasse_recursos.nr_repasse_media > 0){
@@ -216,7 +240,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
         txt += ' não possui declarações de OSCs sobre repasse de recursos nos últimos 3 anos.';
       }
 
-      txt += ' A média nacional de repasse de recursos é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
+      txt += ' A média nacional '+formatar_tipo_localidade_por(data.tx_tipo_localidade,2)+' de repasse de recursos é de <b>'+formatarDinheiro(data.repasse_recursos.nr_repasse_media_nacional)+'</b>. ';
 
       if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null){
         txt += 'Além dos repasses federais, a categoria de recursos mais declarada foi '+data.repasse_recursos.tx_maior_tipo_repasse+' com <b>'+data.repasse_recursos.nr_porcentagem_maior_tipo_repasse+'%</b> do total.';
@@ -227,10 +251,18 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       $("#tx_repasse_recursos").append(txt);
 
-      txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+txtPadrao+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+      if(data.repasse_recursos.nr_repasse_media!=0){
+        txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.repasse_recursos.fontes)+txtPadrao+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+      }else{
+        txt = '<h5 class="legenda_perfil">Fonte: Representante de OSC, SIGABR 12/2018.'+txtPadrao+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
+      }
 
-      txt +='<h5><a id="tabela-p3" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+
+      if(data.repasse_recursos.tx_maior_tipo_repasse[0] != null) {
+        txt += '<h5><a id="tabela-p3" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+      }
       $("#tx_repasse_recursos").append(txt);
+
 
       var grafico = {};
       grafico['configuracao'] = ["f","1000","","f"];
@@ -276,14 +308,18 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
       escolherGrafico("p3",grafico);
 
-      //Orcamento federal
-      txt = 'A média de transferências Federais é de <b>'+formatarDinheiro(data.orcamento.media)+'</b>.';
+
+
+      //Orcamento federal/////////////////////////////////////////////
+      txt = 'A média '+formatar_tipo_localidade_por(data.tx_tipo_localidade,2)+' de transferências Federais é de <b>'+formatarDinheiro(data.orcamento.media)+'</b>.';
 
       $("#tx_transferencias_federais").append(txt);
 
       txt = '<h5 class="legenda_perfil">'+formatar_fontes(data.orcamento.fontes)+'</h5>';//["SigaBrasil. Valores deflacionados para Dez/2018."]
 
-      txt +='<h5><a id="tabela-p6" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+      if(data.caracteristicas.nr_orcamento_empenhado!=0) {
+        txt += '<h5><a id="tabela-p6" class="btn-item" data-toggle="modal" title="Mostrar os dados em Tabela.">Visualize os dados em tabela.</a></h5>';
+      }
       $("#tx_transferencias_federais").append(txt);
 
       var grafico = {};
@@ -295,6 +331,17 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       grafico['fontes'] = data.orcamento.fontes;
       grafico['legenda'] = "";
       grafico['tipo_grafico'] = "linechart";
+
+      //console.log(data.caracteristicas.nr_orcamento_empenhado);
+
+
+
+
+      if(data.caracteristicas.nr_orcamento_empenhado==0){
+        document.getElementById("offTransferencias").style.display = 'none';
+        document.getElementById("offTransferenciasCol12").className = 'col-md-12';
+      }
+
 
       if(data.orcamento.series_1 != null){
 
@@ -322,7 +369,7 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
 
 
 
-      //Área de Atuação
+      //Área de Atuação///////////////////////////////////////////////////
 
       var txt = '<p>'+data.tx_localidade+' possui <b>'+data.area_atuacao.nr_porcentagem_maior+'%</b> das OSCs atuando em '+data.area_atuacao.tx_porcentagem_maior['0'];
 

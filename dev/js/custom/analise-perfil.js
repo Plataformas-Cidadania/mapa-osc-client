@@ -299,9 +299,9 @@ function formatar_tipo_localidade(tipo_localidade,artigo){
       if(data.orcamento.series_1 != null){
 
 
-        if(data.orcamento.series_1[0].values){
+        /*if(data.orcamento.series_1[0].values){
           data.orcamento.series_1[0].values = [{"x" : ano-2, "y" : 0 },{"x" : ano-1, "y" : 0 },{"x" : ano, "y" : 0 }];
-        }
+        }*/
 
 
         grafico['series_1'] = data.orcamento.series_1;

@@ -1682,6 +1682,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             console.log('clicado zoomToFeature');
             var layer = e.target;
             map.fitBounds(layer.getBounds());
+            console.log(layer);
             loadChunkData(layer.feature.properties.id);
 
             if(rlayers[layer.feature.properties.Regiao]==undefined){
@@ -2267,15 +2268,16 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         function zoomToFeature(e) {
             var layer = e.target;
             map.fitBounds(layer.getBounds());
-            //loadChunkData(layer.feature.properties.id);
+            console.log(layer);
+            loadChunkData(layer.feature.properties.cod_uf);
 
-            /*if(rlayers[layer.feature.properties.Regiao]==undefined){
+            if(rlayers[layer.feature.properties.Regiao]==undefined){
                 var l = clayers[layer.feature.properties.id];
                 if(l!=undefined)
                     map.removeLayer(l);
             }else{
                 loadChunkDataRegiao(layer);
-            }*/
+            }
 
             console.log(e.target.feature);
 

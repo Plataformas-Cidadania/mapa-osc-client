@@ -46,6 +46,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
     var layerGroup = L.layerGroup();
     var layerGroupIDH = L.layerGroup();
     var layerGroupIDHM = L.layerGroup();
+    var layerGroupTeste = L.layerGroup();
     var isControlLoaded = false;//verifica se controle já foi adicionado a tela
     var isClusterVersion = true;
     var consulta_avancada = false;
@@ -2268,7 +2269,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         function zoomToFeature(e) {
             var layer = e.target;
             map.fitBounds(layer.getBounds());
-            console.log(layer);
+            //console.log(layer);
             loadChunkData(layer.feature.properties.cod_uf);
 
             if(rlayers[layer.feature.properties.Regiao]==undefined){
@@ -2279,7 +2280,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 loadChunkDataRegiao(layer);
             }
 
-            console.log(e.target.feature);
+            //console.log(e.target.feature);
 
             loadIDHM(e.target.feature.properties.cod_uf);
 
@@ -2521,14 +2522,17 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                         'Mapa': tiles,
                     },
                     {
-                        'Mapa de calor': {
+                        'Camadas': {
                             'OSC':layerGroup,
-                            'IDH':layerGroupIDH
+                            'IDH':layerGroupIDH,
+                            'Desativar':layerGroupTeste
                         }
                     },
                     {
                         collapsed:false,
-                        exclusiveGroups: ["Mapa de calor"],
+                        // Make the "Landmarks" group exclusive (use radio inputs)
+                        exclusiveGroups: ["Camadas"],
+                        // Show a checkbox next to non-exclusive group labels for toggling all
                         groupCheckboxes: true
                     }
                 ));
@@ -2578,19 +2582,43 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
     map.on('zoomend', apagaMapaDeCalor);
 
+    let hasExistOSC = true;
+    let hasExistIDH = false;
+
     let firstLoad = true;
     map.on('overlayadd', function(eo){
         if(eo.name === 'OSC' && !firstLoad){
             info.addTo(map);
             legend.addTo(map);
-            map.removeControl(infoIDH);
-            map.removeControl(legendIDH);
+            hasExistOSC = true;
+            if (hasExistIDH) {
+                map.removeControl(infoIDH);
+                map.removeControl(legendIDH);
+                hasExistIDH = false;
+            }
         }
         if(eo.name === 'IDH' && !firstLoad){
             infoIDH.addTo(map);
             legendIDH.addTo(map);
-            map.removeControl(info);
-            map.removeControl(legend);
+            hasExistIDH = true;
+            if (hasExistOSC) {
+                map.removeControl(info);
+                map.removeControl(legend);
+                hasExistOSC = false;
+            }
+
+        }
+        if(eo.name === 'Desativar' && !firstLoad){
+            if (hasExistOSC) {
+                map.removeControl(info);
+                map.removeControl(legend);
+                hasExistOSC = false;
+            }
+            if (hasExistIDH) {
+                map.removeControl(infoIDH);
+                map.removeControl(legendIDH);
+                hasExistIDH = false;
+            }
         }
         firstLoad = false;
     });

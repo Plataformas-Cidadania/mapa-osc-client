@@ -6,8 +6,8 @@ class Rotas{
   getBaseUrl(){
     var loc = window.location;
   //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
-    return  "https://mapaosc-desenv.ipea.gov.br/api/";
-    //return  "http://localhost:9090/api/";
+    //return  "https://mapaosc-desenv.ipea.gov.br/api/";
+    return  "https://localhost/api/";
     //return  "http://localhost:8009/api/";
   }
 
@@ -15,7 +15,8 @@ class Rotas{
     var loc = window.location;
   //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
     //return  "http://localhost:8002";
-    return  "https://mapaosc-desenv.ipea.gov.br/cms";
+    return  "https://localhost/cms";
+    //return  "https://mapaosc-desenv.ipea.gov.br/cms";
 
   }
 

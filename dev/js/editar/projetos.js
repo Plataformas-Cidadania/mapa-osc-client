@@ -116,8 +116,8 @@ class Projeto {
     }
 
     //console.log(agrupadores);
-    console.log(project);
-    console.log("===========================================================");
+    //console.log(project);
+    //console.log("===========================================================");
     if (project.hasOwnProperty("fonte_recursos")){
       var sectionId = fonteRec.id;
       var value = fonteRec.dados;
@@ -141,7 +141,7 @@ class Projeto {
       var agrupadorInputProjeto = util.AgrupadorDeInputs(sectionId, containerClass, header, [inputProjeto], buttons, options, null, infoTitle);
       agrupadores.push(agrupadorInputProjeto);
 
-      console.log(agrupadorInputProjeto);
+      //console.log(agrupadorInputProjeto);
 
     }
     /* Area de atuacao de projeto temporariamente escondida

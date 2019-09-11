@@ -1054,7 +1054,7 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
               "searchable": false
             },
           ],
-          autoWidth: true,
+          autoWidth: false,
           "oLanguage": dadosForm.oLanguageDataTable()
         }
       );

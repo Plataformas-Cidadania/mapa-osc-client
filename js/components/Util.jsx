@@ -686,14 +686,14 @@ define('componenteFormItem', ['react','componenteDropdown', 'componenteDropdownD
            //console.log(item.id);
            ContentElement =
             <div className="input-box">
-              <textarea maxLength="500" className="form-control" id={item.id}
+              <textarea maxLength="500" className="form-control" id={item.id} name={item.name}
               placeholder={placeholder} defaultValue={content}></textarea>
               {SpanFonte}
             </div>
           } else {
           ContentElement =
           <div className="input-box">
-            <textarea maxLength="500" className="form-control" id={item.id} placeholder={placeholder} defaultValue={content}></textarea>
+            <textarea maxLength="500" className="form-control" id={item.id} name={item.name} placeholder={placeholder} defaultValue={content}></textarea>
             {SpanFonte}
           </div>
           }
@@ -701,13 +701,13 @@ define('componenteFormItem', ['react','componenteDropdown', 'componenteDropdownD
           var className = "input-box"+ custom_class;
           ContentElement =
           <div className={className}>
-            <Dropdown list={item.options} id={item.id} selected={item.content}></Dropdown>
+            <Dropdown list={item.options} id={item.id} name={item.name} selected={item.content}></Dropdown>
             {SpanFonte}
           </div>
         } else if(item.id == "tx_endereco_eletronico_sugerido"){
           ContentElement =
           <div className="input-box">
-            <input maxLength="100" className="form-control with-pretext" id={item.id} placeholder={placeholder} type={item.type} defaultValue={content}></input>
+            <input maxLength="100" className="form-control with-pretext" id={item.id} name={item.name} placeholder={placeholder} type={item.type} defaultValue={content}></input>
             <span className="pre-text">{item.pretext}</span>
             {SpanFonte}
           </div>

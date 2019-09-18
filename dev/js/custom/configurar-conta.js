@@ -29,6 +29,7 @@ require(['react', 'jsx!components/Util','jquery-ui','rotas','tagsinput'], functi
   require(['componenteFormItem'], function(FormItem){
     function FormItens(id, label, type, obrigatorio){
       this.id = id;
+      this.name = id;
       this.label = label;
       this.type = type;
       this.obrigatorio = obrigatorio;
@@ -47,6 +48,8 @@ require(['react', 'jsx!components/Util','jquery-ui','rotas','tagsinput'], functi
       formItens.push(new FormItens(id[j], label[j], type[j], obrigatorio[j]));
     }
 
+    //console.log(formItens);
+
     //formulario 2
     var hd2 = 'Suas Organizações.';
     var id2 = ['nomeEntidade'];
@@ -62,6 +65,8 @@ require(['react', 'jsx!components/Util','jquery-ui','rotas','tagsinput'], functi
     FormItem = React.createFactory(FormItem);
     ReactDOM.render(FormItem({header:hd, dados:formItens}), document.getElementById("form-dados"));
     ReactDOM.render(FormItem({header:hd2, dados:formItens2}), document.getElementById("form-org"));
+
+    validarUsuario();
    });
 
    var user = window.localStorage.getItem('User');
@@ -87,37 +92,43 @@ require(['react', 'jsx!components/Util','jquery-ui','rotas','tagsinput'], functi
        itemText: 'text'
       });
 
-   $.ajax({
-       url: rotas.ValidarUsuario(user),
-       type: 'GET',
-       dataType: "json",
-       data: newJson,
-       success: function(data) {
-         $('#nome').val(data.tx_nome_usuario);
-         $('#email').val(data.tx_email_usuario);
+   function validarUsuario(){
+       $.ajax({
+           url: rotas.ValidarUsuario(user),
+           type: 'GET',
+           dataType: "json",
+           data: newJson,
+           success: function(data) {
+               //console.log(data);
+               $('#nome').val(data.tx_nome_usuario);
+               //console.log($('#nome').val());
+               $('#email').val(data.tx_email_usuario);
 
-         for (var i = 0; i < data.representacao.length; i++){
-           if(i==0){
-             $('#tags').prepend('<label class="control-label listaOscs">Lista de OSCs: <span class="obrigatorio glyphicon-asterisk">(Campo Obrigatório)</span></label>');
+               for (var i = 0; i < data.representacao.length; i++){
+                   if(i==0){
+                       $('#tags').prepend('<label class="control-label listaOscs">Lista de OSCs: <span class="obrigatorio glyphicon-asterisk">(Campo Obrigatório)</span></label>');
+                   }
+                   $('#tags').removeClass('hide');
+                   $('#tag').tagsinput('add', {id: data.representacao[i].id_osc, text: data.representacao[i].tx_nome_osc});
+               }
+               $("#tags span[data-role=remove]").each(function(){
+                   $(this).addClass("tagRemove").prop('title', 'Clique para Remover a OSC do seu Cadastro.');
+               });
+           },
+           error: function(e) {
+               console.log(e);
+               $('#modalMensagem').modal({backdrop: 'static', keyboard: false});
+               $('#modalTitle').text('Erro');
+               $('#modalConteudo').text('É necessário estar logado no sistema para acessar essa página.');
+               $('.modal-footer button').on('click', function(){
+                   history.go(-1);
+               });
+               $('#modalMensagem').modal('show');
            }
-           $('#tags').removeClass('hide');
-           $('#tag').tagsinput('add', {id: data.representacao[i].id_osc, text: data.representacao[i].tx_nome_osc});
-         }
-         $("#tags span[data-role=remove]").each(function(){
-            $(this).addClass("tagRemove").prop('title', 'Clique para Remover a OSC do seu Cadastro.');
-         });
-       },
-       error: function(e) {
-           console.log(e);
-           $('#modalMensagem').modal({backdrop: 'static', keyboard: false});
-           $('#modalTitle').text('Erro');
-           $('#modalConteudo').text('É necessário estar logado no sistema para acessar essa página.');
-           $('.modal-footer button').on('click', function(){
-             history.go(-1);
-           });
-           $('#modalMensagem').modal('show');
-       }
-   });
+       });
+   }
+
+
 
    require(["jquery-ui", "rotas"], function(React) {
        $("#nomeEntidade.form-control").autocomplete({

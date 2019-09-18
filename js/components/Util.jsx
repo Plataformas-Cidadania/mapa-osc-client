@@ -600,7 +600,7 @@ define('componenteCheckboxProjeto', ['react'], function (React) {
         var checkboxElement;
         if(dados.content != null){
           for (var j = 0; j < dados.content.length; j++) {
-              console.log(item, dados.content[j].tx_nome_origem_fonte_recursos_projeto);
+              //console.log(item, dados.content[j].tx_nome_origem_fonte_recursos_projeto);
               //normalize() está sendo usado para evitar problemas na comparação das strings
               if(dados.content[j].tx_nome_origem_fonte_recursos_projeto){
                   if(item.normalize() == dados.content[j].tx_nome_origem_fonte_recursos_projeto.normalize()){

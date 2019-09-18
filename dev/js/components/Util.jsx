@@ -602,10 +602,19 @@ define('componenteCheckboxProjeto', ['react'], function (React) {
           for (var j = 0; j < dados.content.length; j++) {
               //console.log(item, dados.content[j].tx_nome_origem_fonte_recursos_projeto);
               //normalize() está sendo usado para evitar problemas na comparação das strings
-            if(item == dados.content[j].tx_nome_tipo_parceria || item.normalize() == dados.content[j].tx_nome_origem_fonte_recursos_projeto.normalize()){
-                //console.log(item, 'encontrado');
-              selected = true;
-            }
+              if(dados.content[j].tx_nome_origem_fonte_recursos_projeto){
+                  if(item.normalize() == dados.content[j].tx_nome_origem_fonte_recursos_projeto.normalize()){
+                      //console.log(item, 'encontrado');
+                      selected = true;
+                  }
+              }
+              if(dados.content[j].tx_nome_tipo_parceria){
+                  if(item.normalize() == dados.content[j].tx_nome_tipo_parceria.normalize()){
+                      //console.log(item, 'encontrado');
+                      selected = true;
+                  }
+              }
+
             else if( contains("financeiros",dados.content[j].tx_nome_tipo_parceria) && contains("financeiros",item) ){
               selected = true;
             }

@@ -2137,7 +2137,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             console.log("ERRO no AJAX: " + e);
         },
         success: function(data){
-            console.log(data);
+            //console.log(data);
             IDH(data);
             //$('#loadingMapModal').hide();
             idhLoaded = true;

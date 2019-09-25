@@ -96,6 +96,9 @@
           <li>
             <div class="btnEditar"></div>
           </li>
+          <li>
+            <input type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary" value="Certificado">
+          </li>
         </ul>
         <hr>
 
@@ -1412,5 +1415,31 @@
   <noscript><p><img src="//mapaosc.ipea.gov.br/webstats/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
   <!-- End Piwik Code -->
 
+  <!--///////-->
+    <div id="printDivCertificate" class="conteudoCertificate">
+      <div class="row">
+        <div class="col-md-6"><img src="img/logo.png" alt=""></div>
+        <div class="col-md-6"></div>
+        <div class="col-md-12 text-center">
+          <h2>Certificado Mapa OSC</h2>
+          <p style="font-size: 18px;">Certificamos que {{ctrl.osc.cabecalho.tx_razao_social_osc}} com CNPJ: {{ctrl.osc.cabecalho.cd_identificador_osc}} na àrea de atuação {{ctrl.osc.area_atuacao.area_atuacao[0].tx_nome_area_atuacao}}, participa do Mapa das Organizações da Sociedade Civil até a data presente.</p>
+        </div>
+      </div>
+
+
+    </div>
+
+    <style>
+      .conteudoCertificate{
+        display: none;
+      }
+      @media print {
+        .conteudoCertificate{
+          display: block;
+        }
+      }
+
+    </style>
+    <!--///////-->
   </body>
 </html>

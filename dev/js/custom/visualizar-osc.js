@@ -460,6 +460,20 @@ function addLinkVoltar(id){
 
 
 function printCertificate(tagid){
+
+	//////////*Start Data Hoje *//////////
+	var data = new Date();
+	var dia = data.getDate();
+	var mes = data.getMonth() + 1;
+	if (mes < 10) {
+		mes = "0" + mes;
+	}
+	var ano = data.getFullYear();
+
+	document.getElementById('testeData').innerHTML = dia+"/"+mes+"/"+ano;
+	//////////*End Data Hoje *//////////
+
+	//////////*Start Print *//////////
 	var hashid = "#"+ tagid;
 	var tagname =  $(hashid).prop("tagName").toLowerCase() ;
 	var attributes = "";
@@ -474,5 +488,21 @@ function printCertificate(tagid){
 	newWin.document.open();
 	newWin.document.write(allcontent);
 	newWin.document.close();
+	//////////*Start Print *//////////
+
+	//dataHoje();
 
 }
+
+/*function dataHoje() {
+	var data = new Date();
+	var dia = data.getDate();
+	var mes = data.getMonth() + 1;
+	if (mes < 10) {
+		mes = "0" + mes;
+	}
+	var ano = data.getFullYear();
+
+	document.getElementById('testeData').innerHTML = dia+"/"+mes+"/"+ano;
+
+}*/

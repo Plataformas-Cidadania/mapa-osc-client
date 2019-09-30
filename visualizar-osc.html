@@ -96,8 +96,14 @@
           <li>
             <div class="btnEditar"></div>
           </li>
-          <li>
-            <input type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary" value="Certificado">
+          <li ng-if="ctrl.osc.dados_gerais.dt_ano_cadastro_cnpj == null" class="btn-aling">
+            <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> Gerando certificado
+          </li>
+          <li ng-if="ctrl.osc.dados_gerais.dt_ano_cadastro_cnpj != null">
+            <div type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
+              <i class="fa fa-certificate" aria-hidden="true"></i>
+              Certificado
+            </div>
           </li>
         </ul>
         <hr>
@@ -1416,20 +1422,35 @@
   <!-- End Piwik Code -->
 
   <!--///////-->
-    <div id="printDivCertificate" class="conteudoCertificate">
-      <div class="row">
-        <div class="col-md-6"><img src="img/logo.png" alt=""></div>
-        <div class="col-md-6"></div>
-        <div class="col-md-12 text-center">
-          <h2>Certificado Mapa OSC</h2>
-          <p style="font-size: 18px;">Certificamos que {{ctrl.osc.cabecalho.tx_razao_social_osc}} com CNPJ: {{ctrl.osc.cabecalho.cd_identificador_osc}} na àrea de atuação {{ctrl.osc.area_atuacao.area_atuacao[0].tx_nome_area_atuacao}}, participa do Mapa das Organizações da Sociedade Civil até a data presente.</p>
+    <div id="printDivCertificate" class="conteudoCertificate container-fluid" style="padding-left: 0;">
+        <div class="row">
+          <div class="col-md-6"><img src="img/logo.png" alt=""></div>
+          <div class="col-md-6"></div>
+          <div class="col-md-12 text-center">
+            <br><br><br>
+            <h2 style="font-size: 35px;">Certificado Mapa OSC</h2>
+              <p style="font-size: 18px; padding: 50px 100px;">Certificamos que {{ctrl.osc.cabecalho.tx_razao_social_osc}} com CNPJ: {{ctrl.osc.cabecalho.cd_identificador_osc}} na àrea de atuação {{ctrl.osc.area_atuacao.area_atuacao[0].tx_nome_area_atuacao}}, participa do Mapa das Organizações da Sociedade Civil até a data presente de <span id="testeData"></span>.</p>
+              <div class="text-center" style="background-color: #CCCCCC; width: 100%; position: fixed; bottom: 0; padding: 8px 0; text-align: center; margin: auto; border: solid 1px #CCCCCC;">mapaosc.ipea.gov.br</div>
+          </div>
         </div>
-      </div>
-
-
     </div>
 
+
     <style>
+      .btn-aling{
+        margin-top: 10px;
+      }
+      /*.title-certificate{
+        font-size: 35px;
+      }
+      .text-certificate{
+        font-size: 18px;
+      }
+      .line-certificate{
+        background-color: #CCCCCC;
+        padding: 8px;
+        border: 0;
+      }*/
       .conteudoCertificate{
         display: none;
       }

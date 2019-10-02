@@ -468,6 +468,9 @@ function printCertificate(tagid){
 	if (mes < 10) {
 		mes = "0" + mes;
 	}
+	if (dia < 10) {
+		dia = "0" + dia;
+	}
 	var ano = data.getFullYear();
 
 	document.getElementById('testeData').innerHTML = dia+"/"+mes+"/"+ano;

@@ -498,6 +498,8 @@ require(['rotas',"jquery-ui"], function (React) {
 
     var rotas = new Rotas();
 
+    console.log(rotas.getBaseUrlCMS);
+
     $.ajax({
         url: rotas.ModuloBySlug('certificado'),
         //url: rotas.ModuloCertificado(),
@@ -510,26 +512,29 @@ require(['rotas',"jquery-ui"], function (React) {
         },
         success: function(data){
 			//console.log(data);
-			console.log(data[0].modulos.tx_titulo_modulo);
+			//console.log(data[0].modulos.tx_titulo_modulo);
 
-
-
-			//var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
-			//var txtCertificado = txtCertificado.text();
-
-			var re = /\s*;\s*/;
-			//var txtCertificado = data[0].modulos.tx_titulo_modulo.split(re);
 			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
 
+			var re = /\s*;;\s*/;
+			var txtCertificado = txtCertificado.split(re);
 
-			var str=txtCertificado;
-			var str_esc=escape(str);
-			/*document.write(str_esc + "<br>")
-			document.write(unescape(str_esc))*/
-
+			//console.log(txtCertificado);
 
 
-			console.log(unescape(txtCertificado));
+			$("#title").text(data[0].modulos.tx_titulo_modulo);
+			$("#txt0").text(txtCertificado[0]);
+			$("#txt1").text(txtCertificado[1]);
+			$("#txt2").text(txtCertificado[2]);
+			$("#txt3").text(txtCertificado[3]);
+
+			document.getElementById('imgSetada').setAttribute('src', rotas.getBaseUrlCMS+'cms/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
+
+
+			console.log("imagens/modulos/"+data[0].modulos.tx_imagem_modulo);
+
+
+
 
 
         }

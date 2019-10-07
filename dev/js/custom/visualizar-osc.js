@@ -493,3 +493,47 @@ function printCertificate(tagid){
 	//////////*Start Print *//////////
 
 }
+
+require(['rotas',"jquery-ui"], function (React) {
+
+    var rotas = new Rotas();
+
+    $.ajax({
+        url: rotas.ModuloBySlug('certificado'),
+        //url: rotas.ModuloCertificado(),
+        type: 'GET',
+        dataType: 'json',
+        error: function(e){
+            console.log("ERRO no AJAX :" + e);
+            $('.manutencao').css('display', 'block');
+            $('.loading').addClass('hide');
+        },
+        success: function(data){
+			//console.log(data);
+			console.log(data[0].modulos.tx_titulo_modulo);
+
+
+
+			//var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
+			//var txtCertificado = txtCertificado.text();
+
+			var re = /\s*;\s*/;
+			//var txtCertificado = data[0].modulos.tx_titulo_modulo.split(re);
+			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
+
+
+			var str=txtCertificado;
+			var str_esc=escape(str);
+			/*document.write(str_esc + "<br>")
+			document.write(unescape(str_esc))*/
+
+
+
+			console.log(unescape(txtCertificado));
+
+
+        }
+    });
+});
+
+

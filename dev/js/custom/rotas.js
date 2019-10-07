@@ -414,6 +414,10 @@ class Rotas{
   ModuloByID(tipo){
     return this.getBaseUrlCMS()+"/ModuloByID/"+tipo;
   }
+
+  ModuloCertificado(){
+    return this.getBaseUrlCMS()+"/certificado";
+  }
   //FIM CMS
 
 

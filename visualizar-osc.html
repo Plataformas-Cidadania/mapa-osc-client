@@ -96,10 +96,10 @@
           <li>
             <div class="btnEditar"></div>
           </li>
-          <li ng-if="ctrl.osc.dados_gerais.dt_ano_cadastro_cnpj == null" class="btn-aling">
+          <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" class="btn-aling">
             <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> Gerando certificado
           </li>
-          <li ng-if="ctrl.osc.dados_gerais.dt_ano_cadastro_cnpj != null">
+          <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc != null">
             <div type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
               <i class="fa fa-certificate" aria-hidden="true"></i>
               Certificado

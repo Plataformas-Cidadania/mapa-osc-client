@@ -496,9 +496,8 @@ function printCertificate(tagid){
 
 require(['rotas',"jquery-ui"], function (React) {
 
-    var rotas = new Rotas();
+	var rotas = new Rotas();
 
-    console.log(rotas.getBaseUrlCMS);
 
     $.ajax({
         url: rotas.ModuloBySlug('certificado'),
@@ -519,7 +518,11 @@ require(['rotas',"jquery-ui"], function (React) {
 			var re = /\s*;;\s*/;
 			var txtCertificado = txtCertificado.split(re);
 
-			//console.log(txtCertificado);
+
+			let rotaArry = window.location.href.split("/");
+			let rotaFull = rotaArry[0]+"//"+rotaArry[2]+"/"+rotaArry[3];
+
+			console.log(rotaFull);
 
 
 			$("#title").text(data[0].modulos.tx_titulo_modulo);
@@ -528,7 +531,7 @@ require(['rotas',"jquery-ui"], function (React) {
 			$("#txt2").text(txtCertificado[2]);
 			$("#txt3").text(txtCertificado[3]);
 
-			document.getElementById('imgSetada').setAttribute('src', rotas.getBaseUrlCMS+'cms/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
+			document.getElementById('imgSetada').setAttribute('src', rotaFull+'cms/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
 
 
 			console.log("imagens/modulos/"+data[0].modulos.tx_imagem_modulo);

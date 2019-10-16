@@ -517,7 +517,7 @@ require(['rotas',"jquery-ui"], function (React) {
             $('.loading').addClass('hide');
         },
         success: function(data){
-			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
+			var txtCertificado = utf8_encode(data[0].modulos.tx_descricao_modulo).replace(/<.*?>/g, '');
 
 			var re = /\s*;;\s*/;
 			var txtCertificado = txtCertificado.split(re);

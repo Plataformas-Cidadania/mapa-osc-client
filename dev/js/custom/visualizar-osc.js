@@ -517,7 +517,8 @@ require(['rotas',"jquery-ui"], function (React) {
             $('.loading').addClass('hide');
         },
         success: function(data){
-			var txtCertificado = utf8_encode(data[0].modulos.tx_descricao_modulo).replace(/<.*?>/g, '');
+			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
+			var txtCertificado = isoToUtf8(txtCertificado);
 
 			var re = /\s*;;\s*/;
 			var txtCertificado = txtCertificado.split(re);
@@ -536,5 +537,58 @@ require(['rotas',"jquery-ui"], function (React) {
         }
     });
 });
+
+function isoToUtf8 (str) {
+	var acentos = {
+		'&Aacute;': 'Á',
+		'&Eacute;': 'É',
+		'&Iacute;': 'Í',
+		'&Oacute;': 'Ó',
+		'&Uacute;': 'Ú',
+		'&aacute;': 'á',
+		'&eacute;': 'é',
+		'&iacute;': 'í',
+		'&oacute;': 'ó',
+		'&uacute;': 'ú',
+		'&Acirc;': 'Â',
+		'&Ecirc;': 'Ê',
+		'&Ocirc;': 'Ô',
+		'&Acirc;': 'â',
+		'&Ecirc;': 'ê',
+		'&Ocirc;': 'ô',
+		'&Agrave;': 'À',
+		'&agrave;': 'à',
+		'&Uuml;': 'Ü',
+		'&uuml;': 'ü',
+		'&Ccedil;': 'Ç',
+		'&ccedil;': 'ç',
+		'&Atilde;': 'Ã',
+		'&Otilde;': 'Õ',
+		'&atilde;': 'ã',
+		'&otilde;': 'õ',
+		'&Ntilde;': 'Ñ',
+		'&ntilde;': 'ñ',
+	};
+
+	for(let property in acentos){
+		str = replaceAll(str, property, acentos[property]);
+	}
+
+	console.log(str);
+
+	return str;
+
+
+}
+function replaceAll(str, de, para){
+	var pos = str.indexOf(de);
+	while (pos > -1){
+		str = str.replace(de, para);
+		pos = str.indexOf(de);
+	}
+	return (str);
+}
+
+
 
 

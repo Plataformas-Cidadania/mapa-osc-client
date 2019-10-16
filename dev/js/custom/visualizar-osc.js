@@ -227,6 +227,7 @@ require(["jquery-ui", 'rotas'], function (React) {
 		//$(".g-plusone").attr('data-href',window.location.href);
 
 		verificarBotaoEditar(idOsc);
+		verificarBotaoCertificate();
 		addLinkVoltar(idOsc);
     $(".scroll").click(function(event){
         event.preventDefault();
@@ -456,9 +457,16 @@ function addLinkVoltar(id){
 				 $("#voltaPagAnterior").text('Lista de OSCs');
 		 }
 }
-
+function verificarBotaoCertificate() {
+	var rotas = new Rotas();
+	let rotaArryCert = rotas.getBaseUrl().split("/");
+	let rotaFullCert = rotaArryCert[0] + "//" + rotaArryCert[2];
+	//$("#preloadCertificate").attr("src", rotaFullCert+'/img/loading.gif');
+	document.getElementById("preloadCertificate").src = rotaFullCert + "/img/loading.gif";
+}
 
 function printCertificate(tagid){
+
 
 	//////////*Start Data Hoje *//////////
 	var data = new Date();
@@ -498,7 +506,6 @@ require(['rotas',"jquery-ui"], function (React) {
 
 	var rotas = new Rotas();
 
-
     $.ajax({
         url: rotas.ModuloBySlug('certificado'),
         //url: rotas.ModuloCertificado(),
@@ -510,20 +517,13 @@ require(['rotas',"jquery-ui"], function (React) {
             $('.loading').addClass('hide');
         },
         success: function(data){
-			//console.log(data);
-			//console.log(data[0].modulos.tx_titulo_modulo);
-
 			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
 
 			var re = /\s*;;\s*/;
 			var txtCertificado = txtCertificado.split(re);
 
-
-			let rotaArry = window.location.href.split("/");
-			let rotaFull = rotaArry[0]+"//"+rotaArry[2]+"/"+rotaArry[3];
-
-			console.log(rotaFull);
-
+			let rotaArry = rotas.getBaseUrlCMS().split("/");
+			let rotaFull = rotaArry[0]+"//"+rotaArry[2];
 
 			$("#title").text(data[0].modulos.tx_titulo_modulo);
 			$("#txt0").text(txtCertificado[0]);
@@ -531,14 +531,7 @@ require(['rotas',"jquery-ui"], function (React) {
 			$("#txt2").text(txtCertificado[2]);
 			$("#txt3").text(txtCertificado[3]);
 
-			document.getElementById('imgSetada').setAttribute('src', rotaFull+'cms/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
-
-
-			console.log("imagens/modulos/"+data[0].modulos.tx_imagem_modulo);
-
-
-
-
+            $("#imgSetada").attr("src",rotaFull+'/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
 
         }
     });

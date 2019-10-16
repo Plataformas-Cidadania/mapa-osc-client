@@ -97,7 +97,9 @@
             <div class="btnEditar"></div>
           </li>
           <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" class="btn-aling">
-            <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i> Gerando certificado
+            <!--<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>-->
+            <img id="preloadCertificate" src="" alt="" width="30">
+            Gerando certificado
           </li>
           <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc != null">
             <div type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
@@ -1421,8 +1423,9 @@
   <noscript><p><img src="//mapaosc.ipea.gov.br/webstats/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
   <!-- End Piwik Code -->
 
-  <!--///////-->
+  <!--////CERTIFICADO///-->
     <div id="printDivCertificate" class="conteudoCertificate container-fluid" style="padding-left: 0;">
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="tx-print">
@@ -1437,54 +1440,10 @@
               <div class="text-center footer-print">mapaosc.ipea.gov.br</div>
             </div>
             <img id="imgSetada" src="" class="bg-print">
+            <div id="imgSetada2" ></div>
           </div>
         </div>
-      <style>
-        .tx-print{
-          position: relative;
-          z-index:1;
-          width:100%;
-          background-color:#CCCCCC;
-
-          margin-top: 200px;
-        }
-        .bg-print{
-          width:100%;
-          height:auto;
-          position: absolute;
-          top: 0;
-          left:0;
-          z-index:0;
-          margin: 0;
-        }
-        .btn-aling{
-          margin-top: 10px;
-        }
-        .footer-print{
-          width: 100%;
-          position: fixed;
-          bottom: 0;
-          padding: 8px 0;
-          text-align: center;
-          margin: auto;
-        }
-        .conteudoCertificate{
-          display: none;
-        }
-        @media print {
-          .conteudoCertificate{
-            display: block;
-          }
-          @page {
-            size:A4 landscape;
-            margin: 0;
-          }
-        }
-      </style>
     </div>
-
-
-
     <!--///////-->
   </body>
 </html>

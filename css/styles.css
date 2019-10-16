@@ -1389,3 +1389,45 @@ display: inline-block;
 #carousel-topo .carousel-caption {
   display: none;
 }
+
+/*Print Certificado*/
+.tx-print{
+  position: relative;
+  z-index:1;
+  width:100%;
+  background-color:#CCCCCC;
+
+  margin-top: 200px;
+}
+.bg-print{
+  width:100%;
+  height:auto;
+  position: absolute;
+  top: 0;
+  left:0;
+  z-index:0;
+  margin: 0;
+}
+.btn-aling{
+  margin-top: 10px;
+}
+.footer-print{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 8px 0;
+  text-align: center;
+  margin: auto;
+}
+.conteudoCertificate{
+  display: none;
+}
+@media print {
+  .conteudoCertificate{
+    display: block;
+  }
+  @page {
+    size:A4 landscape;
+    margin: 0;
+  }
+}

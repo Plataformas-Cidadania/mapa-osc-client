@@ -101,7 +101,7 @@ class Rotas{
   }
 
   IDH(){
-    //return this.getBaseUrl()+"analises/idhgeo";
+    return this.getBaseUrl()+"analises/idhgeo";
   }
 
   IDHM(id){

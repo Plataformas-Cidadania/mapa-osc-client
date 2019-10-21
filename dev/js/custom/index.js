@@ -159,8 +159,35 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
     var val = tabAtiva.find(".form-control").val();
     val = replaceSpecialChars(val.trim()).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',').replace(/\+{2,}/g, '_');
     var link;
+
+    var valCNPJNumero;
+    var valCNPJ;
+
+    if(val.length==17){
+      val = val.replace(/(\,|\/|\-)/g, '');
+      valCNPJNumero = checkNumber(val);
+      valCNPJ = val.length;
+    }else{
+      valCNPJ = val.length;
+      valCNPJNumero = checkNumber(val);
+    }
+
+    function checkNumber(valor) {
+      var regra = /^[0-9]+$/;
+      if (valor.match(regra)) {
+          return true;
+      }else{
+          return false;
+      }
+    };
+
+
     if (id == 'organizacao' && val !== ''){
-      link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
+        if(valCNPJ=='14' && valCNPJNumero==true){
+            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=1";
+        }else{
+            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
+        }
       location.href=link;
     }
     else {
@@ -174,6 +201,7 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
       }
     }
   });
+
 
   function replaceSpecialChars(str){
     str = str.replace(/[ÀÁÂÃÄÅ]/g,"A");

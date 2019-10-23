@@ -526,6 +526,9 @@ require(['rotas',"jquery-ui"], function (React) {
 			let rotaArry = rotas.getBaseUrlCMS().split("/");
 			let rotaFull = rotaArry[0]+"//"+rotaArry[2];
 
+			console.log(rotaArry);
+			console.log(rotaFull);
+
 			$("#title").text(data[0].modulos.tx_titulo_modulo);
 			$("#txt0").text(txtCertificado[0]);
 			$("#txt1").text(txtCertificado[1]);

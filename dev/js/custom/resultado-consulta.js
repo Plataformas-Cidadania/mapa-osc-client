@@ -2556,7 +2556,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     {
                         'Camadas': {
                             'OSC':layerGroup,
-                            /*'IDH':layerGroupIDH,*/
+                            'IDH':layerGroupIDH,
                             'Desativar':layerGroupTeste
                         }
                     },

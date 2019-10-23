@@ -96,6 +96,17 @@
           <li>
             <div class="btnEditar"></div>
           </li>
+          <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" class="btn-aling">
+            <!--<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>-->
+            <img id="preloadCertificate" src="" alt="" width="30">
+            Gerando certificado
+          </li>
+          <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc != null">
+            <div type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
+              <i class="fa fa-certificate" aria-hidden="true"></i>
+              Certificado
+            </div>
+          </li>
         </ul>
         <hr>
 
@@ -1412,5 +1423,27 @@
   <noscript><p><img src="//mapaosc.ipea.gov.br/webstats/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
   <!-- End Piwik Code -->
 
+  <!--////CERTIFICADO///-->
+    <div id="printDivCertificate" class="conteudoCertificate container-fluid" style="padding-left: 0;">
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="tx-print">
+              <br><br><br>
+              <h2 style="font-size: 35px;" id="title"></h2>
+              <p style="font-size: 18px; padding: 50px 100px;">
+                <span id="txt0"></span> {{ctrl.osc.cabecalho.tx_razao_social_osc}}
+                <span id="txt1"></span> {{ctrl.osc.cabecalho.cd_identificador_osc}}
+                <span id="txt2"></span> {{ctrl.osc.area_atuacao.area_atuacao[0].tx_nome_area_atuacao}}
+                <span id="txt3"></span>
+                <span id="testeData"></span>.</p>
+              <div class="text-center footer-print">mapaosc.ipea.gov.br</div>
+            </div>
+            <img id="imgSetada" src="" class="bg-print">
+            <div id="imgSetada2" ></div>
+          </div>
+        </div>
+    </div>
+    <!--///////-->
   </body>
 </html>

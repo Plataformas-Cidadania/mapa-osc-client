@@ -5,9 +5,11 @@ class Rotas{
 
   getBaseUrl(){
     var loc = window.location;
-  //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
+    return  loc.protocol + '//' + loc.host + '/api/';
+    //return  "https://mapaosc-dev.ipea.gov.br/api/";
     //return  "https://mapaosc-homologa.ipea.gov.br/api/";
-    return  "https://mapaosc-dev.ipea.gov.br/api/";
+    //return  "https://mapaosc.ipea.gov.br/api/";
+    //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
     //return  "https://localhost/api/";
     //return  "http://localhost:8009/api/";
     //return  "http://localhost:9090/api/";
@@ -16,10 +18,12 @@ class Rotas{
 
   getBaseUrlCMS(){
     var loc = window.location;
-  //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
-    //return  "http://localhost:8002";
+    return  loc.protocol + '//' + loc.host + '/api/';
+    //return  "https://mapaosc-dev.ipea.gov.br/cms";
     //return  "https://mapaosc-homologa.ipea.gov.br/cms";
-    return  "https://mapaosc-dev.ipea.gov.br/cms";
+    //return  "https://mapaosc.ipea.gov.br/cms";
+    //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
+    //return  "http://localhost:8002";
 
   }
 
@@ -100,7 +104,7 @@ class Rotas{
   }
 
   IDH(){
-    //return this.getBaseUrl()+"analises/idhgeo";
+    return this.getBaseUrl()+"analises/idhgeo";
   }
 
   IDHM(id){
@@ -412,6 +416,10 @@ class Rotas{
   }
   ModuloByID(tipo){
     return this.getBaseUrlCMS()+"/ModuloByID/"+tipo;
+  }
+
+  ModuloCertificado(){
+    return this.getBaseUrlCMS()+"/certificado";
   }
   //FIM CMS
 

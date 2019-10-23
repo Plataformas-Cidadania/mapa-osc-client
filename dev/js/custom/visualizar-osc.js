@@ -227,6 +227,7 @@ require(["jquery-ui", 'rotas'], function (React) {
 		//$(".g-plusone").attr('data-href',window.location.href);
 
 		verificarBotaoEditar(idOsc);
+		verificarBotaoCertificate();
 		addLinkVoltar(idOsc);
     $(".scroll").click(function(event){
         event.preventDefault();
@@ -456,3 +457,138 @@ function addLinkVoltar(id){
 				 $("#voltaPagAnterior").text('Lista de OSCs');
 		 }
 }
+function verificarBotaoCertificate() {
+	var rotas = new Rotas();
+	let rotaArryCert = rotas.getBaseUrl().split("/");
+	let rotaFullCert = rotaArryCert[0] + "//" + rotaArryCert[2];
+	//$("#preloadCertificate").attr("src", rotaFullCert+'/img/loading.gif');
+	document.getElementById("preloadCertificate").src = rotaFullCert + "/img/loading.gif";
+}
+
+function printCertificate(tagid){
+
+
+	//////////*Start Data Hoje *//////////
+	var data = new Date();
+	var dia = data.getDate();
+	var mes = data.getMonth() + 1;
+	if (mes < 10) {
+		mes = "0" + mes;
+	}
+	if (dia < 10) {
+		dia = "0" + dia;
+	}
+	var ano = data.getFullYear();
+
+	document.getElementById('testeData').innerHTML = dia+"/"+mes+"/"+ano;
+	//////////*End Data Hoje *//////////
+
+	//////////*Start Print *//////////
+	var hashid = "#"+ tagid;
+	var tagname =  $(hashid).prop("tagName").toLowerCase() ;
+	var attributes = "";
+	var attrs = document.getElementById(tagid).attributes;
+	$.each(attrs,function(i,elem){
+		attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
+	})
+	var divToPrint= $(hashid).html() ;
+	var head = "<html><head>"+ $("head").html() + "</head>" ;
+	var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
+	var newWin=window.open('','Print-Window');
+	newWin.document.open();
+	newWin.document.write(allcontent);
+	newWin.document.close();
+	//////////*Start Print *//////////
+
+}
+
+require(['rotas',"jquery-ui"], function (React) {
+
+	var rotas = new Rotas();
+
+    $.ajax({
+        url: rotas.ModuloBySlug('certificado'),
+        //url: rotas.ModuloCertificado(),
+        type: 'GET',
+        dataType: 'json',
+        error: function(e){
+            console.log("ERRO no AJAX :" + e);
+            $('.manutencao').css('display', 'block');
+            $('.loading').addClass('hide');
+        },
+        success: function(data){
+			var txtCertificado = data[0].modulos.tx_descricao_modulo.replace(/<.*?>/g, '');
+			var txtCertificado = isoToUtf8(txtCertificado);
+
+			var re = /\s*;;\s*/;
+			var txtCertificado = txtCertificado.split(re);
+
+			let rotaArry = rotas.getBaseUrlCMS().split("/");
+			let rotaFull = rotaArry[0]+"//"+rotaArry[2];
+
+			$("#title").text(data[0].modulos.tx_titulo_modulo);
+			$("#txt0").text(txtCertificado[0]);
+			$("#txt1").text(txtCertificado[1]);
+			$("#txt2").text(txtCertificado[2]);
+			$("#txt3").text(txtCertificado[3]);
+
+            $("#imgSetada").attr("src",rotaFull+'/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
+
+        }
+    });
+});
+
+function isoToUtf8 (str) {
+	var acentos = {
+		'&Aacute;': 'Á',
+		'&Eacute;': 'É',
+		'&Iacute;': 'Í',
+		'&Oacute;': 'Ó',
+		'&Uacute;': 'Ú',
+		'&aacute;': 'á',
+		'&eacute;': 'é',
+		'&iacute;': 'í',
+		'&oacute;': 'ó',
+		'&uacute;': 'ú',
+		'&Acirc;': 'Â',
+		'&Ecirc;': 'Ê',
+		'&Ocirc;': 'Ô',
+		'&Acirc;': 'â',
+		'&Ecirc;': 'ê',
+		'&Ocirc;': 'ô',
+		'&Agrave;': 'À',
+		'&agrave;': 'à',
+		'&Uuml;': 'Ü',
+		'&uuml;': 'ü',
+		'&Ccedil;': 'Ç',
+		'&ccedil;': 'ç',
+		'&Atilde;': 'Ã',
+		'&Otilde;': 'Õ',
+		'&atilde;': 'ã',
+		'&otilde;': 'õ',
+		'&Ntilde;': 'Ñ',
+		'&ntilde;': 'ñ',
+	};
+
+	for(let property in acentos){
+		str = replaceAll(str, property, acentos[property]);
+	}
+
+	console.log(str);
+
+	return str;
+
+
+}
+function replaceAll(str, de, para){
+	var pos = str.indexOf(de);
+	while (pos > -1){
+		str = str.replace(de, para);
+		pos = str.indexOf(de);
+	}
+	return (str);
+}
+
+
+
+

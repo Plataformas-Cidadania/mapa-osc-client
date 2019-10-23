@@ -160,17 +160,18 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
     val = replaceSpecialChars(val.trim()).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',').replace(/\+{2,}/g, '_');
     var link;
 
-    var valCNPJNumero;
-    var valCNPJ;
+      ////////////////////////////
+      var tipoBusca = 0;
+      var val2 = null;
 
-    if(val.length==17){
-      val = val.replace(/(\,|\/|\-)/g, '');
-      valCNPJNumero = checkNumber(val);
-      valCNPJ = val.length;
-    }else{
-      valCNPJ = val.length;
-      valCNPJNumero = checkNumber(val);
-    }
+      val2 = val.replace(/(\,|\/|\-)/g, '');
+
+      if(checkNumber(val2)){
+          val = val2;
+          if(val.length==14){
+              tipoBusca = 1;
+          }
+      }
 
     function checkNumber(valor) {
       var regra = /^[0-9]+$/;
@@ -183,12 +184,8 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
 
 
     if (id == 'organizacao' && val !== ''){
-        if(valCNPJ=='14' && valCNPJNumero==true){
-            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=1";
-        }else{
-            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
-        }
-      location.href=link;
+        link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=" + tipoBusca;
+        location.href=link;
     }
     else {
       val = $('.response').val();

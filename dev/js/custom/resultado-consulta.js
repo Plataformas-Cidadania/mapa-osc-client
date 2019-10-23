@@ -115,17 +115,17 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
         var val = tabAtiva.find(".form-control").val();
         val = replaceSpecialChars(val.trim()).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',').replace(/\+{2,}/g, '_');
 
+        ////////////////////////////
+        var tipoBusca = 0;
+        var val2 = null;
 
-        var valCNPJNumero;
-        var valCNPJ;
+        val2 = val.replace(/(\,|\/|\-)/g, '');
 
-        if(val.length==17){
-            val = val.replace(/(\,|\/|\-)/g, '');
-            valCNPJNumero = checkNumber(val);
-            valCNPJ = val.length;
-        }else{
-            valCNPJ = val.length;
-            valCNPJNumero = checkNumber(val);
+        if(checkNumber(val2)){
+            val = val2;
+            if(val.length==14){
+                tipoBusca = 1;
+            }
         }
 
         function checkNumber(valor) {
@@ -139,12 +139,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
 
         if (id == 'organizacao' && val !== ''){
-            if(valCNPJ=='14' && valCNPJNumero==true){
-                link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=1";
-            }else{
-                link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
-            }
-
+            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=" + tipoBusca;
             location.href=link;
         }else {
             val = $('.response').val();
@@ -2039,6 +2034,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
             console.log("ERRO no AJAX :" + e);
         },
         success: function(data){
+            //console.log(tipoConsulta);
             if(data !== "" && data !== undefined && data !== "Nenhuma Organização encontrada!"){
                 tabela(urlRota, consulta_avancada);
                 var count = 0;
@@ -2056,11 +2052,19 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
 
                     paginar(count);
                     $("#legenda p").append(count);
+                    if(tipoConsulta=='todos'){
+                        $("#legendaConsulta").show();
+                        $("#legenda p").append(' *');
+                    }
                     carregaMapaCluster(data1, tipoConsulta);
                 }else{
                     count = Object.keys(data1).length-1;
                     paginar(count);
                     $("#legenda p").append(count);
+                    if(tipoConsulta=='todos'){
+                        $("#legendaConsulta").show();
+                        $("#legenda p").append(' *');
+                    }
                     carregaMapa(data1);
 
                     if(consulta_avancada){

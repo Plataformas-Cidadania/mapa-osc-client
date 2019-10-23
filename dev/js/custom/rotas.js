@@ -6,7 +6,7 @@ class Rotas{
   getBaseUrl(){
     var loc = window.location;
     return  loc.protocol + '//' + loc.host + '/api/';
-    //return  "https://mapaosc-dev.ipea.gov.br/api/";
+    //return  "https://mapaosc-desenv.ipea.gov.br/api/";
     //return  "https://mapaosc-homologa.ipea.gov.br/api/";
     //return  "https://mapaosc.ipea.gov.br/api/";
     //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
@@ -18,8 +18,8 @@ class Rotas{
 
   getBaseUrlCMS(){
     var loc = window.location;
-    return  loc.protocol + '//' + loc.host + '/api/';
-    //return  "https://mapaosc-dev.ipea.gov.br/cms";
+    return  loc.protocol + '//' + loc.host + '/cms/';
+    //return  "https://mapaosc-desenv.ipea.gov.br/cms";
     //return  "https://mapaosc-homologa.ipea.gov.br/cms";
     //return  "https://mapaosc.ipea.gov.br/cms";
     //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';

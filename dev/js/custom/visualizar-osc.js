@@ -535,7 +535,7 @@ require(['rotas',"jquery-ui"], function (React) {
 			$("#txt2").text(txtCertificado[2]);
 			$("#txt3").text(txtCertificado[3]);
 
-            $("#imgSetada").attr("src",rotaFull+'/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
+            $("#imgSetada").attr("src",rotaFull+'/cms/imagens/modulos/'+data[0].modulos.tx_imagem_modulo);
 
         }
     });

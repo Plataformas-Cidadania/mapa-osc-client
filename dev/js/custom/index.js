@@ -159,9 +159,33 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
     var val = tabAtiva.find(".form-control").val();
     val = replaceSpecialChars(val.trim()).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',').replace(/\+{2,}/g, '_');
     var link;
+
+      ////////////////////////////
+      var tipoBusca = 0;
+      var val2 = null;
+
+      val2 = val.replace(/(\,|\/|\-)/g, '');
+
+      if(checkNumber(val2)){
+          val = val2;
+          if(val.length==14){
+              tipoBusca = 1;
+          }
+      }
+
+    function checkNumber(valor) {
+      var regra = /^[0-9]+$/;
+      if (valor.match(regra)) {
+          return true;
+      }else{
+          return false;
+      }
+    };
+
+
     if (id == 'organizacao' && val !== ''){
-      link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
-      location.href=link;
+        link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=" + tipoBusca;
+        location.href=link;
     }
     else {
       val = $('.response').val();
@@ -174,6 +198,7 @@ require(["rotas","bootstrap","jquery-ui" ], function (React) {
       }
     }
   });
+
 
   function replaceSpecialChars(str){
     str = str.replace(/[ÀÁÂÃÄÅ]/g,"A");

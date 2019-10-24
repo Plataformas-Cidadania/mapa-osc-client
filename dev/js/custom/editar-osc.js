@@ -394,9 +394,60 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
       $("#outros_part").prepend('<div class="input-box checkbox"><label><input type="checkbox">Não possui outros espaços de participação social.</label></div>');
 
       var participacao_social = util.validateObject(data.participacao_social, 0);
-      $('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conselhos);
+
+
+      /*console.log("conselho: "+participacao_social.bo_nao_possui_participacao_social_conselho);
+      console.log("conferencia: "+participacao_social.bo_nao_possui_participacao_social_conferencia);
+      console.log("participacao: "+participacao_social.bo_nao_possui_participacao_social_outra);*/
+
+      $('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_conselho);
+      $('#conferencias input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_conferencia);
+      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_participacao_social_outra);
+
+      /*$('#conselhos input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conselhos);
       $('#conferencias input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_conferencias);
-      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_outros_part);
+      $('#outros_part input[type="checkbox"]').prop('checked', participacao_social.bo_nao_possui_outros_part);*/
+
+      //Fecha div se tiver click
+      $('#conselhos input[type="checkbox"]').click(function() {
+        $('.conselho').show();
+        if($('#conselhos input[type="checkbox"]').prop("checked")){
+          $('.conselho').hide();
+        }
+      });
+      
+      $('#conferencias input[type="checkbox"]').click(function() {
+        $('.conferencia').show();
+        if($('#conferencias input[type="checkbox"]').prop("checked")){
+          $('.conferencia').hide();
+        }
+      });
+      
+      $('#outros_part input[type="checkbox"]').click(function() {
+        let children_outro_part = $('#outros_part').children();
+        children_outro_part[1].setAttribute('style', 'display: block;');
+
+        if($('#outros_part input[type="checkbox"]').prop("checked")){
+          children_outro_part[1].setAttribute('style', 'display: none;');
+        }
+      });
+
+
+      //Fecha div se o valor do true
+      if(participacao_social.bo_nao_possui_participacao_social_conselho==true){
+        $('.conselho').hide();
+      }
+
+      if(participacao_social.bo_nao_possui_participacao_social_conferencia==true){
+        $('.conferencia').hide();
+      }
+
+      if(participacao_social.bo_nao_possui_participacao_social_outra==true){
+        let children_outro_part = $('#outros_part').children();
+        children_outro_part[1].setAttribute('style', 'display: none;');
+      }
+
+
 
       $('#conselhos input[type="checkbox"]').change(function() {
         if($(this).is(':checked')){
@@ -1003,7 +1054,7 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
               "searchable": false
             },
           ],
-          autoWidth: true,
+          autoWidth: false,
           "oLanguage": dadosForm.oLanguageDataTable()
         }
       );

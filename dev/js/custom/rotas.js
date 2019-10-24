@@ -5,17 +5,27 @@ class Rotas{
 
   getBaseUrl(){
     var loc = window.location;
-  //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
+
+    return  loc.protocol + '//' + loc.host + '/api/';
     //return  "https://mapaosc-desenv.ipea.gov.br/api/";
-    //return  "http://portalosc.local/api/";
-    return  "http://localhost:9090/api/";
+    //return  "https://mapaosc-homologa.ipea.gov.br/api/";
+    //return  "https://mapaosc.ipea.gov.br/api/";
+    //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
+    //return  "https://localhost/api/";
+    //return  "http://localhost:8009/api/";
+    //return  "http://localhost:9090/api/";
+
   }
 
   getBaseUrlCMS(){
     var loc = window.location;
-  //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
+
+    return  loc.protocol + '//' + loc.host + '/cms/';
+    //return  "https://mapaosc-desenv.ipea.gov.br/cms/";
+    //return  "https://mapaosc-homologa.ipea.gov.br/cms";
+    //return  "https://mapaosc.ipea.gov.br/cms";
+    //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
     //return  "http://localhost:8002";
-    return  "https://mapaosc-desenv.ipea.gov.br/cms";
 
   }
 
@@ -93,6 +103,14 @@ class Rotas{
   }
   Ipeadata(){
     return this.getBaseUrl()+"menu/osc/ipeadata";
+  }
+
+  IDH(){
+    return this.getBaseUrl()+"analises/idhgeo";
+  }
+
+  IDHM(id){
+    return this.getBaseUrl()+"analises/idhgeo/"+id;
   }
 
   // editar-osc.js
@@ -400,6 +418,10 @@ class Rotas{
   }
   ModuloByID(tipo){
     return this.getBaseUrlCMS()+"/ModuloByID/"+tipo;
+  }
+
+  ModuloCertificado(){
+    return this.getBaseUrlCMS()+"/certificado";
   }
   //FIM CMS
 

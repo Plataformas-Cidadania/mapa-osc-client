@@ -27,8 +27,12 @@ function getParameter(name, url) {
 var urlRota;
 var type_http;
 //require(['jquery','datatables-responsive', 'google'], function (React) {
-require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simplePagination', 'util'], function (React) {
+require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet-groupedlayercontrol', 'simplePagination', 'util'], function (React) {
+    var oscLoaded = false;
+    var idhLoaded = false;
     var geojson;
+    var geojsonIDH;
+    var geojsonIDHM;
     var link;
     var util = new Util();
     var composto = [];
@@ -41,6 +45,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
     var clustersLayer = L.layerGroup();
     var layerGroup = L.layerGroup();
     var layerGroupIDH = L.layerGroup();
+    var layerGroupIDHM = L.layerGroup();
+    var layerGroupTeste = L.layerGroup();
     var isControlLoaded = false;//verifica se controle já foi adicionado a tela
     var isClusterVersion = true;
     var consulta_avancada = false;
@@ -109,8 +115,31 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         var val = tabAtiva.find(".form-control").val();
         val = replaceSpecialChars(val.trim()).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',').replace(/\+{2,}/g, '_');
 
+        ////////////////////////////
+        var tipoBusca = 0;
+        var val2 = null;
+
+        val2 = val.replace(/(\,|\/|\-)/g, '');
+
+        if(checkNumber(val2)){
+            val = val2;
+            if(val.length==14){
+                tipoBusca = 1;
+            }
+        }
+
+        function checkNumber(valor) {
+            var regra = /^[0-9]+$/;
+            if (valor.match(regra)) {
+                return true;
+            }else{
+                return false;
+            }
+        };
+
+
         if (id == 'organizacao' && val !== ''){
-            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=0";
+            link = "./resultado-consulta.html?" + id + "=" + val + "&tipoBusca=" + tipoBusca;
             location.href=link;
         }else {
             val = $('.response').val();
@@ -1618,6 +1647,8 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         map.fitBounds(layer.getBounds());
     }
 
+    var legend = L.control({position: 'bottomright'});
+
     function heatMap(arrayPDF, arrayID){
         var nomeEstado;
 
@@ -1647,13 +1678,13 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             });
 
             layerGroup.addLayer(layer);
-            layerGroupIDH.addLayer(layer);
+            //layerGroupIDH.addLayer(layer);
             llayers[layer.feature.properties.id] = layer;
             llayersIDH[layer.feature.properties.id] = layer;
         }
 
         map.addLayer(layerGroup);
-        map.addLayer(layerGroupIDH);
+        //map.addLayer(layerGroupIDH);
 
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
@@ -1672,8 +1703,10 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         var lll;
 
         function zoomToFeature(e) {
+            console.log('clicado zoomToFeature');
             var layer = e.target;
             map.fitBounds(layer.getBounds());
+            console.log(layer);
             loadChunkData(layer.feature.properties.id);
 
             if(rlayers[layer.feature.properties.Regiao]==undefined){
@@ -1693,7 +1726,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             });
         }
 
-        var legend = L.control({position: 'bottomright'});
+        //var legend = L.control({position: 'bottomright'});
 
         legend.onAdd = function(map){
             var div = L.DomUtil.create('div', 'info legend'),
@@ -1739,6 +1772,16 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
         '#FFEDA0';
     }
 
+    function getColorIDH(d){
+        //o menor valor de OScs em um estado é de ~537 e o maior ~91665, a escala abaixo está em 5 níveis,
+        //logo o cálculo de degradê abaixo está considerando estes 3 fatores mais um arredondamento
+        return d > 0.799  ? '#527DA7' :
+        d > 0.699  ? '#58935D' :
+        d > 0.599   ? '#D2CE49' :
+        d > 0.499  ? '#CC9538' :
+        '#AD3735';
+    }
+
     function carregaMapaCluster(dados, level){
         var classNameLevel;
 
@@ -1770,6 +1813,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
         if(!isControlLoaded){//Evitar adicionar controles repetidamente na tela
             clustersLayer.addTo(map);
+            //clustersLayer.addTo(layerGroup);
             isControlLoaded=true;
         }
 
@@ -1990,6 +2034,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             console.log("ERRO no AJAX :" + e);
         },
         success: function(data){
+            //console.log(tipoConsulta);
             if(data !== "" && data !== undefined && data !== "Nenhuma Organização encontrada!"){
                 tabela(urlRota, consulta_avancada);
                 var count = 0;
@@ -2007,11 +2052,19 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                     paginar(count);
                     $("#legenda p").append(count);
+                    if(tipoConsulta=='todos'){
+                        $("#legendaConsulta").show();
+                        $("#legenda p").append(' *');
+                    }
                     carregaMapaCluster(data1, tipoConsulta);
                 }else{
                     count = Object.keys(data1).length-1;
                     paginar(count);
                     $("#legenda p").append(count);
+                    if(tipoConsulta=='todos'){
+                        $("#legendaConsulta").show();
+                        $("#legenda p").append(' *');
+                    }
                     carregaMapa(data1);
 
                     if(consulta_avancada){
@@ -2104,6 +2157,361 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
       }
     });
 
+    //IDH========================================================================================================
+    
+    //IDH Estado
+    //$('#loadingMapModal').show();
+    $.ajax({
+        url: rotas.IDH(),
+        type: 'GET',
+        dataType: 'json',
+        error: function(e){
+            console.log("ERRO no AJAX: " + e);
+        },
+        success: function(data){
+            //console.log(data);
+            IDH(data);
+            //$('#loadingMapModal').hide();
+            idhLoaded = true;
+            addControlsMap();
+        }
+    });
+
+    var infoIDH = L.control();
+    var legendIDH = L.control({position: 'bottomright'});
+
+    infoIDH.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.update(null, 'none');
+        return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    infoIDH.update = function (props, tipo) {
+
+        let nome = tipo === 'uf' ? 'nm_uf' : 'nm_municipio';
+        let titulo = tipo === 'uf' ? 'IDH' : 'IDHM';
+
+        this._div.innerHTML = '<h4>' + titulo + '</h4>' +  (props ?
+            '<b>' + props[nome] + '</b><br />' + props.nr_valor
+            : 'Passe o mouse sobre um territorio');
+    };
+
+    legendIDH.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+            labels = [];
+
+        div.innerHTML += '<h5>Escala de IDH</h5>';
+
+        div.innerHTML += '<i style="background:' + getColorIDH(0.499) + '"></i> 0 - 0.499 <br>' +
+            '<i style="background:' + getColorIDH(0.599) + '"></i> 0.500 - 0.599 <br>' +
+            '<i style="background:' + getColorIDH(0.699) + '"></i> 0.600 - 0.699 <br>' +
+            '<i style="background:' + getColorIDH(0.799) + '"></i> 0.700 - 0.799 <br>' +
+            '<i style="background:' + getColorIDH(0.800) + '"></i> 0.800 - 1';
+
+        /*for(var i = 0; i < grades.length; i++){
+            div.innerHTML +=
+                '<i style="background:' + getColorIDH(grades[i] + 1) + '"></i> ' +
+                parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }*/
+
+        return div;
+    };
+
+    function IDH(data){
+
+        geojsonIDH = L.geoJson(data, {
+            style: function(feature) {
+                return {
+                    fillColor: getColorIDH(feature.properties.nr_valor),
+                    weight: 0.5,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '1',
+                    fillOpacity: 0.9
+                };
+            }.bind(this),
+            onEachFeature: onEachFeature //listeners
+        });
+        //}).addTo(map);
+
+        function onEachFeature(feature, layer) {
+            //console.log(layer);
+            //console.log(this);
+
+            layerGroupIDH.addLayer(layer);
+            //map.addLayer(layerGroupIDH);
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+
+        /*infoIDH.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update(null, 'none');
+            return this._div;
+        };*/
+
+        // method that we will use to update the control based on feature properties passed
+        /*infoIDH.update = function (props, tipo) {
+
+            let nome = tipo === 'uf' ? 'nm_uf' : 'nm_municipio';
+            let titulo = tipo === 'uf' ? 'IDH' : 'IDHM';
+
+            this._div.innerHTML = '<h4>' + titulo + '</h4>' +  (props ?
+                '<b>' + props[nome] + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um territorio');
+        };*/
+
+        //infoIDH.addTo(map);
+
+        function highlightFeature(e){
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 2,
+                color: '#667',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+
+            if(layer.feature.properties.Name=="GO"){
+                //Necessário para a layer de Goiás não se sobrepor a layer do Distrito federal
+                layer.bringToBack();
+            }
+
+            infoIDH.update(layer.feature.properties, 'uf');
+        }
+
+        function resetHighlight(e) {
+            geojsonIDH.resetStyle(e.target);
+            infoIDH.update(null);
+        }
+
+        function zoomToFeature(e) {
+            var layer = e.target;
+            map.fitBounds(layer.getBounds());
+            //console.log(layer);
+            loadChunkData(layer.feature.properties.cod_uf);
+
+            if(rlayers[layer.feature.properties.Regiao]==undefined){
+                var l = clayers[layer.feature.properties.id];
+                if(l!=undefined)
+                    map.removeLayer(l);
+            }else{
+                loadChunkDataRegiao(layer);
+            }
+
+            //console.log(e.target.feature);
+
+            loadIDHM(e.target.feature.properties.cod_uf);
+
+            layer.off();
+
+            layer.on({
+                //mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomm
+            });
+        }
+
+        /*legendIDH.onAdd = function(map){
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+                labels = [];
+
+            div.innerHTML += '<h5>Escala de IDH</h5>';
+
+            div.innerHTML += '<i style="background:' + getColorIDH(0.499) + '"></i> 0 - 0.499 <br>' +
+                '<i style="background:' + getColorIDH(0.599) + '"></i> 0.500 - 0.599 <br>' +
+                '<i style="background:' + getColorIDH(0.699) + '"></i> 0.600 - 0.699 <br>' +
+                '<i style="background:' + getColorIDH(0.799) + '"></i> 0.700 - 0.799 <br>' +
+                '<i style="background:' + getColorIDH(0.800) + '"></i> 0.800 - 1';
+
+            /!*for(var i = 0; i < grades.length; i++){
+                div.innerHTML +=
+                    '<i style="background:' + getColorIDH(grades[i] + 1) + '"></i> ' +
+                    parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }*!/
+
+            return div;
+        };*/
+
+        //legendIDH.addTo(map);
+
+
+
+    }
+
+    //----------------------
+    
+    //IDHM Municipio
+
+    var infoIDHM = L.control();
+    var legendIDHM = L.control({position: 'bottomright'});
+
+    //console.log(id);
+    function loadIDHM(id){
+        $('#loadingMapModal').show();
+        $.ajax({
+            url: rotas.IDHM(id),
+            type: 'GET',
+            dataType: 'json',
+            error: function(e){
+                console.log("ERRO no AJAX: " + e);
+            },
+            success: function(data){
+                console.log(data);
+                IDHM(data);
+                $('#loadingMapModal').hide();
+            }
+        });
+    }
+
+    function IDHM(data){
+
+        geojsonIDHM = L.geoJson(data, {
+            style: function(feature) {
+                return {
+                    fillColor: getColorIDH(feature.properties.nr_valor),
+                    weight: 0.5,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '1',
+                    fillOpacity: 0.9
+                };
+            }.bind(this),
+            onEachFeature: onEachFeature //listeners
+        });
+        //}).addTo(map);
+
+        function onEachFeature(feature, layer) {
+            //console.log(layer);
+            //console.log(this);
+
+            layerGroupIDHM.addLayer(layer);
+            layerGroupIDH.addLayer(layerGroupIDHM);
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomToFeature
+            });
+        }
+
+
+        /*infoIDHM.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+            this.update(null, 'none');
+            return this._div;
+        };
+
+        // method that we will use to update the control based on feature properties passed
+        infoIDHM.update = function (props) {
+            this._div.innerHTML = '<h4>IDHM</h4>' +  (props ?
+                '<b>' + props.nm_municipio + '</b><br />' + props.nr_valor
+                : 'Passe o mouse sobre um município');
+        };
+
+        if(!infoIDHM._map){
+            infoIDHM.addTo(map);
+        }*/
+
+
+        function highlightFeature(e){
+            var layer = e.target;
+
+            layer.setStyle({
+                weight: 2,
+                color: '#667',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+
+            if(layer.feature.properties.Name=="GO"){
+                //Necessário para a layer de Goiás não se sobrepor a layer do Distrito federal
+                layer.bringToBack();
+            }
+
+            //infoIDHM.update(layer.feature.properties);
+            infoIDH.update(layer.feature.properties, 'municipio');
+        }
+
+        function resetHighlight(e) {
+            geojsonIDHM.resetStyle(e.target);
+            //infoIDHM.update(null);
+            infoIDH.update(null);
+        }
+
+        function zoomToFeature(e) {
+            var layer = e.target;
+            map.fitBounds(layer.getBounds());
+            //loadChunkData(layer.feature.properties.id);
+
+            /*if(rlayers[layer.feature.properties.Regiao]==undefined){
+                var l = clayers[layer.feature.properties.id];
+                if(l!=undefined)
+                    map.removeLayer(l);
+            }else{
+                loadChunkDataRegiao(layer);
+            }*/
+
+            layer.off();
+
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight,
+                click: zoomm
+            });
+        }
+
+        /*legendIDHM.onAdd = function(map){
+            var div = L.DomUtil.create('div', 'info legend'),
+                grades = [0, 0.499, 0.599, 0.699, 0.799],
+
+                labels = [];
+
+            div.innerHTML += '<h5>Escala de IDHM</h5>';
+
+            div.innerHTML += '<i style="background:' + getColorIDHM(0.499) + '"></i> 0 - 0.499 <br>' +
+                '<i style="background:' + getColorIDHM(0.599) + '"></i> 0.500 - 0.599 <br>' +
+                '<i style="background:' + getColorIDHM(0.699) + '"></i> 0.600 - 0.699 <br>' +
+                '<i style="background:' + getColorIDHM(0.799) + '"></i> 0.700 - 0.799 <br>' +
+                '<i style="background:' + getColorIDHM(0.800) + '"></i> 0.800 - 1';
+
+            /!*for(var i = 0; i < grades.length; i++){
+                div.innerHTML +=
+                    '<i style="background:' + getColorIDHM(grades[i] + 1) + '"></i> ' +
+                    parseInt(grades[i] + 1) + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+            }*!/
+
+            return div;
+        };
+
+        legendIDHM.addTo(map);*/
+
+
+
+    }
+
+
+    //FIM IDH=========================================================================================================
+    
     //Coloração do mapa
     $.ajax({
         url: rotas.ClusterEstado(),//rotas.IDHM,//
@@ -2113,6 +2521,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
             console.log("ERRO no AJAX :" + e);
         },
         success: function(data){
+
             if(data!==undefined){
                 var pdfs={};
                 var ids={};
@@ -2135,24 +2544,117 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'simpleP
 
                 }
 
-                map.addControl(new L.Control.Layers(
+                oscLoaded = true;
+                addControlsMap();
+
+                map.addControl(L.control.groupedLayers(
                     {
                         'Satélite':googleHybrid,
                         'Contraste': tilesGrayscale,
                         'Mapa': tiles,
                     },
                     {
-                        'Mapa de calor':layerGroup//,'IDHM':layerGroupIDH
+                        'Camadas': {
+                            'OSC':layerGroup,
+                            'IDH':layerGroupIDH,
+                            'Desativar':layerGroupTeste
+                        }
+                    },
+                    {
+                        collapsed:false,
+                        // Make the "Landmarks" group exclusive (use radio inputs)
+                        exclusiveGroups: ["Camadas"],
+                        // Show a checkbox next to non-exclusive group labels for toggling all
+                        groupCheckboxes: true
+                    }
+                ));
+
+                /*map.addControl(new L.Control.Layers(
+                    {
+                        'Satélite':googleHybrid,
+                        'Contraste': tilesGrayscale,
+                        'Mapa': tiles,
+                    },
+                    {
+                        'Mapa de calor':layerGroup,
+                        'IDHM':layerGroupIDH
                     },
                     {
                         collapsed:false
                     }
-                ));
+                ));*/
 
                 heatMap(pdfs, ids);
             }
         }
     });
 
+    function addControlsMap(){
+        /*if(oscLoaded && idhLoaded){
+            map.addControl(L.control.groupedLayers(
+                {
+                    'Satélite':googleHybrid,
+                    'Contraste': tilesGrayscale,
+                    'Mapa': tiles,
+                },
+                {
+                    'Mapa de calor': {
+                        'OSC':layerGroup,
+                        'IDH':layerGroupIDH
+                    }
+                },
+                {
+                    collapsed:false,
+                    exclusiveGroups: ["Mapa de calor"],
+                    groupCheckboxes: true
+                }
+            ));
+        } */
+    }
+
     map.on('zoomend', apagaMapaDeCalor);
+
+    let hasExistOSC = true;
+    let hasExistIDH = false;
+
+    let firstLoad = true;
+    map.on('overlayadd', function(eo){
+        if(eo.name === 'OSC' && !firstLoad){
+            info.addTo(map);
+            legend.addTo(map);
+            hasExistOSC = true;
+            if (hasExistIDH) {
+                map.removeControl(infoIDH);
+                map.removeControl(legendIDH);
+                hasExistIDH = false;
+            }
+        }
+        if(eo.name === 'IDH' && !firstLoad){
+            infoIDH.addTo(map);
+            legendIDH.addTo(map);
+            hasExistIDH = true;
+            if (hasExistOSC) {
+                map.removeControl(info);
+                map.removeControl(legend);
+                hasExistOSC = false;
+            }
+
+        }
+        if(eo.name === 'Desativar' && !firstLoad){
+            if (hasExistOSC) {
+                map.removeControl(info);
+                map.removeControl(legend);
+                hasExistOSC = false;
+            }
+            if (hasExistIDH) {
+                map.removeControl(infoIDH);
+                map.removeControl(legendIDH);
+                hasExistIDH = false;
+            }
+        }
+        firstLoad = false;
+    });
+
+
 });
+

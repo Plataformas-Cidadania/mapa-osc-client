@@ -12,8 +12,6 @@ class Rotas{
     //return  "https://mapaosc.ipea.gov.br/api/";
     //  return loc.protocol + '//' + loc.host + '/api/';//:' + loc.port + '/api/';
     //return  "https://localhost/api/";
-    //return  "http://localhost:8009/api/";
-    //return  "http://localhost:9090/api/";
 
   }
 
@@ -25,7 +23,6 @@ class Rotas{
     //return  "https://mapaosc-homologa.ipea.gov.br/cms";
     //return  "https://mapaosc.ipea.gov.br/cms";
     //  return "https://" + loc.host.split(":")[0] + '/cms';//':8181';
-    //return  "http://localhost:8002";
 
   }
 

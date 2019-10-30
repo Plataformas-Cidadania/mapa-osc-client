@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="" />
+    <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/rotas.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2670">
+            <state relative-caret-position="15">
               <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
             </state>
           </provider>
@@ -80,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3165">
+            <state relative-caret-position="445">
               <caret line="211" column="97" selection-start-line="211" selection-start-column="97" selection-end-line="211" selection-end-column="97" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -92,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="441" column="50" selection-start-line="441" selection-start-column="34" selection-end-line="441" selection-end-column="50" />
+            <state relative-caret-position="30">
+              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -111,7 +114,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tx_trabalhadores</find>
       <find>createTabela_Bar_Donut</find>
       <find>escolherGrafico</find>
       <find>tabela =</find>
@@ -141,6 +143,7 @@
       <find>Mapa de calor</find>
       <find>1104px</find>
       <find>table_lista_projetos</find>
+      <find>listaatualizadas</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -196,31 +199,7 @@
             <path>
               <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
               <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="custom" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -296,7 +275,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63998000" />
+    <option name="totallyTimeSpent" value="67818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,15 +355,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/item5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/item6.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/item7.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/item_cms.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -521,13 +491,37 @@
     </entry>
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/osc/table/tb_representante_conselho" />
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/portal/materialized-view/vw_osc_descricao" />
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8fcb010-fab0-4d15-8953-e798be65ee6d/console.sql" />
+    <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="441" column="50" selection-start-line="441" selection-start-column="34" selection-end-line="441" selection-end-column="50" />
+        <state relative-caret-position="445">
+          <caret line="211" column="97" selection-start-line="211" selection-start-column="97" selection-end-line="211" selection-end-column="97" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8fcb010-fab0-4d15-8953-e798be65ee6d/console.sql" />
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31500">
+          <caret line="2100" column="53" selection-start-line="2100" selection-start-column="46" selection-end-line="2100" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/rotas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/resultado-consulta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/rotas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultado-consulta.html" beforeDir="false" afterPath="$PROJECT_DIR$/resultado-consulta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualizar-osc.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualizar-osc.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +39,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+            <state relative-caret-position="-225">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/components/Header.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+              <folding>
+                <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1246">
+              <caret line="355" column="56" selection-start-line="355" selection-start-column="51" selection-end-line="355" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="211" column="80" selection-start-line="211" selection-start-column="78" selection-end-line="211" selection-end-column="80" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="2056" column="49" selection-start-line="2056" selection-start-column="49" selection-end-line="2056" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#6#0" expanded="true" />
+                <element signature="e#9#15#0" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+                <element signature="e#0#7#0" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#i#4;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="1436" column="30" selection-start-line="1436" selection-start-column="26" selection-end-line="1436" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="526" column="56" selection-start-line="526" selection-start-column="56" selection-end-line="526" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -45,17 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createTabela_Bar_Donut</find>
-      <find>escolherGrafico</find>
-      <find>tabela =</find>
-      <find>imprensa</find>
-      <find>e.Analises</find>
-      <find>noti</find>
-      <find>publi</find>
-      <find>ajax</find>
-      <find>ana</find>
-      <find>publicaça</find>
-      <find>tx_link_img_analise</find>
       <find>Análises</find>
       <find>publicacao</find>
       <find>img/extrator_dados.png</find>
@@ -75,13 +143,24 @@
       <find>1104px</find>
       <find>table_lista_projetos</find>
       <find>listaatualizadas</find>
+      <find>conso</find>
+      <find>barra.js</find>
+      <find>require.min.js</find>
+      <find>Existem 27 OSCs</find>
+      <find>*</find>
+      <find>Quantidade de OSCs</find>
+      <find>console</find>
+      <find>testeData</find>
+      <find>barra</find>
+      <find>legenda</find>
+      <find>Certificado</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>$PROJECT_DIR$</dir>
       <dir>D:\SERVER\mapa-osc-client</dir>
+      <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -98,12 +177,16 @@
         <option value="$PROJECT_DIR$/dev/js/custom/analises.js" />
         <option value="$PROJECT_DIR$/analise.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/dev/js/util/graficoParaTabela.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/analise-perfil.js" />
         <option value="$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/resultado-consulta.html" />
+        <option value="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" />
+        <option value="$PROJECT_DIR$/dev/js/custom/visualizar-osc.js" />
+        <option value="$PROJECT_DIR$/visualizar-osc.html" />
       </list>
     </option>
   </component>
@@ -111,8 +194,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="28" />
-    <option name="width" value="1691" />
+    <option name="x" value="1774" />
+    <option name="y" value="24" />
+    <option name="width" value="1615" />
     <option name="height" value="1026" />
   </component>
   <component name="ProjectView">
@@ -120,28 +204,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -208,12 +271,12 @@
       <workItem from="1568135582137" duration="7414000" />
       <workItem from="1568300501207" duration="605000" />
       <workItem from="1568757717630" duration="160000" />
-      <workItem from="1572881661712" duration="281000" />
+      <workItem from="1572881661712" duration="10584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70750000" />
+    <option name="totallyTimeSpent" value="81053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -225,12 +288,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1615" height="1054" extended-state="6" />
+    <frame x="1745" y="-4" width="1615" height="1054" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22498406" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
+      <window_info id="Gulp" order="1" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17654558" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5687974" />
@@ -241,13 +304,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32912722" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2199271" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21976866" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.08413002" />
+      <window_info anchor="right" id="Database" order="3" weight="0.08413002" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1848311" />
@@ -292,15 +355,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/loading.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo-mj.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/logo_fgv.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -418,11 +472,6 @@
     <entry file="file://$PROJECT_DIR$/img/icones/xml.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020" />
-      </provider>
-    </entry>
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/osc/table/tb_representante_conselho" />
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/portal/materialized-view/vw_osc_descricao" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8fcb010-fab0-4d15-8953-e798be65ee6d/console.sql" />
@@ -433,34 +482,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
+    <entry file="file://$PROJECT_DIR$/validacao.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/components/Header.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31500">
-          <caret line="2100" column="53" selection-start-line="2100" selection-start-column="46" selection-end-line="2100" selection-end-column="53" />
+        <state relative-caret-position="220">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="211" column="97" selection-start-line="211" selection-start-column="97" selection-end-line="211" selection-end-column="97" />
+        <state relative-caret-position="328">
+          <caret line="211" column="80" selection-start-line="211" selection-start-column="78" selection-end-line="211" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="537" column="53" selection-start-line="537" selection-start-column="50" selection-end-line="537" selection-end-column="53" />
+        <state relative-caret-position="1246">
+          <caret line="355" column="56" selection-start-line="355" selection-start-column="51" selection-end-line="355" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        <state relative-caret-position="265">
+          <caret line="2056" column="49" selection-start-line="2056" selection-start-column="49" selection-end-line="2056" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#6#0" expanded="true" />
+            <element signature="e#9#15#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="e#0#7#0" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="1436" column="30" selection-start-line="1436" selection-start-column="26" selection-end-line="1436" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="526" column="56" selection-start-line="526" selection-start-column="56" selection-end-line="526" selection-end-column="56" />
         </state>
       </provider>
     </entry>

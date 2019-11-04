@@ -2054,7 +2054,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     $("#legenda p").append(count);
                     if(tipoConsulta=='todos'){
                         $("#legendaConsulta").show();
-                        $("#legenda p").append(' *');
+                        $("#legenda p").append(' ');//Colocar *
                     }
                     carregaMapaCluster(data1, tipoConsulta);
                 }else{

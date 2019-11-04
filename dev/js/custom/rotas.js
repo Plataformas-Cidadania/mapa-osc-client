@@ -6,7 +6,11 @@ class Rotas{
   getBaseUrl(){
     var loc = window.location;
 
-    return  loc.protocol + '//' + loc.host + '/api/';
+    if(loc.host=="localhost"){
+      return  "https://mapaosc-dev.ipea.gov.br/api/";
+    }else{
+      return  loc.protocol + '//' + loc.host + '/api/';
+    }
     //return  "https://mapaosc-desenv.ipea.gov.br/api/";
     //return  "https://mapaosc-homologa.ipea.gov.br/api/";
     //return  "https://mapaosc.ipea.gov.br/api/";
@@ -18,7 +22,12 @@ class Rotas{
   getBaseUrlCMS(){
     var loc = window.location;
 
-    return  loc.protocol + '//' + loc.host + '/cms/';
+    if(loc.host=="localhost"){
+      return  "https://mapaosc-dev.ipea.gov.br/cms";
+    }else{
+      return  loc.protocol + '//' + loc.host + '/cms';
+    }
+
     //return  "https://mapaosc-desenv.ipea.gov.br/cms/";
     //return  "https://mapaosc-homologa.ipea.gov.br/cms";
     //return  "https://mapaosc.ipea.gov.br/cms";

@@ -2046,7 +2046,11 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                 if(isClusterVersion){
                     if(typeof data1.length !== 'undefined'){
                         for(var i = 0; i < data1.length; i++){
-                            count += data1[i].nr_quantidade_osc_regiao;
+                            if(tipoConsulta=='todos') {
+                                count += data1[i].nr_quantidade_osc_regiao+27;
+                            }else{
+                                count += data1[i].nr_quantidade_osc_regiao;
+                            }
                         }
                     }
 
@@ -2063,7 +2067,7 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     $("#legenda p").append(count);
                     if(tipoConsulta=='todos'){
                         $("#legendaConsulta").show();
-                        $("#legenda p").append(' *');
+                        $("#legenda p").append(' ');//Colocar *
                     }
                     carregaMapa(data1);
 

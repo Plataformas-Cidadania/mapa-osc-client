@@ -4,11 +4,8 @@
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/rotas.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/resultado-consulta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/custom/rotas.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/rotas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resultado-consulta.html" beforeDir="false" afterPath="$PROJECT_DIR$/resultado-consulta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/visualizar-osc.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualizar-osc.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -38,21 +35,21 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+        <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-225">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state relative-caret-position="351">
+              <caret line="181" column="109" selection-start-line="181" selection-start-column="109" selection-end-line="181" selection-end-column="109" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/components/Header.jsx">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+            <state relative-caret-position="501">
+              <caret line="63" column="119" selection-start-line="63" selection-start-column="116" selection-end-line="63" selection-end-column="119" />
               <folding>
                 <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
               </folding>
@@ -61,31 +58,39 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+        <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1246">
-              <caret line="355" column="56" selection-start-line="355" selection-start-column="51" selection-end-line="355" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="211" column="80" selection-start-line="211" selection-start-column="78" selection-end-line="211" selection-end-column="80" />
+            <state relative-caret-position="-11655">
               <folding>
-                <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dev/js/util/graficoParaTabela.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2230">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analise-perfil.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="2056" column="49" selection-start-line="2056" selection-start-column="49" selection-end-line="2056" selection-end-column="49" />
+            <state relative-caret-position="225">
+              <caret line="2049" column="77" selection-start-line="2049" selection-start-column="74" selection-end-line="2049" selection-end-column="77" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
                 <element signature="e#9#15#0" expanded="true" />
@@ -105,17 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="1436" column="30" selection-start-line="1436" selection-start-column="26" selection-end-line="1436" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="526" column="56" selection-start-line="526" selection-start-column="56" selection-end-line="526" selection-end-column="56" />
+            <state relative-caret-position="30">
+              <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -124,16 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Análises</find>
-      <find>publicacao</find>
-      <find>img/extrator_dados.png</find>
-      <find>extrator-dados-osc.html</find>
-      <find>series_1</find>
-      <find>series_</find>
-      <find>tituloColuna</find>
-      <find>label</find>
-      <find>series_2</find>
-      <find>Valores deflacionados</find>
       <find>fontes</find>
       <find>Repasse</find>
       <find>Natureza Juridica</find>
@@ -148,12 +134,22 @@
       <find>require.min.js</find>
       <find>Existem 27 OSCs</find>
       <find>*</find>
-      <find>Quantidade de OSCs</find>
       <find>console</find>
-      <find>testeData</find>
-      <find>barra</find>
       <find>legenda</find>
       <find>Certificado</find>
+      <find>testeData</find>
+      <find>barra</find>
+      <find>graficoParaTabela</find>
+      <find>bootstrap</find>
+      <find>itemGrafico</find>
+      <find>grafico-1</find>
+      <find>Fonte:</find>
+      <find>p1</find>
+      <find>grafico</find>
+      <find>chart-container</find>
+      <find>gerando</find>
+      <find>Quantidade de OSCs</find>
+      <find>#legenda</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -182,11 +178,13 @@
         <option value="$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/rotas.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/resultado-consulta.html" />
-        <option value="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" />
         <option value="$PROJECT_DIR$/dev/js/custom/visualizar-osc.js" />
+        <option value="$PROJECT_DIR$/js/libs/require-2.3.2/require.min.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/dev/js/custom/index.js" />
         <option value="$PROJECT_DIR$/visualizar-osc.html" />
+        <option value="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" />
       </list>
     </option>
   </component>
@@ -204,8 +202,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mapa-osc-client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mapa-osc-client" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="locale" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,12 +297,13 @@
       <workItem from="1568135582137" duration="7414000" />
       <workItem from="1568300501207" duration="605000" />
       <workItem from="1568757717630" duration="160000" />
-      <workItem from="1572881661712" duration="10584000" />
+      <workItem from="1572881661712" duration="17912000" />
+      <workItem from="1573062803782" duration="5025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81053000" />
+    <option name="totallyTimeSpent" value="93406000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -293,7 +320,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17654558" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17909497" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5687974" />
@@ -304,7 +331,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32912722" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21976866" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21451104" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -355,42 +382,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/logo_fgv.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_grande.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_ods.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_pnud.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_pnud_en.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_prosas.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/logo_secretaria.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/lupa.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/lupa_inv.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/mapa_osc.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/municipio.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/noticia_icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/ouro.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -475,19 +466,19 @@
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/osc/table/tb_representante_conselho" />
     <entry file="das://d8fcb010-fab0-4d15-8953-e798be65ee6d/database/mapaosc/schema/portal/materialized-view/vw_osc_descricao" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d8fcb010-fab0-4d15-8953-e798be65ee6d/console.sql" />
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="178" column="22" selection-start-line="178" selection-start-column="22" selection-end-line="178" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/validacao.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/components/Header.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="240">
           <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
@@ -495,16 +486,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+    <entry file="file://$PROJECT_DIR$/js/libs/require-2.3.2/require.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-225">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resultado-consulta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="3165">
           <caret line="211" column="80" selection-start-line="211" selection-start-column="78" selection-end-line="211" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -512,17 +503,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7995">
+          <caret line="533" selection-start-line="533" selection-end-line="533" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-519" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.lib.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-435">
+          <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/components/Util.jsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/analise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/analises.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/base-dados.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-790">
+          <folding>
+            <element signature="e#56#62#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11655">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="190" column="34" selection-start-line="190" selection-start-column="27" selection-end-line="190" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/util/graficoParaTabela.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2230">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analise-perfil.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="63" column="119" selection-start-line="63" selection-start-column="116" selection-end-line="63" selection-end-column="119" />
+          <folding>
+            <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1246">
-          <caret line="355" column="56" selection-start-line="355" selection-start-column="51" selection-end-line="355" selection-end-column="56" />
+        <state relative-caret-position="351">
+          <caret line="181" column="109" selection-start-line="181" selection-start-column="109" selection-end-line="181" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="2056" column="49" selection-start-line="2056" selection-start-column="49" selection-end-line="2056" selection-end-column="49" />
+        <state relative-caret-position="225">
+          <caret line="2049" column="77" selection-start-line="2049" selection-start-column="74" selection-end-line="2049" selection-end-column="77" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
             <element signature="e#9#15#0" expanded="true" />
@@ -535,20 +615,6 @@
             <element signature="n#style#0;n#i#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#4;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="1436" column="30" selection-start-line="1436" selection-start-column="26" selection-end-line="1436" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="526" column="56" selection-start-line="526" selection-start-column="56" selection-end-line="526" selection-end-column="56" />
         </state>
       </provider>
     </entry>

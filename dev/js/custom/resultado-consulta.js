@@ -2047,12 +2047,14 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     if(typeof data1.length !== 'undefined'){
                         for(var i = 0; i < data1.length; i++){
                             if(tipoConsulta=='todos') {
-                                count += data1[i].nr_quantidade_osc_regiao+27;
+                                count += data1[i].nr_quantidade_osc_regiao;
                             }else{
                                 count += data1[i].nr_quantidade_osc_regiao;
                             }
                         }
                     }
+
+                    count = count+27;
 
                     paginar(count);
                     $("#legenda p").append(count);

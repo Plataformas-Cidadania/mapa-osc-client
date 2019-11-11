@@ -4,9 +4,7 @@
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/custom/resultado-consulta.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/resultado-consulta.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualizar-osc.html" beforeDir="false" afterPath="$PROJECT_DIR$/visualizar-osc.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
+            <state relative-caret-position="2715">
               <caret line="181" column="109" selection-start-line="181" selection-start-column="109" selection-end-line="181" selection-end-column="109" />
             </state>
           </provider>
@@ -48,11 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
+            <state relative-caret-position="945">
               <caret line="63" column="119" selection-start-line="63" selection-start-column="116" selection-end-line="63" selection-end-column="119" />
-              <folding>
-                <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -60,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11655">
+            <state>
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -71,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dev/js/util/graficoParaTabela.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2230">
+            <state relative-caret-position="375">
               <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
             </state>
           </provider>
@@ -80,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/analise-perfil.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="1200">
               <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="31" />
             </state>
           </provider>
@@ -89,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="2049" column="77" selection-start-line="2049" selection-start-column="74" selection-end-line="2049" selection-end-column="77" />
+            <state relative-caret-position="195">
+              <caret line="2056" column="25" selection-start-line="2056" selection-start-column="20" selection-end-line="2056" selection-end-column="25" />
               <folding>
                 <element signature="e#0#6#0" expanded="true" />
                 <element signature="e#9#15#0" expanded="true" />
@@ -110,7 +105,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="1575">
               <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
             </state>
           </provider>
@@ -202,7 +197,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -232,6 +226,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,12 +293,13 @@
       <workItem from="1568300501207" duration="605000" />
       <workItem from="1568757717630" duration="160000" />
       <workItem from="1572881661712" duration="17912000" />
-      <workItem from="1573062803782" duration="5025000" />
+      <workItem from="1573062803782" duration="5691000" />
+      <workItem from="1573487307823" duration="1298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93406000" />
+    <option name="totallyTimeSpent" value="95370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -320,7 +316,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.17909497" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.18164437" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5687974" />
@@ -331,7 +327,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32912722" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21451104" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20925342" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -545,15 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11655">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/analise-perfil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -561,48 +548,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2715">
+          <caret line="181" column="109" selection-start-line="181" selection-start-column="109" selection-end-line="181" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="119" selection-start-line="63" selection-start-column="116" selection-end-line="63" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/libs/nv-d3/nv.d3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/util/graficoParaTabela.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2230">
+        <state relative-caret-position="375">
           <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/analise-perfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="1200">
           <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="63" column="119" selection-start-line="63" selection-start-column="116" selection-end-line="63" selection-end-column="119" />
-          <folding>
-            <element signature="n#style#0;n#h5#0;n#center#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="181" column="109" selection-start-line="181" selection-start-column="109" selection-end-line="181" selection-end-column="109" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visualizar-osc.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="1575">
           <caret line="105" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/resultado-consulta.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="2049" column="77" selection-start-line="2049" selection-start-column="74" selection-end-line="2049" selection-end-column="77" />
+        <state relative-caret-position="195">
+          <caret line="2056" column="25" selection-start-line="2056" selection-start-column="20" selection-end-line="2056" selection-end-column="25" />
           <folding>
             <element signature="e#0#6#0" expanded="true" />
             <element signature="e#9#15#0" expanded="true" />

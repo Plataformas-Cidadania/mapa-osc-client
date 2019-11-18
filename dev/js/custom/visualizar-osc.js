@@ -462,7 +462,8 @@ function verificarBotaoCertificate() {
 	let rotaArryCert = rotas.getBaseUrl().split("/");
 	let rotaFullCert = rotaArryCert[0] + "//" + rotaArryCert[2];
 	//$("#preloadCertificate").attr("src", rotaFullCert+'/img/loading.gif');
-	document.getElementById("preloadCertificate").src = rotaFullCert + "/img/loading.gif";
+	//document.getElementById("preloadCertificate").src = rotaFullCert + "/img/loading.gif";
+	$("#preloadCertificate").attr('src', rotaFullCert + "/img/loading.gif");
 }
 
 function printCertificate(tagid){

@@ -1770,78 +1770,81 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
         newJson["conselho"] = [];
         newJson["bo_nao_possui_conselhos"] = $('#conselhos input[type="checkbox"]').is(':checked');
 
-        $(".conselho").each(function(){
-         var obj = {}
-         obj.conselho = {};
-         obj.representante = [];
-         var cd_conselho = 0;
-         var conselho_id = 0;
 
-         $(this).find("select").each(function(){
-           var split = $(this).attr("id").split("-");
-           var campo = split[0];
-           //console.log(campo);
-           conselho_id = parseInt($(this).attr("id").split("-")[1]);
-           if(conselho_id == 0){
-            obj.conselho.id_conselho = null;
-           }else{
-            obj.conselho.id_conselho = conselho_id;
-           }
+        if(!newJson["bo_nao_possui_conselhos"]){
+          $(".conselho").each(function(){
+            var obj = {}
+            obj.conselho = {};
+            obj.representante = [];
+            var cd_conselho = 0;
+            var conselho_id = 0;
 
-           for (var i=0;i<lconselho.length;i++){
-             if ($(this).val() === lconselho[i].tx_nome_conselho){
-               obj.conselho.cd_conselho = lconselho[i].cd_conselho;
-               cd_conselho = obj.conselho.cd_conselho;
+            $(this).find("select").each(function(){
+              var split = $(this).attr("id").split("-");
+              var campo = split[0];
+              //console.log(campo);
+              conselho_id = parseInt($(this).attr("id").split("-")[1]);
+              if(conselho_id == 0){
+                obj.conselho.id_conselho = null;
+              }else{
+                obj.conselho.id_conselho = conselho_id;
+              }
 
-               break;
+              for (var i=0;i<lconselho.length;i++){
+                if ($(this).val() === lconselho[i].tx_nome_conselho){
+                  obj.conselho.cd_conselho = lconselho[i].cd_conselho;
+                  cd_conselho = obj.conselho.cd_conselho;
+
+                  break;
+                }
+              }
+              for (var i=0;i<lforma.length;i++){
+                if ($(this).val() === lforma[i].tx_nome_tipo_participacao){
+                  obj.conselho.cd_tipo_participacao = lforma[i].cd_tipo_participacao;
+                  break;
+                }
+              }
+
+              for (var i=0;i<lperiodicidadeReuniao.length;i++){
+                if ($(this).val() === lperiodicidadeReuniao[i].tx_nome_periodicidade_reuniao_conselho){
+                  obj.conselho.cd_periodicidade_reuniao_conselho = lperiodicidadeReuniao[i].cd_periodicidade_reuniao_conselho;
+                  break;
+                }
+              }
+
+            });
+
+            $(this).find("input").each(function(index){
+              var split = $(this).attr("id").split("-");
+              var campo = split[0];
+              //console.log("v: "+$(this).val());
+              if(obj.conselho.cd_conselho !== 0){
+                if (campo == "outro_conselho" && $(this).val() != ''){
+                  obj.conselho.tx_nome_conselho_outro = $(this).val();
+                }
+                if(campo == "tx_nome_representante_conselho" && $(this).val() != ''){
+
+                  obj.representante.push(
+                      {
+                        "tx_nome_representante_conselho": $(this).val()
+                      });
+                }
+              }
+              if (campo == "dt_data_inicio_conselho" && $(this).val() != ''){
+                obj.conselho.dt_data_inicio_conselho = $(this).val();
+              }
+              if (campo == "dt_data_fim_conselho" && $(this).val() != ''){
+                obj.conselho.dt_data_fim_conselho = $(this).val();
+              }
+            });
+
+
+            if(obj.representante.length !== 0 && util.validateObject(obj.conselho.cd_conselho,null)!==null){
+              newJson.conselho.push(obj);
             }
-           }
-           for (var i=0;i<lforma.length;i++){
-             if ($(this).val() === lforma[i].tx_nome_tipo_participacao){
-               obj.conselho.cd_tipo_participacao = lforma[i].cd_tipo_participacao;
-               break;
-             }
-           }
 
-           for (var i=0;i<lperiodicidadeReuniao.length;i++){
-             if ($(this).val() === lperiodicidadeReuniao[i].tx_nome_periodicidade_reuniao_conselho){
-               obj.conselho.cd_periodicidade_reuniao_conselho = lperiodicidadeReuniao[i].cd_periodicidade_reuniao_conselho;
-               break;
-             }
-           }
-
-         });
-
-         $(this).find("input").each(function(index){
-           var split = $(this).attr("id").split("-");
-           var campo = split[0];
-           //console.log("v: "+$(this).val());
-           if(obj.conselho.cd_conselho !== 0){
-             if (campo == "outro_conselho" && $(this).val() != ''){
-                obj.conselho.tx_nome_conselho_outro = $(this).val();
-             }
-             if(campo == "tx_nome_representante_conselho" && $(this).val() != ''){
-
-               obj.representante.push(
-                 {
-                  "tx_nome_representante_conselho": $(this).val()
-                });
-             }
-           }
-           if (campo == "dt_data_inicio_conselho" && $(this).val() != ''){
-              obj.conselho.dt_data_inicio_conselho = $(this).val();
-           }
-           if (campo == "dt_data_fim_conselho" && $(this).val() != ''){
-              obj.conselho.dt_data_fim_conselho = $(this).val();
-           }
-         });
-
-
-         if(obj.representante.length !== 0 && util.validateObject(obj.conselho.cd_conselho,null)!==null){
-          newJson.conselho.push(obj);
-         }
-
-        });
+          });
+        }
 
         if(Object.keys(newJson.conselho).length == 0){
           newJson.conselho = null;
@@ -1881,68 +1884,70 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
         newJson["conferencia"] = [];
         newJson["bo_nao_possui_conferencias"] = $('#conferencias input[type="checkbox"]').is(':checked');
 
-        $(".conferencia").each(function(){
-           var obj = {};
-           var conferencia_id = 0;
-           // Busca nos selects
-           $(this).find("select").each(function(){
-             var split = $(this).attr("id").split("-");
-             var campo = split[0];
+        if(!newJson["bo_nao_possui_conferencias"]) {
+          $(".conferencia").each(function () {
+            var obj = {};
+            var conferencia_id = 0;
+            // Busca nos selects
+            $(this).find("select").each(function () {
+              var split = $(this).attr("id").split("-");
+              var campo = split[0];
 
-            for (var i=0;i<lconferencia.length;i++){
-             if ($(this).val() === lconferencia[i].tx_nome_conferencia){
-               obj["cd_conferencia"] = lconferencia[i].cd_conferencia;
-               conferencia_id = parseInt($(this).attr("id").split("-")[1]);
-               obj.tx_nome_conferencia = ""; //Existe -- Depois será atribuído caso
-               break;
+              for (var i = 0; i < lconferencia.length; i++) {
+                if ($(this).val() === lconferencia[i].tx_nome_conferencia) {
+                  obj["cd_conferencia"] = lconferencia[i].cd_conferencia;
+                  conferencia_id = parseInt($(this).attr("id").split("-")[1]);
+                  obj.tx_nome_conferencia = ""; //Existe -- Depois será atribuído caso
+                  break;
+                }
               }
-            }
 
-            for (var i=0;i<lista_forma_conferencia.length;i++){
-              if ($(this).val() === lista_forma_conferencia[i]){
-                 obj["cd_forma_participacao_conferencia"] = lista_forma_conferencia_id[i];
-                 break;
+              for (var i = 0; i < lista_forma_conferencia.length; i++) {
+                if ($(this).val() === lista_forma_conferencia[i]) {
+                  obj["cd_forma_participacao_conferencia"] = lista_forma_conferencia_id[i];
+                  break;
+                }
               }
-            }
-           });
+            });
 
-          // Busca nos inputs
-          $(this).find("input").each(function(){
-             var split = $(this).attr("id").split("-");
-             var campo = split[0];
-              if (campo == "outro_conferencia" && $(this).val() != ''){
+            // Busca nos inputs
+            $(this).find("input").each(function () {
+              var split = $(this).attr("id").split("-");
+              var campo = split[0];
+              if (campo == "outro_conferencia" && $(this).val() != '') {
                 obj.tx_nome_conferencia_outra = $(this).val();
-             }
+              }
 
-             for (var i=0;i<lconferencia.length;i++){
-               // Código Conferência
-               if ($(this).val() === lconferencia[i].tx_nome_conferencia){
-                 obj["cd_conferencia"] = lconferencia[i].cd_conferencia;
-                 break;
-                }
-             }
-             for (var i=0;i<lista_forma_conferencia.length;i++){
-               // Forma de Participação
-               if ($(this).val() === lista_forma_conferencia[i]){
-                 obj["cd_forma_participacao_conferencia"] = lista_forma_conferencia_id[i];
-                 break;
+              for (var i = 0; i < lconferencia.length; i++) {
+                // Código Conferência
+                if ($(this).val() === lconferencia[i].tx_nome_conferencia) {
+                  obj["cd_conferencia"] = lconferencia[i].cd_conferencia;
+                  break;
                 }
               }
-              if ( util.contains("19",$(this).val()) ||  util.contains("20",$(this).val()) ){
-                 // Data Participaçao
+              for (var i = 0; i < lista_forma_conferencia.length; i++) {
+                // Forma de Participação
+                if ($(this).val() === lista_forma_conferencia[i]) {
+                  obj["cd_forma_participacao_conferencia"] = lista_forma_conferencia_id[i];
+                  break;
+                }
+              }
+              if (util.contains("19", $(this).val()) || util.contains("20", $(this).val())) {
+                // Data Participaçao
                 obj["dt_ano_realizacao"] = $(this).val();
               }
-          });
+            });
 
-          if (!$.isEmptyObject(obj)){
-            if (conferencia_id != 0) {
-              obj["id_conferencia"] = conferencia_id;
-            }else {
-              obj["id_conferencia"] = null;
+            if (!$.isEmptyObject(obj)) {
+              if (conferencia_id != 0) {
+                obj["id_conferencia"] = conferencia_id;
+              } else {
+                obj["id_conferencia"] = null;
+              }
+              newJson.conferencia.push(obj);
             }
-            newJson.conferencia.push(obj);
-          }
-        });
+          });
+        }
 
         if(Object.keys(newJson.conferencia).length == 0){
           newJson.conferencia = null;
@@ -1958,18 +1963,21 @@ require(['react', 'rotas', 'jsx!components/Util', 'jsx!components/EditarOSC', 'j
         newJson["outra"] = [];
         newJson["bo_nao_possui_outros_part"] = $('#outros_part input[type="checkbox"]').is(':checked');
 
-        $("#outros_part").find("div").children(".form-group").each(function(){
-          $(this).find("input").each(function(){
-            var split = $(this).attr("id").split("-");
-            var campo = split[0];
-            var val;
-            if (!($(this).val() === "")) {
-              var obj = {};
-              obj[campo]=$(this).val();
-              newJson["outra"].push(obj);
-            }
+
+        if(!newJson["bo_nao_possui_outros_part"]) {
+          $("#outros_part").find("div").children(".form-group").each(function () {
+            $(this).find("input").each(function () {
+              var split = $(this).attr("id").split("-");
+              var campo = split[0];
+              var val;
+              if (!($(this).val() === "")) {
+                var obj = {};
+                obj[campo] = $(this).val();
+                newJson["outra"].push(obj);
+              }
+            });
           });
-        });
+        }
 
         if(Object.keys(newJson.outra).length == 0){
           newJson.outra = null;

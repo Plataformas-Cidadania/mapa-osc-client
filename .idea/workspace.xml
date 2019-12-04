@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="57c582e3-c0c8-4f19-9ef1-c4e753354b0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" beforeDir="false" afterPath="$PROJECT_DIR$/dev/js/custom/editar-osc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom/editar-osc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom/editar-osc.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,26 +35,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
+        <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/d3.v3.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/draw.js">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="649">
-              <caret line="391" column="46" selection-start-line="391" selection-start-column="34" selection-end-line="391" selection-end-column="46" />
-=======
+
             <state relative-caret-position="30">
               <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
->>>>>>> Stashed changes
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+        <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="303">
-              <caret line="464" column="4" selection-start-line="464" selection-start-column="4" selection-end-line="464" selection-end-column="4" />
-=======
+
             <state relative-caret-position="468">
               <caret line="1983" column="9" selection-start-line="1983" selection-start-column="9" selection-end-line="1983" selection-end-column="9" />
               <folding>
@@ -68,8 +72,11 @@
                 <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#74305#76872#0" />
+                <element signature="e#78338#80706#0" />
+                <element signature="e#81285#81636#0" />
               </folding>
->>>>>>> Stashed changes
+
             </state>
           </provider>
         </entry>
@@ -78,12 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>barra.js</find>
-      <find>require.min.js</find>
-      <find>Existem 27 OSCs</find>
-      <find>*</find>
-      <find>console</find>
-      <find>legenda</find>
       <find>Certificado</find>
       <find>barra</find>
       <find>graficoParaTabela</find>
@@ -106,8 +107,14 @@
       <find>gra</find>
       <find>decla</find>
       <find>p5</find>
-      <find>verificarBotaoCertificate</find>
       <find>preloadCertificate</find>
+      <find>2016</find>
+      <find>verificarBotaoCertificate</find>
+      <find>133</find>
+      <find>tx_nome_conselho</find>
+      <find>tx_nome_tipo_participacao</find>
+      <find>bo_nao_possui_conselhos</find>
+      <find>bo_nao_possui_conselho</find>
     </findStrings>
     <replaceStrings>
       <replace>analise</replace>
@@ -143,6 +150,7 @@
         <option value="$PROJECT_DIR$/dev/js/custom/resultado-consulta.js" />
         <option value="$PROJECT_DIR$/visualizar-osc.html" />
         <option value="$PROJECT_DIR$/dev/js/custom/visualizar-osc.js" />
+        <option value="$PROJECT_DIR$/dev/js/custom/editar-osc.js" />
       </list>
     </option>
   </component>
@@ -150,17 +158,12 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-<<<<<<< Updated upstream
-    <option name="x" value="1745" />
+
+    <option name="x" value="1690" />
     <option name="y" value="24" />
-    <option name="width" value="1613" />
-    <option name="height" value="1018" />
-=======
-    <option name="x" value="1785" />
-    <option name="y" value="117" />
     <option name="width" value="1611" />
     <option name="height" value="1010" />
->>>>>>> Stashed changes
+
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -267,23 +270,18 @@
       <workItem from="1573487307823" duration="8316000" />
       <workItem from="1573658587734" duration="85000" />
       <workItem from="1573671397330" duration="627000" />
-<<<<<<< Updated upstream
-      <workItem from="1574090601872" duration="1787000" />
-=======
+
       <workItem from="1574090601872" duration="5432000" />
       <workItem from="1574705160274" duration="633000" />
-      <workItem from="1574879186546" duration="6858000" />
-      <workItem from="1575299109358" duration="249000" />
->>>>>>> Stashed changes
+      <workItem from="1574879186546" duration="6751000" />
+
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< Updated upstream
-    <option name="totallyTimeSpent" value="104887000" />
-=======
-    <option name="totallyTimeSpent" value="116272000" />
->>>>>>> Stashed changes
+
+    <option name="totallyTimeSpent" value="115916000" />
+
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,11 +298,7 @@
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Gulp" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
-<<<<<<< Updated upstream
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.18929255" />
-=======
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.19630338" />
->>>>>>> Stashed changes
+
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.5687974" />
@@ -315,11 +309,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32912722" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-<<<<<<< Updated upstream
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19348055" />
-=======
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18611987" />
->>>>>>> Stashed changes
+
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19137749" />
+
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -381,24 +373,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/ouro.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/pag_manutencao.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/participa-br.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/png_icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/prata.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/regiao.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/sem_img_user.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -500,13 +474,6 @@
         <state relative-caret-position="-519" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/components/Util.jsx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -604,6 +571,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/d3.tip.v0.6.3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/nv.d3.lib.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="211" column="15" selection-start-line="211" selection-start-column="15" selection-end-line="211" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/nv.d3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1415">
+          <caret line="460" column="28" lean-forward="true" selection-start-line="460" selection-start-column="28" selection-end-line="460" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/rotas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="649">
@@ -611,9 +611,7 @@
         </state>
       </provider>
     </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/dev/js/custom/visualizar-osc.js">
-=======
+
     <entry file="file://$PROJECT_DIR$/js/custom/editar-osc.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -631,10 +629,45 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
->>>>>>> Stashed changes
+
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/d3.v3.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/custom/editar-osc.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/libs/nv-d3/draw.js">
+
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="464" column="4" selection-start-line="464" selection-start-column="4" selection-end-line="464" selection-end-column="4" />
+        <state relative-caret-position="30">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dev/js/custom/editar-osc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="1983" column="9" selection-start-line="1983" selection-start-column="9" selection-end-line="1983" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#label#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#74305#76872#0" />
+            <element signature="e#78338#80706#0" />
+            <element signature="e#81285#81636#0" />
+          </folding>
         </state>
       </provider>
     </entry>

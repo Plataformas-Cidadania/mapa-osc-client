@@ -437,11 +437,26 @@ function imprimir(){
 
 }
 
+
+
+
 function verificarBotaoEditar(id){
+
+	$("#btnCertificate").attr("style", "display:none");
+	$("#btnCertificate").hide();
+	$('#bbtnCertificate').css('display', 'none');
+
 	if(util.verificarPermissao(id)){
 		$(".btnEditar").append('<a id="btnEditar" type="button" title="Clique para Editar"  class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar OSC</a>');
 		$("#btnEditar").attr("href","editar-osc.html#/"+id);
+
+
+		$(".btnCertificate").append('<li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" ><div id="btnCertificate" type="button" onclick="printCertificate(\'printDivCertificate\');" class="btn btn-primary btn-sm btn-aling"><i class="fa fa-certificate" aria-hidden="true"></i>Declaração</div></li>');
+
+
 	}
+
+
 }
 
 function addLinkVoltar(id){

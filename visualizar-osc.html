@@ -97,18 +97,24 @@
             <div class="btnEditar"></div>
 
           </li>
-          <li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" class="btn-aling">
-            <!--<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>-->
+          <li  class="offLogin" >
+            <div ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" class="btn-aling">
             <img id="preloadCertificate" src="" alt="" width="30">
             Gerando declaração &nbsp;
+            </div>
           </li>
-          <div class="btnCertificate"></div>
-          <!--<li ng-if="ctrl.osc.cabecalho.cd_identificador_osc == null" >-->
-            <!--<div id="btnCertificate" type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
-              <i class="fa fa-certificate" aria-hidden="true"></i>
-              Declaração
-            </div>-->
-          <!--</li>-->
+
+
+
+          <li class="offLogin">
+            <div  ng-if="ctrl.osc.cabecalho.cd_identificador_osc != null">
+              <div id="btnCertificate" type="button" onclick="printCertificate('printDivCertificate');" class="btn btn-primary btn-sm btn-aling">
+                <i class="fa fa-certificate" aria-hidden="true"></i>
+                Declaração
+              </div>
+            </div>
+          </li>
+
         </ul>
         <hr>
 

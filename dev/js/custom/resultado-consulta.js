@@ -992,6 +992,10 @@ require(['rotas','jquery-ui','datatables-responsive', 'leafletCluster', 'leaflet
                     txt += "<b><i>OSC Parceiras:</i></b> " + projetos.tx_nome_osc_parceira_projeto + ", ";
                 }
 
+                if(projetos.ft_nome_projeto){
+                    txt += "<b><i>Fonte Nome Projeto:</i></b> " + projetos.ft_nome_projeto + ", ";
+                }
+
                 if(projetos.totalBeneficiariosMIN || projetos.totalBeneficiariosMAX){
                     txt += "<b><i>Total de Beneficiários</i></b> ";
 

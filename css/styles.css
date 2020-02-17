@@ -1431,3 +1431,29 @@ display: inline-block;
     margin: 0;
   }
 }
+
+.box-list-description a{
+  color: inherit;
+}
+.box-list-description{
+  background-color: #F1F1F1;
+  border-radius: 5px;
+  color: #0d3349;
+}
+.box-list-description:hover{
+  background-color: #1659bf;
+  color: #FFFFFF;
+}
+.box-list-description h2{
+  font-weight: bold;
+  line-height: 100px;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+.box-list-description h5{
+  float: left;
+  padding-top: 18px;
+}
+.box-list-clear{
+  clear: both;
+}

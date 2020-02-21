@@ -119,6 +119,10 @@ class Rotas{
     return this.getBaseUrl()+"analises/idhgeo/"+id;
   }
 
+  /*depen-osc(){
+    return this.getBaseUrl()+"oscs/depen";
+  }*/
+
   // editar-osc.js
   OSCByID_no_project(id){
     return this.getBaseUrl()+"osc/no_project/"+id;

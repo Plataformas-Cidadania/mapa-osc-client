@@ -7092,3 +7092,6 @@ input.outro {
 .btn-item img{
   max-width: 180px;
 }
+.btn-item h3{
+  height: 70px;
+}

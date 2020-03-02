@@ -26,9 +26,11 @@ require(['rotas','jquery-ui'], function (React) {
   var modulo = 'depen-osc';
 
   $.ajax({
-    url: rotas.ModuloBySlug(modulo),
+    //url: rotas.ModuloBySlug(modulo),
+    url: 'json/lista-osc-com-links.json',
     type: 'GET',
     dataType: 'json',
+
     error: function(e){
         console.log("ERRO no AJAX :" + e);
         $('.manutencao').css('display', 'block');
@@ -37,48 +39,23 @@ require(['rotas','jquery-ui'], function (React) {
     success: function(data){
       if (data.length > 0){
 
-        var modulo_html = '<div class="row"><div class="col-md-12"><h1 class="text-primary">'+data[0].modulos.tx_titulo_modulo+'</h1><hr></div></div>';
-        modulo_html += '<div class="row"><div class="col-md-12"><div class="text-justify txtBloco">'+data[0].modulos.tx_descricao_modulo+'</div>';
-        modulo_html += '<a href="#header" name="header" class="scroll topo">Voltar para o topo</a></div></div>' +
-            '<table class="table">\n' +
-            '  <thead>\n' +
-            '    <tr>\n' +
-            '      <th scope="col">#</th>\n' +
-            '      <th scope="col">First</th>\n' +
-            '      <th scope="col">Last</th>\n' +
-            '      <th scope="col">Handle</th>\n' +
-            '    </tr>\n' +
-            '  </thead>\n' +
-            '  <tbody>\n' +
-            '    <tr>\n' +
-            '      <th scope="row">1</th>\n' +
-            '      <td>Mark</td>\n' +
-            '      <td>Otto</td>\n' +
-            '      <td>@mdo</td>\n' +
-            '    </tr>\n' +
-            '    <tr>\n' +
-            '      <th scope="row">2</th>\n' +
-            '      <td>Jacob</td>\n' +
-            '      <td>Thornton</td>\n' +
-            '      <td>@fat</td>\n' +
-            '    </tr>\n' +
-            '    <tr>\n' +
-            '      <th scope="row">3</th>\n' +
-            '      <td>Larry</td>\n' +
-            '      <td>the Bird</td>\n' +
-            '      <td>@twitter</td>\n' +
-            '    </tr>\n' +
-            '  </tbody>\n' +
-            '</table>';
+        var menu_html = '<div class="row"><div class="col-md-12"><h1 class="text-primary">Cadastro Nacional de Participação Social na Execução Penal</h1><hr></div></div>';
 
-        if(data[0].itens.length > 0){
-          for (var i in data[0].itens) {
-            modulo_html += '<div class="row"><div class="col-md-12"><h3 class="subTitulo">'+data[0].itens[i].tx_titulo_itens+'</h3>';
-            modulo_html += '<div class="text-justify txtBloco">'+data[0].itens[i].tx_descricao_itens+'</div>';
-            modulo_html += '<a href="#header" name="header" class="scroll topo">Voltar para o topo</a></div></div>';
+        var modulo_html = '<table class="table table-striped"><thead><tr><th scope="col">Nome</th><th scope="col">CNPJ</th><th scope="col">Detalhar</th></tr></thead><tbody>';
+
+        if(data.length > 0){
+          for (var i in data) {
+            modulo_html += '<tr><th scope="row">'+data[i].cnpj+'</th>';
+            modulo_html += '<td>'+data[i].nome+'</td>';
+            modulo_html += '<td><a href="'+data[i].link+'" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Detalhar</a></td></tr>';
           }
         }
-        $('#depen-osc').prepend(modulo_html);
+
+        modulo_html += '</tbody></table>';
+
+
+        $('#depen-osc').append(menu_html);
+        $('#depen-osc').append(modulo_html);
       }
       else{
         $('.manutencao').css('display', 'block');

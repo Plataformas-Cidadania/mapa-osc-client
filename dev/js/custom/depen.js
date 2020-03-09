@@ -72,7 +72,7 @@ require(["jquery-ui","rotas"], function (React) {
               }
 
               //html += '<div class="box-list-description">'+icon;
-              html += '<h2>'+data[0].itens[i].tx_titulo_itens+'</h2></div>';
+              html += '<h2>'+data[0].itens[i].tx_titulo_itens+'</h2><div class="box-list-clear"></div></div>';
               html += '<div class="text-justify"></br>'+data[0].itens[i].tx_descricao_itens+'</div>';
               html += '</a></div>';
               /*html += '<a href="#header" name="header" class="scroll topo">Voltar para o topo</a></div></div>';*/

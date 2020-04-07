@@ -41,7 +41,7 @@ require(['rotas','jquery-ui'], function (React) {
 
         var menu_html = '<div class="row"><div class="col-md-12"><h1 class="text-primary">Cadastro Nacional de Participação Social na Execução Penal</h1><hr></div></div>';
 
-        var modulo_html = '<table class="table table-striped"><thead><tr><th scope="col">Nome</th><th scope="col">CNPJ</th><th scope="col">Detalhar</th></tr></thead><tbody>';
+        var modulo_html = '<table class="table table-striped"><thead><tr><th scope="col">CNPJ</th><th scope="col">Nome</th><th scope="col">Detalhar</th></tr></thead><tbody>';
 
         if(data.length > 0){
           for (var i in data) {

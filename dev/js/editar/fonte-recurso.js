@@ -147,7 +147,7 @@ class FonteRecurso {
     var sections = dadosForm.itemsRecurso();
     var recursos_form = dadosForm.tiposRecurso();
     var fontesRecursos = this.carregaFontes(rotas);
-    var lista_anos_recursos = [2010,2011,2012,2013,2014,2015,2016,2017,2018]
+    var lista_anos_recursos = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020]
     var qtd_ano_total = lista_anos_recursos.length;
 
     for (var j = 0; j < json.recursos.recursos.length; j++) {

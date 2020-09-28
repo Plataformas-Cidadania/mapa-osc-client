@@ -586,6 +586,8 @@ class DataForms{
           "placeholder":"",
           "type": "select",
           "options": [
+            "2020",
+            "2019",
             "2018",
             "2017",
             "2016",
